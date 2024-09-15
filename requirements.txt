@@ -1,0 +1,14 @@
+fastapi==0.114.2
+jose==1.0.0
+minio==7.2.8
+openai==1.45.0
+passlib==1.7.4
+pg_cache==0.1.5
+pgvector==0.3.2
+pydantic==2.9.1
+python-dotenv==1.0.1
+python_bcrypt==0.3.2
+python_jose==3.3.0
+pytz==2024.1
+SQLAlchemy==2.0.32
+uvicorn==0.30.6
