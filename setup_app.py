@@ -7,11 +7,8 @@ from sqlalchemy.future import select
 from sqlalchemy.orm import Session
 
 from app.apis.db_config import Base, no_async_engine
-from app.apis.routers.file_crud_router import bucket_name
 from config import ServeConfig
-from file_config import minio_endpoint, access_key, secret_key, minio_region
 from app.crud.file_utils.minio_service import MinIOFileService
-from app.register.user_auth_config import pwd_context
 from app.db import db_models
 
 
@@ -33,7 +30,7 @@ def setup_database(reset_db: bool = False):
 
         initialize_super_admin()
         minio_client = init_minio_client()
-        MinIOFileService(minio_client, bucket_name)
+        MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
     except Exception as e:
         logging.error(f"Error during database setup: {e}")
         raise
@@ -49,7 +46,7 @@ def initialize_super_admin():
             session.delete(super_admin)
             session.commit()
 
-        hashed_password = pwd_context.hash(ServeConfig.super_admin_password)
+        hashed_password = ServeConfig.pwd_context.hash(ServeConfig.super_admin_password)
         super_admin = db_models.User(
             account=ServeConfig.super_admin_account,
             hashed_password=hashed_password,
@@ -67,11 +64,11 @@ def initialize_super_admin():
 
 def init_minio_client():
     minio_client = Minio(
-        minio_endpoint,
-        access_key=access_key,
-        secret_key=secret_key,
+        ServeConfig.minio_endpoint,
+        access_key=ServeConfig.minio_access_key,
+        secret_key=ServeConfig.minio_secret_key,
         secure=False,
-        region=minio_region
+        region=ServeConfig.minio_region
     )
     return minio_client
 

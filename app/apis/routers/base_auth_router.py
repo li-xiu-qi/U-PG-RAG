@@ -10,10 +10,10 @@ from app.apis.deps import get_db
 from app.apis.routers.base_crud_router import BaseCRUDRouter
 from app.core.auth import authenticate_user, create_access_token
 from app.crud.user_operation import UserOperation
-from app.register.user_auth_config import ACCESS_TOKEN_EXPIRE_MINUTES, oauth2_scheme, decode_and_validate_token, \
-    get_credentials_exception
 from app.db.db_models import User
+from app.register.user_auth_config import decode_and_validate_token, get_credentials_exception
 from app.schemes.models.user_models import ResponseToken, ResponseUser
+from config import ServeConfig
 
 
 class BaseAuthRouter(BaseCRUDRouter):
@@ -68,14 +68,14 @@ class BaseAuthRouter(BaseCRUDRouter):
             return ResponseToken(
                 access_token=access_token,
                 token_type="bearer",
-                expires_at=datetime.now() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+                expires_at=datetime.now() + timedelta(minutes=ServeConfig.ACCESS_TOKEN_EXPIRE_MINUTES)
             )
 
     def _setup_refresh_token_route(self):
         @self.router.post("/refresh-token", response_model=ResponseToken)
         async def refresh_access_token(
                 request: Request,
-                token: str = Depends(oauth2_scheme),
+                token: str = Depends(ServeConfig.oauth2_scheme),
                 db: AsyncSession = Depends(get_db)
         ):
             payload = decode_and_validate_token(token, request.client.host)
@@ -90,12 +90,12 @@ class BaseAuthRouter(BaseCRUDRouter):
             return ResponseToken(
                 access_token=access_token,
                 token_type="bearer",
-                expires_at=datetime.now() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+                expires_at=datetime.now() + timedelta(minutes=ServeConfig.ACCESS_TOKEN_EXPIRE_MINUTES)
             )
 
     def _setup_get_user_route(self):
         @self.router.get("/users/get_user", response_model=ResponseUser)
-        async def get_current_user(request: Request, token: str = Depends(oauth2_scheme),
+        async def get_current_user(request: Request, token: str = Depends(ServeConfig.oauth2_scheme),
                                    db: AsyncSession = Depends(get_db)) -> ResponseUser:
             payload = decode_and_validate_token(token, request.client.host)
             username = payload.get("sub")

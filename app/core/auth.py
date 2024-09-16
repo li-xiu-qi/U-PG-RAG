@@ -5,8 +5,7 @@ from fastapi import HTTPException, status
 from jose import jwt
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from app.register.user_auth_config import pwd_context, ACCESS_TOKEN_EXPIRE_MINUTES, SECRET_KEY, ALGORITHM
+from config import ServeConfig
 from app.schemes.models.user_models import ResponseAdmin
 
 
@@ -15,9 +14,9 @@ async def create_access_token(data: dict, expires_delta: Optional[timedelta] = N
     if expires_delta:
         expire = datetime.utcnow() + expires_delta
     else:
-        expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+        expire = datetime.utcnow() + timedelta(minutes=ServeConfig.ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(to_encode, ServeConfig.SECRET_KEY, algorithm=ServeConfig.ALGORITHM)
     return encoded_jwt
 
 

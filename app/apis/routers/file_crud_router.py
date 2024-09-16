@@ -1,6 +1,6 @@
 import logging
 import traceback
-from typing import Optional
+from typing import Optional, List
 
 from fastapi import HTTPException, APIRouter, Depends, UploadFile, status
 from minio import Minio
@@ -8,11 +8,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.apis.deps import get_db
 from app.crud.file_operation import FileCRUD
-from app.schemes.models.file_models import FileCreate, FileResponse, FileSingleItem, FileDelete
-from file_config import bucket_name, DOWNLOAD_URL_EXPIRY
 from app.crud.file_utils.minio_service import MinIOFileService, generate_object_key
-from setup_app import init_minio_client
 from app.schemes.model_filters import PartitionFilter
+from app.schemes.models.file_models import FileResponse, FileSingleItem
+from config import ServeConfig
+from setup_app import init_minio_client
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -23,7 +23,7 @@ file_router = APIRouter(prefix="/files", tags=["文件处理"])
 async def upload_file(file: UploadFile, partition_id: Optional[int] = None, db: AsyncSession = Depends(get_db),
                       minio_client: Minio = Depends(init_minio_client)):
     try:
-        minio_service = MinIOFileService(minio_client, bucket_name)
+        minio_service = MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
         file_crud = FileCRUD(db)
         file_content = await file.read()
         file_hash = generate_object_key(file_content)
@@ -54,7 +54,7 @@ async def upload_file(file: UploadFile, partition_id: Optional[int] = None, db: 
 async def download_file(file_id: int, partition_id: Optional[int] = None, db: AsyncSession = Depends(get_db),
                         minio_client: Minio = Depends(init_minio_client)):
     try:
-        minio_service = MinIOFileService(minio_client, bucket_name)
+        minio_service = MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
         file_crud = FileCRUD(db)
 
         partition_filter = PartitionFilter(partition_id=partition_id)
@@ -63,7 +63,8 @@ async def download_file(file_id: int, partition_id: Optional[int] = None, db: As
             raise HTTPException(status_code=404, detail="File not found")
 
         file_hash = file["file_hash"]
-        download_url = await minio_service.generate_presigned_url(file_hash, expiry=DOWNLOAD_URL_EXPIRY)
+        download_url = await minio_service.generate_presigned_url(file_hash,
+                                                                  expiry=ServeConfig.MINIO_DOWNLOAD_URL_EXPIRY)
         return {"download_url": download_url}
     except HTTPException as e:
         logger.error(f"HTTPException: {e.detail}")
@@ -78,7 +79,7 @@ async def download_file(file_id: int, partition_id: Optional[int] = None, db: As
 async def delete_file(file_id: int, partition_id: Optional[int] = None, db: AsyncSession = Depends(get_db),
                       minio_client: Minio = Depends(init_minio_client)):
     try:
-        minio_service = MinIOFileService(minio_client, bucket_name)
+        minio_service = MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
         file_crud = FileCRUD(db)
 
         partition_filter = PartitionFilter(partition_id=partition_id)
@@ -106,3 +107,38 @@ async def delete_file(file_id: int, partition_id: Optional[int] = None, db: Asyn
         logger.error(f"Exception: {str(e)}")
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@file_router.get("/download-multiple", status_code=status.HTTP_200_OK, response_model=List[FileSingleItem])
+async def download_multiple_files(
+        partition_id: Optional[int] = None,
+        offset: int = 0,
+        limit: int = 20,
+        db: AsyncSession = Depends(get_db),
+        minio_client: Minio = Depends(init_minio_client)
+):
+    try:
+        minio_service = MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
+        file_crud = FileCRUD(db)
+
+        partition_filter = PartitionFilter(partition_id=partition_id)
+        files = await file_crud.get_multiple_files(partition_filter, offset, limit)
+
+        if not files:
+            raise HTTPException(status_code=404, detail="No files found")
+
+        download_urls = []
+        for file in files:
+            file_hash = file.file_hash
+            download_url = await minio_service.generate_presigned_url(file_hash,
+                                                                      expiry=ServeConfig.MINIO_DOWNLOAD_URL_EXPIRY)
+            download_urls.append(FileSingleItem(file_name=file.file_name, download_url=download_url))
+
+        return download_urls
+    except HTTPException as e:
+        logger.error(f"HTTPException: {e.detail}")
+        raise e
+    except Exception as e:
+        logger.error(f"Exception: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=str(e))

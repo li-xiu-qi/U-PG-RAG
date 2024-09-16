@@ -3,8 +3,7 @@ import io
 from datetime import timedelta
 from fastapi import HTTPException, UploadFile
 from minio import Minio
-
-from file_config import minio_region
+from config import ServeConfig
 
 
 def generate_object_key(file_content: bytes) -> str:
@@ -12,7 +11,7 @@ def generate_object_key(file_content: bytes) -> str:
 
 
 class MinIOFileService:
-    minio_region = minio_region
+    minio_region = ServeConfig.minio_region
 
     def __init__(self, minio_client: Minio, bucket_name: str):
         self.minio_client = minio_client

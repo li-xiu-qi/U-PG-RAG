@@ -1,13 +1,15 @@
-from app.serves.model_serves import AsyncLLM, LLMInput
 import asyncio
 
-from utils import find_project_root_and_load_dotenv
+from app.serves.model_serves.client_manager import ClientManager
+from app.serves.model_serves.rag import RAG
+from app.serves.model_serves.types import LLMInput, EmbeddingInput
+
+from rag_config import embedding_api_configs
 
 # 加载环境变量
-find_project_root_and_load_dotenv("U-PG-RAG")
 
-# 创建异步语言模型实例
-llm = AsyncLLM()
+client = ClientManager(api_configs=embedding_api_configs)
+rag = RAG(client_manager=client)
 
 
 async def main():
@@ -16,16 +18,22 @@ async def main():
 
     # 初始化 LLMInput 对象
     input_data = LLMInput(
-        model_name="Qwen/Qwen2-7B-Instruct",
-        task_input=message
+        name="THUDM/glm-4-9b-chat",
+        input_content=message
     )
-
-    try:
-        # 获取响应
-        response = await llm(input_data)
-        print(response)
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    # 测试非流式聊天
+    response = await rag.chat(input_data)
+    print(response)
+    # 测试流式聊天
+    async for result in rag.stream_chat(input_data):
+        print(f"output='{result.output}' total_tokens={result.total_tokens}")
+    # 测试嵌入
+    embed_input_data = EmbeddingInput(
+        name="BAAI/bge-m3",
+        input_content=["你好"]
+    )
+    response = await rag.embedding(embed_input_data)
+    print(response)
 
 
 if __name__ == "__main__":

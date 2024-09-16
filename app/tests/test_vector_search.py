@@ -1,14 +1,17 @@
 from typing import List
-from sqlalchemy import Column, Integer, String, Text, text
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.ext.asyncio import async_sessionmaker
-from pydantic import BaseModel
-from sqlalchemy.orm import DeclarativeBase
-from pgvector.sqlalchemy import VECTOR
 
-from app.tests.config import DATABASE_URL
-from helper.embedding import embedding
+from pgvector.sqlalchemy import VECTOR
+from pydantic import BaseModel
+from sqlalchemy import Column, Integer, Text, text
+from sqlalchemy.ext.asyncio import async_sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import DeclarativeBase
+
 from app.crud.search_utils.vector_search import vector_search
+from helper.embedding import embedding
+from config import ServeConfig
+
+DATABASE_URL = ServeConfig.DATABASE_URL
 
 
 class Base(DeclarativeBase):

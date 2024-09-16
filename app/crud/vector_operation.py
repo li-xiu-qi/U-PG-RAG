@@ -4,7 +4,8 @@ from pydantic import BaseModel
 
 from app.crud.base_operation import BaseOperation
 from app.crud.search_utils import vector_search, hybrid_search
-from app.serves.model_serves import AsyncEmbedding, EmbeddingInput
+from app.serves.model_serves.types import EmbeddingInput
+from init_app import rag_embedding
 
 
 class VectorOperation:
@@ -43,10 +44,9 @@ class VectorOperation:
     @staticmethod
     async def process_vector_field(model: BaseModel):
         if model.vector is None and model.query_or_chunk:
-            embedding = AsyncEmbedding()
-            input_ = EmbeddingInput(input_content=[model.query_or_chunk])
-            embedding_output = await embedding(input_)
-            model.vector = embedding_output.task_output[0]
+            model_input = EmbeddingInput(input_content=[model.query_or_chunk])
+            embedding_output = await  rag_embedding.embedding(model_input=model_input)
+            model.vector = embedding_output.output[0]
 
     async def update_model_vectors(self, model: BaseModel) -> BaseModel:
         if hasattr(model, 'vector') and model.vector is None and hasattr(model, 'query_or_chunk'):

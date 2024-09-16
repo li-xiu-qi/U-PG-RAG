@@ -1,5 +1,3 @@
-import os
-
 _allowed_extensions = [
     ".pdf",  # PDF 文件
     ".doc",  # Microsoft Word 文档
@@ -18,12 +16,4 @@ _allowed_extensions = [
     ".md",  # Markdown 文档
     ".tex"  # LaTeX 文件
 ]
-DOWNLOAD_URL_EXPIRY = int(os.getenv("DOWNLOAD_URL_EXPIRY", 3600))
-minio_endpoint = os.getenv('MINIO_ENDPOINT', 'localhost:9000')
 
-access_key = os.getenv('MINIO_ACCESS_KEY')
-secret_key = os.getenv('MINIO_SECRET_KEY')
-
-minio_region = os.getenv('MINIO_REGION', 'cn-beijing-1')
-
-bucket_name = os.getenv("MINIO_BUCKET_NAME", "file-storage")

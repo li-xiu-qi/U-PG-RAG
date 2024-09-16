@@ -1,8 +1,8 @@
-from typing import Optional
+from typing import List, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, selectinload
 from fastapi import HTTPException
 from app.schemes.model_filters import PartitionFilter
 from app.db.db_models import File
@@ -72,3 +72,26 @@ class FileCRUD:
         else:
             await self.db.delete(file)
             await self.db.commit()
+
+    async def get_multiple_files(
+            self,
+            partition_filter: Optional[PartitionFilter] = None,
+            offset: int = 0,
+            limit: int = 20
+    ) -> List[File]:
+        query = select(File)
+
+        # 应用分区过滤器
+        if partition_filter and partition_filter.partition_id is not None:
+            query = query.filter(File.partition_id == partition_filter.partition_id)
+
+        # 应用分页
+        query = query.offset(offset).limit(limit)
+
+        result = await self.db.execute(query)
+        files = result.scalars().all()
+
+        if not files:
+            raise HTTPException(status_code=404, detail="No files found")
+
+        return files

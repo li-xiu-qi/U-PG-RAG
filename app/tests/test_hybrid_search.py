@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
 from app.crud.search_utils import hybrid_search
-from app.tests.config import DATABASE_URL
+from app.tests.test_keyword_search import DATABASE_URL
 from helper.embedding import embedding
 
 

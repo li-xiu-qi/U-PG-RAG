@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud.base_operation import BaseOperation
-from app.register.user_auth_config import pwd_context
+from config import ServeConfig
 
 
 class AdminOperation:
@@ -19,7 +19,7 @@ class AdminOperation:
         model_dict['role'] = model_dict.get('role', 'user')
 
         if 'hashed_password' in model_dict:
-            model_dict['hashed_password'] = pwd_context.hash(model_dict['hashed_password'])
+            model_dict['hashed_password'] = ServeConfig.pwd_context.hash(model_dict['hashed_password'])
 
         updated_model = model.__class__(**model_dict)
 

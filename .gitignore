@@ -178,5 +178,5 @@ Desktop.ini
 # /custom_logs/
 # *.tmp
 *.db
-
+rag_config.py
 # End of https://www.toptal.com/developers/gitignore/api/python

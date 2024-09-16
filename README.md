@@ -45,3 +45,53 @@
 
 - **关键词检索**：用户可以通过关键词检索问题，系统会返回相关问题列表。
   ![](img/fd101857cada1e4504bb1e40547f16f2.png)
+
+## 使用方法
+
+### 1. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. 配置数据库
+
+- 在 .env 文件中配置数据库连接信息
+
+`````
+# .env 文件
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=university_information_db
+DB_ADMIN=postgres
+DEFAULT_DB_NAME=postgres
+DB_ADMIN_PASSWORD=<DB_ADMIN_PASSWORD>
+DB_SERVE_USER=ke
+DB_SERVE_USER_PASSWORD=<DB_SERVE_USER_PASSWORD>
+SECRET_KEY=<SECRET_KEY>
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+# super admin
+SUPER_ADMIN_ACCOUNT=ke
+SUPER_ADMIN_PASSWORD=<SUPER_ADMIN_PASSWORD>
+SUPER_ADMIN_NAME=ke
+SUPER_ADMIN_EMAIL=<SUPER_ADMIN_EMAIL>
+
+API_KEY=<API_KEY>
+BASE_URL=https://your_base_url
+
+# MINIO
+MINIO_ACCESS_KEY=<MINIO_ACCESS_KEY>
+MINIO_SECRET_KEY=<MINIO_SECRET_KEY>
+MINIO_ENDPOINT=localhost:9000
+MINIO_REGION=cn-beijing-1
+MINIO_BUCKET=university-information
+
+DOWNLOAD_URL_EXPIRY=3600
+`````
+
+### 3.启动项目
+
+```bash
+uvicorn main:app --reload
+```

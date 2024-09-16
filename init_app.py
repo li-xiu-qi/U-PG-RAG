@@ -1,12 +1,16 @@
 import sqlalchemy
 from sqlalchemy import create_engine, Connection
 
+from app.serves.model_serves import RAG
+from app.serves.model_serves.client_manager import ClientManager
 from config import ServeConfig
+from rag_config import embedding_api_configs, llm_api_configs
 
 
 def init_db():
     _create_database_and_user()
     _create_extensions_in_new_db()
+    init_rag()
 
 
 def _create_extensions(conn: Connection, extensions: list) -> None:
@@ -47,3 +51,15 @@ def _create_extensions_in_new_db():
     new_engine = create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL)
     with new_engine.connect() as conn:
         _create_extensions(conn, ["vector", "pg_jieba"])
+
+
+rag_embedding: RAG | None = None
+rag_chat: RAG | None = None
+
+
+def init_rag():
+    global rag_embedding, rag_chat
+    embedding_client = ClientManager(api_configs=embedding_api_configs)
+    chat_client = ClientManager(api_configs=llm_api_configs)
+    rag_embedding = RAG(client_manager=embedding_client)
+    rag_chat = RAG(client_manager=chat_client)

@@ -1,7 +1,9 @@
 import asyncio
+import os
 import time
 from typing import List
 
+import dotenv
 from pydantic import BaseModel
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
@@ -9,7 +11,10 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 from app.crud.search_utils import search
-from app.tests.config import DATABASE_URL
+
+from config import ServeConfig
+
+DATABASE_URL = ServeConfig.DATABASE_URL
 
 engine = create_async_engine(DATABASE_URL)
 AsyncSessionLocal = sessionmaker(engine, class_=AsyncSession)
