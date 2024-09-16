@@ -8,11 +8,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.apis.deps import get_db
 from app.crud.file_operation import FileCRUD
-from app.crud.file_utils.minio_service import MinIOFileService, generate_object_key
+from app.crud.file_utils.minio_service import MinIOFileService, generate_object_key, init_minio_client
 from app.schemes.model_filters import PartitionFilter
 from app.schemes.models.file_models import FileResponse, FileSingleItem
 from config import ServeConfig
-from setup_app import init_minio_client
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

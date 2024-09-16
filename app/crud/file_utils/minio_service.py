@@ -10,6 +10,18 @@ def generate_object_key(file_content: bytes) -> str:
     return hashlib.sha256(file_content).hexdigest()
 
 
+def init_minio_client():
+    """初始化MinIO客户端"""
+    minio_client = Minio(
+        ServeConfig.minio_endpoint,
+        access_key=ServeConfig.minio_access_key,
+        secret_key=ServeConfig.minio_secret_key,
+        secure=False,
+        region=ServeConfig.minio_region
+    )
+    return minio_client
+
+
 class MinIOFileService:
     minio_region = ServeConfig.minio_region
 

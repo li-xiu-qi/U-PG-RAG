@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from app.crud.base_operation import BaseOperation
 from app.crud.search_utils import vector_search, hybrid_search
 from app.serves.model_serves.types import EmbeddingInput
-from init_app import rag_embedding
+from contant import get_rag_embedding
 
 
 class VectorOperation:
@@ -45,6 +45,7 @@ class VectorOperation:
     async def process_vector_field(model: BaseModel):
         if model.vector is None and model.query_or_chunk:
             model_input = EmbeddingInput(input_content=[model.query_or_chunk])
+            rag_embedding = get_rag_embedding()
             embedding_output = await  rag_embedding.embedding(model_input=model_input)
             model.vector = embedding_output.output[0]
 

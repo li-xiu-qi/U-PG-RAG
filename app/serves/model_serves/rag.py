@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from app.serves.model_serves.cache_manager import cached_call, logger
 from app.serves.model_serves.client_manager import ClientManager
 from app.serves.model_serves.types import LLMInput, LLMOutput, EmbeddingOutput, EmbeddingInput
+from config import ServeConfig
 
 TInput = TypeVar('TInput', bound=BaseModel)
 TOutput = TypeVar('TOutput', bound=BaseModel)
@@ -22,6 +23,10 @@ class RAG:
         self.cache_expire_after_seconds = cache_expire_after_seconds
         self.enable_cache = buffer is not None
         self.buffer = buffer
+
+    def _obfuscate_api_key(self, api_key: str) -> str:
+        """Obfuscate the API key to avoid exposing it directly."""
+        return api_key[:4] + '****' + api_key[-4:]
 
     async def _execute_with_retries(self, func: Callable[..., Any], *args, max_retries: int = 3, **kwargs) -> Any:
         async with self.client_manager.semaphore:
@@ -38,7 +43,8 @@ class RAG:
                         return await result
 
                 except (RateLimitError, APIConnectionError, APITimeoutError) as e:
-                    logger.warning(f"Error {e.__class__.__name__} with API key {limiter.api_key}, retrying...")
+                    obfuscated_key = self._obfuscate_api_key(limiter.api_key)
+                    logger.warning(f"Error {e.__class__.__name__} with API key {obfuscated_key}, retrying...")
 
                     retry_count += 1
                     wait_time = min(60, 2 ** retry_count)
@@ -107,3 +113,5 @@ class RAG:
             return EmbeddingOutput(output=output, total_tokens=total_tokens)
 
         return await self._execute_with_retries(embedding_func, model_input, max_retries=max_retries)
+
+

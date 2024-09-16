@@ -2,7 +2,7 @@ import os
 
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
-
+from rag_config import embedding_api_configs,llm_api_configs
 from utils import find_project_root_and_load_dotenv
 
 find_project_root_and_load_dotenv("U-PG-RAG")
@@ -29,14 +29,11 @@ class ServeConfig:
     super_admin_name: str = os.getenv("SUPER_ADMIN_NAME")
     super_admin_email: str = os.getenv("SUPER_ADMIN_EMAIL")
     ###
-    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/{db_name}"
-    NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
-    ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"
-    ADMIN_NO_ASYNC_NEW_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
-    ###
     api_key = os.getenv("API_KEY")
     base_url = os.getenv("BASE_URL", None)
-
+    ###
+    embedding_api_configs = embedding_api_configs
+    llm_api_configs = llm_api_configs
     ###
     MINIO_DOWNLOAD_URL_EXPIRY = int(os.getenv("DOWNLOAD_URL_EXPIRY", 3600))
     minio_endpoint = os.getenv('MINIO_ENDPOINT', 'localhost:9000')
@@ -47,3 +44,10 @@ class ServeConfig:
     minio_region = os.getenv('MINIO_REGION', 'cn-beijing-1')
 
     minio_bucket_name = os.getenv("MINIO_BUCKET_NAME", "file-storage")
+
+    ###
+    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/{db_name}"
+    NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
+    ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"
+    ADMIN_NO_ASYNC_NEW_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
+    ###
