@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Literal
 
 from pydantic import BaseModel
 
@@ -14,9 +14,14 @@ class EmbeddingOutput(BaseModel):
     total_tokens: int
 
 
+class Message(BaseModel):
+    role: Literal["system", "user", "assistant"]
+    content: str
+
+
 class LLMInput(BaseModel):
     name: str
-    input_content: List[dict]
+    input_content: List[Message]
     set_param: Dict[str, Any] = {
         "max_tokens": 4096,
         "temperature": 0.7,

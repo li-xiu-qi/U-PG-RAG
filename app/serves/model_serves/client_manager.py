@@ -11,7 +11,6 @@ class ClientManager:
     def __init__(self, api_configs: List[Dict[str, Union[str, int, None]]],
                  cache_expire_after_seconds: int | None = None, max_concurrent_requests: int = 5):
         self.api_configs = api_configs
-
         if self.api_configs:
             self.limiters = [RateLimiter(config['api_key'], config.get('rpm'), config.get('tpm')) for config in
                              self.api_configs]

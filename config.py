@@ -2,7 +2,7 @@ import os
 
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
-from rag_config import embedding_api_configs,llm_api_configs
+from rag_config import embedding_api_configs, llm_api_configs
 from utils import find_project_root_and_load_dotenv
 
 find_project_root_and_load_dotenv("U-PG-RAG")

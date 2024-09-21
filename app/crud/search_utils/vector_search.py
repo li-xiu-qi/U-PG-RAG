@@ -14,7 +14,8 @@ def build_filter_conditions(db_model: Type[DeclarativeBase], filters: dict) -> l
     return [getattr(db_model, key) == value for key, value in filters.items()]
 
 
-def build_vector_search_query(db_model: Type[DeclarativeBase], query_vector, filter_conditions: list, offset: int,
+def build_vector_search_query(db_model: Type[DeclarativeBase], query_vector,
+                              filter_conditions: list, offset: int,
                               limit: int):
     columns_to_select = [col for col in db_model.__table__.columns if col.name != 'vector']
     query = select(db_model).add_columns(*columns_to_select)

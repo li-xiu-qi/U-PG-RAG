@@ -31,7 +31,7 @@ class AdminOperation:
                           unique_keys: Optional[List[str]] = None):
         model_dict = model.model_dump(exclude_unset=True)
         if 'hashed_password' in model_dict:
-            model_dict['hashed_password'] = pwd_context.hash(model_dict['hashed_password'])
+            model_dict['hashed_password'] = ServeConfig.pwd_context.hash(model_dict['hashed_password'])
 
         # 创建新的模型实例
         updated_model = model.__class__(**model_dict)

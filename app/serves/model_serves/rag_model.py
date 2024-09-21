@@ -1,28 +1,29 @@
 import asyncio
-from typing import TypeVar, AsyncGenerator, Callable, Any
+from typing import TypeVar, AsyncGenerator, Callable, Any, Literal
 
-from openai import RateLimitError, APIConnectionError, APITimeoutError
+from openai import RateLimitError, APIConnectionError, APITimeoutError, AsyncClient
 from pg_cache import AsyncPgCache
 from pydantic import BaseModel
-
-from app.serves.model_serves.cache_manager import cached_call, logger
+from diskcache import Cache
+from app.core.sql_error import logger
+from app.schemes.models.chat_models import Message
 from app.serves.model_serves.client_manager import ClientManager
-from app.serves.model_serves.types import LLMInput, LLMOutput, EmbeddingOutput, EmbeddingInput
-from config import ServeConfig
+from app.serves.model_serves.cache_manager import llm_cached_call, embedding_cached_call
+from app.serves.model_serves.types import LLMInput, LLMOutput, EmbeddingInput, EmbeddingOutput
 
 TInput = TypeVar('TInput', bound=BaseModel)
 TOutput = TypeVar('TOutput', bound=BaseModel)
 
 
-class RAG:
+class RAGModel:
 
     def __init__(self, client_manager: ClientManager,
-                 buffer: AsyncPgCache = None,
+                 cache: AsyncPgCache | Cache = None,
                  cache_expire_after_seconds: int | None = None):
         self.client_manager = client_manager
         self.cache_expire_after_seconds = cache_expire_after_seconds
-        self.enable_cache = buffer is not None
-        self.buffer = buffer
+        self.enable_cache = cache is not None
+        self.cache = cache
 
     def _obfuscate_api_key(self, api_key: str) -> str:
         """Obfuscate the API key to avoid exposing it directly."""
@@ -36,11 +37,11 @@ class RAG:
                 client, limiter = await self.client_manager.get_client()
 
                 try:
-                    result = func(client, limiter, *args, **kwargs)
+                    result = await func(client, limiter, *args, **kwargs)
                     if hasattr(result, '__aiter__'):
                         return self._handle_async_generator(result)
                     else:
-                        return await result
+                        return result
 
                 except (RateLimitError, APIConnectionError, APITimeoutError) as e:
                     obfuscated_key = self._obfuscate_api_key(limiter.api_key)
@@ -63,22 +64,37 @@ class RAG:
         async for item in async_gen:
             yield item
 
-    @cached_call()
-    async def chat(self, model_input: LLMInput, max_retries: int = 3) -> LLMOutput:
-        async def chat_func(client, limiter, model_input):
+    async def ainvoke(self, model_name, user_input, system_input,
+                      response_format: Literal["json"] | None = None) -> LLMOutput:
+        messages = [Message(role="system", content=system_input),
+                    Message(role="user", content=user_input)]
+        input_data = LLMInput(name=model_name, input_content=messages)
+        response = await self.chat(model_input=input_data, response_format=response_format)
+        return response
+
+    @llm_cached_call()
+    async def chat(self, *, model_input: LLMInput, max_retries: int = 5,
+                   response_format: Literal["json"] | None = None) -> LLMOutput:
+        async def chat_func(client: AsyncClient, limiter, model_input, response_format):
+            if response_format:
+                response_format = {"type": "json_object"}
             response = await client.chat.completions.create(
                 model=model_input.name,
                 messages=model_input.input_content,
                 **model_input.set_param or {},
+                response_format=response_format
             )
+
             total_tokens = response.usage.total_tokens
             limiter.update_limit_status(tokens=total_tokens)
 
             return LLMOutput(output=response.choices[0].message.content, total_tokens=total_tokens)
 
-        return await self._execute_with_retries(chat_func, model_input, max_retries=max_retries)
+        response = await self._execute_with_retries(chat_func, model_input, max_retries=max_retries,
+                                                    response_format=response_format)
+        return response
 
-    async def stream_chat(self, model_input: LLMInput, max_retries: int = 3) -> AsyncGenerator[LLMOutput, None]:
+    async def stream_chat(self, model_input: LLMInput, max_retries: int = 5) -> AsyncGenerator[LLMOutput, None]:
         async def stream_chat_func(client, limiter, model_input):
             response = await client.chat.completions.create(
                 model=model_input.name,
@@ -98,13 +114,17 @@ class RAG:
         async for item in await self._execute_with_retries(stream_chat_func, model_input, max_retries=max_retries):
             yield item
 
-    @cached_call()
-    async def embedding(self, model_input: EmbeddingInput, max_retries: int = 3) -> EmbeddingOutput:
-        async def embedding_func(client, limiter, model_input):
+    @embedding_cached_call()
+    async def embedding(self, *, model_input: EmbeddingInput, max_retries: int = 3) -> EmbeddingOutput:
+        async def embedding_func(client: AsyncClient, limiter, model_input):
+            # input_content len should be less than 64
+            # it is a limitation of the API
+            if len(model_input.input_content) > 64:
+                raise ValueError("input_content len should be less than 64")
             response = await client.embeddings.create(
                 model=model_input.name,
                 input=model_input.input_content,
-                **model_input.set_params if model_input.set_params else {}
+                # **model_input.set_params if model_input.set_params else {}
             )
             total_tokens = response.usage.total_tokens
             limiter.update_limit_status(tokens=total_tokens)
@@ -113,5 +133,3 @@ class RAG:
             return EmbeddingOutput(output=output, total_tokens=total_tokens)
 
         return await self._execute_with_retries(embedding_func, model_input, max_retries=max_retries)
-
-

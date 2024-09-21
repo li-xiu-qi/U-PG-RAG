@@ -1,7 +1,7 @@
 import asyncio
 
 from app.serves.model_serves.client_manager import ClientManager
-from app.serves.model_serves.rag import RAG
+from app.serves.model_serves.rag_model import RAG
 from app.serves.model_serves.types import LLMInput, EmbeddingInput
 
 from rag_config import embedding_api_configs
@@ -21,12 +21,15 @@ async def main():
         name="THUDM/glm-4-9b-chat",
         input_content=message
     )
+
     # 测试非流式聊天
     response = await rag.chat(input_data)
     print(response)
+
     # 测试流式聊天
     async for result in rag.stream_chat(input_data):
         print(f"output='{result.output}' total_tokens={result.total_tokens}")
+
     # 测试嵌入
     embed_input_data = EmbeddingInput(
         name="BAAI/bge-m3",
