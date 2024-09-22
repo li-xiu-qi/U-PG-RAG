@@ -1,5 +1,6 @@
 from app.serves.prompts.langchain.base_prompt import BasePrompt, PromptExample
 
+
 class StepBackQuestion(BasePrompt):
     def __init__(self, input_text, input_format=None, output_format=None):
         super().__init__(input_text, input_format, output_format)

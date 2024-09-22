@@ -1,5 +1,6 @@
 from app.serves.prompts.langchain.base_prompt import BasePrompt
 
+
 class TestAnswerGrading(BasePrompt):
     def __init__(self, question, ground_truth_answer, student_answer, input_format=None, output_format=None):
         output_format = output_format or "评分："

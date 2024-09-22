@@ -8,10 +8,16 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
 from app.crud.search_utils.vector_search import vector_search
-from helper.embedding import embedding
-from config import ServeConfig
+from app.serves.model_serves.client_manager import ClientManager
+from app.serves.model_serves.rag_model import RAGModel
+from app.serves.model_serves.types import EmbeddingInput
+from app.tests.config import ServeConfig
+from diskcache import Cache
 
 DATABASE_URL = ServeConfig.DATABASE_URL
+async_embedding_cache = Cache("./cache")
+embedding_client = ClientManager(api_configs=ServeConfig.embedding_api_configs)
+embedding_rag = RAGModel(client_manager=embedding_client, cache=async_embedding_cache)
 
 
 class Base(DeclarativeBase):
@@ -21,6 +27,7 @@ class Base(DeclarativeBase):
 class SampleData(BaseModel):
     vector: List[float]
     filters: dict | None = None
+    threshold: float | None = None
 
 
 class DBSampleData(Base):
@@ -36,12 +43,11 @@ AsyncSessionLocal = async_sessionmaker(bind=engine, class_=AsyncSession)
 
 async def create_tables():
     async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
 
 
-# 异步插入示例数据
 async def insert_sample_data(session: AsyncSession):
-    # 定义内容列表
     contents = [
         "你的名字叫什么",
         "如何学习Python编程",
@@ -60,11 +66,15 @@ async def insert_sample_data(session: AsyncSession):
         "人工智能未来展望"
     ]
 
-    # 创建sample_data
-    sample_data = [
-        {"doc_id": i + 1, "vector": embedding(content), "content": content}
-        for i, content in enumerate(contents)
-    ]
+    sample_data = []
+    for i, content in enumerate(contents):
+        embedding_input = EmbeddingInput(name="BAAI/bge-m3", input_content=[content])
+        vector_result = await embedding_rag.embedding(model_input=embedding_input)
+        sample_data.append({
+            "doc_id": i + 1,
+            "vector": vector_result.output[0],
+            "content": content
+        })
 
     for data in sample_data:
         record = DBSampleData(**data)
@@ -80,7 +90,6 @@ async def table_exists(session: AsyncSession, table_name: str) -> bool:
     return result.scalar()
 
 
-# 异步主函数
 async def main():
     async with AsyncSessionLocal() as session:
         if not await table_exists(session, 'vector_data'):
@@ -89,13 +98,29 @@ async def main():
                 await conn.run_sync(Base.metadata.create_all)
             await insert_sample_data(session)
 
-    # 执行向量检索
     async with AsyncSessionLocal() as session:
         input_content = "如何学习编程语言"
-        search_model = SampleData(vector=embedding(input_content))
-        results = await vector_search(session, DBSampleData, search_model)
+        embedding_input = EmbeddingInput(name="BAAI/bge-m3", input_content=[input_content])
+        vector_result = await embedding_rag.embedding(model_input=embedding_input)
+
+        # 测试用例1：无过滤条件
+        search_model = SampleData(vector=vector_result.output[0], threshold=None)
+        results = await vector_search(session, DBSampleData, search_model, threshold=search_model.threshold)
         print("输入:", input_content)
         for res in results:
+            print(res.doc_id, res.content, res.rank_position)
+
+        # 测试用例2：带过滤条件
+        filters = {"content": {"not": [{"like": "%编程%"}, {"like": "%天气%"}]}}
+        # filters = {"content": {"in": ["你的名字叫什么"]}}
+        # filters = {"doc_id": {"between": [1, 10]}}
+        # filters = {"content": {"exists": True}}
+
+        search_model_with_filters = SampleData(vector=vector_result.output[0], filters=filters, threshold=None)
+        results_with_filters = await vector_search(session, DBSampleData, search_model_with_filters,
+                                                   threshold=search_model_with_filters.threshold)
+        print("输入:", input_content, "带过滤条件:", filters)
+        for res in results_with_filters:
             print(res.doc_id, res.content, res.rank_position)
 
 
