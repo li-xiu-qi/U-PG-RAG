@@ -1,10 +1,10 @@
 from typing import List, Type, TypeVar
-
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud.search_utils.search import search
 from app.crud.search_utils.vector_search import vector_search
+from app.crud.filter_utils.filters import FilterHandler
 
 T = TypeVar('T', bound=BaseModel)
 
@@ -13,11 +13,11 @@ async def hybrid_search(
         db: AsyncSession,
         db_model: Type[T],
         model: BaseModel,
-        allowed_columns: List[str],
+        filter_handler: FilterHandler,
 ) -> List[Type]:
     k = model.k
-    vector_results = await vector_search(db, db_model, model)
-    keyword_results = await search(db, db_model, model, allowed_columns)
+    vector_results = await vector_search(db, db_model, model, filter_handler)
+    keyword_results = await search(db, db_model, model, filter_handler)
 
     combined_results = {}
 
