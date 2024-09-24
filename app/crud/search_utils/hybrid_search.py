@@ -11,13 +11,12 @@ T = TypeVar('T', bound=BaseModel)
 
 async def hybrid_search(
         db: AsyncSession,
-        db_model: Type[T],
         model: BaseModel,
         filter_handler: FilterHandler,
 ) -> List[Type]:
     k = model.k
-    vector_results = await vector_search(db, db_model, model, filter_handler)
-    keyword_results = await search(db, db_model, model, filter_handler)
+    vector_results = await vector_search(db, model, filter_handler)
+    keyword_results = await search(db, model, filter_handler)
 
     combined_results = {}
 

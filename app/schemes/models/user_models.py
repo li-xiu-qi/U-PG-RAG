@@ -2,14 +2,7 @@ from datetime import datetime
 from typing import Optional, List
 from pydantic import BaseModel
 
-from app.schemes.base_models import KeywordSearchModel, SingleItemModel, PaginationModel
-from app.schemes.model_filters import PartitionFilter
-
-
-class Token(BaseModel):
-    access_token: str
-    token_type: str
-    expires_at: datetime
+from app.schemes.keyword_search import KeywordSearchModel
 
 
 class ResponseToken(BaseModel):
@@ -54,10 +47,6 @@ class ResponseUser(UserBase):
     update_at: datetime | None = None
 
 
-class UserResponseWithToken(ResponseUser):
-    token: Token
-
-
 class AdminBase(BaseModel):
     name: str
     account: str
@@ -87,24 +76,6 @@ class AdminKeywordSearch(KeywordSearchModel):
     search_columns: List[str] = ["school_name"]
 
 
-class AdminSingleItem(SingleItemModel):
-    filters: Optional[PartitionFilter] = None
-
-
-class AdminPagination(PaginationModel):
-    filters: Optional[PartitionFilter] = None
-
-
-def get_user(id: int, partition_id: Optional[int] = None):
-    filters = PartitionFilter(partition_id=partition_id)
-    return AdminSingleItem(id=id, filters=filters)
-
-
-def get_users(offset: int = 0, limit: int = 20, partition_id: Optional[int] = None):
-    filters = PartitionFilter(partition_id=partition_id)
-    return AdminPagination(offset=offset, limit=limit, filters=filters)
-
-
 class ResponseAdmin(BaseModel):
     id: Optional[int] = None
     name: Optional[str] = None
@@ -121,7 +92,3 @@ class ResponseAdmin(BaseModel):
 class SearchAdminResponse(ResponseAdmin):
     rank_score: Optional[float] = None
     rank_position: Optional[int] = None
-
-
-class AdminResponseWithToken(ResponseAdmin):
-    token: Token

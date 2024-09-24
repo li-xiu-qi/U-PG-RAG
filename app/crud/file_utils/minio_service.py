@@ -51,7 +51,7 @@ class MinIOFileService:
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
 
-    async def generate_presigned_url(self, object_key: str, expiry: int) -> str:
+    async def generate_file_url(self, object_key: str, expiry: int) -> str:
         try:
             return self.minio_client.presigned_get_object(
                 bucket_name=self.bucket_name,

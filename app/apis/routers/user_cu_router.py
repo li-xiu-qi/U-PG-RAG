@@ -10,45 +10,38 @@ from app.crud.user_operation import UserOperation
 
 
 class UserCURouter(BaseAuthRouter):
+    operator: UserOperation
 
     def __init__(self,
                  router: APIRouter,
-                 dbmodel: type,
+                 operator: UserOperation,
                  response_model: Optional[Type[BaseModel]] = None,
                  create_model: Optional[Type[BaseModel]] = None,
                  update_model: Optional[Type[BaseModel]] = None,
-                 get_item: Optional[Callable] = None,
-                 get_items: Optional[Callable] = None,
                  keyword_search_model: Optional[Type[BaseModel]] = None,
                  search_response_model: Optional[Type[BaseModel]] = None,
-                 crud: Optional[Type[UserOperation]] = None,
-                 unique_keys: Optional[List[str]] = None,
-                 allowed_columns: Optional[List[str]] = None,
                  include_routes: Optional[Dict[str, bool]] = None,
                  ):
-        crud = crud or UserOperation
-        include_routes = include_routes or {
+        user_include_routes = {
             "create": True,
-            "read": False,
-            "reads": False,
             "update": True,
             "delete": False,
-            "search": False
+            "get": False,
+            "gets": False,
+            "read": False,
+            "reads": False,
+            "search": False,
+            "keyword_search": False
         }
         super().__init__(
             router=router,
-            dbmodel=dbmodel,
+            operator=operator,
             response_model=response_model,
             create_model=create_model,
             update_model=update_model,
-            get_item=get_item,
-            get_items=get_items,
             keyword_search_model=keyword_search_model,
             search_response_model=search_response_model,
-            crud=crud,
-            unique_keys=unique_keys,
-            allowed_columns=allowed_columns,
-            include_routes=include_routes
+            include_routes=include_routes if include_routes else user_include_routes
         )
 
     def _default_create_route(self):
@@ -71,8 +64,7 @@ class UserCURouter(BaseAuthRouter):
                 partition_id=partition_id,
                 hashed_password=hashed_password
             )
-            return await self.crud.create_item(db=db, dbmodel=self.dbmodel, model=model,
-                                               unique_keys=self.unique_keys)
+            return await self.operator.create_item(db=db, model=model)
 
     def _default_update_route(self):
         @self.router.put("/update_item/", response_model=self.response_model)
@@ -92,9 +84,7 @@ class UserCURouter(BaseAuthRouter):
                 account=account,
                 email=email,
                 phone=phone,
-                status=True,
                 partition_id=partition_id,
                 hashed_password=hashed_password
             )
-            return await self.crud.update_item(db=db, dbmodel=self.dbmodel, model=model,
-                                               unique_keys=self.unique_keys)
+            return await self.operator.update_item(db=db, model=model)

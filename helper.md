@@ -44,3 +44,14 @@ CREATE INDEX ON items USING HNSW (embedding vector_cosine_ops);
 GRANT ALL PRIVILEGES ON DATABASE university_information_db TO ke;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ke;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO ke;
+
+
+___
+-- 终止所有连接到数据库的会话
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = 'university_information_db'
+AND pid <> pg_backend_pid();
+
+-- 删除数据库
+DROP DATABASE university_information_db;

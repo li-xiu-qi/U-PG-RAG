@@ -1,115 +1,136 @@
-from abc import ABC, abstractmethod
-from typing import Optional, Dict, List, Callable, Type
-
+from typing import List, Optional, Type
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.apis.deps import get_db
+from app.crud.base_operation import BaseOperation
+from app.schemes.filter_model import ModelRead, FilterModel
 
 
-class BaseCRUDRouter(ABC):
-    default_include_routes = {
-        "create": True,
-        "read": True,
-        "reads": True,
-        "update": True,
-        "delete": True,
-        "search": True
-    }
-
+class BaseCRUDRouter:
     def __init__(
             self,
             router: APIRouter,
-            dbmodel: type,
-            crud: Type[object],
+            operator: BaseOperation,
             response_model: Optional[Type[BaseModel]] = None,
             create_model: Optional[Type[BaseModel]] = None,
+            read_model: Optional[Type[ModelRead]] = ModelRead,
+            reads_model: Optional[Type[ModelRead]] = FilterModel,
             update_model: Optional[Type[BaseModel]] = None,
-            get_item: Optional[Callable] = None,
-            get_items: Optional[Callable] = None,
             keyword_search_model: Optional[Type[BaseModel]] = None,
             search_response_model: Optional[Type[BaseModel]] = None,
-            unique_keys: Optional[List[str]] = None,
-            allowed_columns: Optional[List[str]] = None,
-            include_routes: Optional[Dict[str, bool]] = None,
+            include_routes: Optional[dict] = None,
     ):
-
         self.router = router
-        self.dbmodel = dbmodel
+        self.operator = operator
+        self.db_model = operator.db_model
         self.response_model = response_model
         self.create_model = create_model
+        self.read_model = read_model
+        self.reads_model = reads_model
         self.update_model = update_model
-        self.get_item = get_item
-        self.get_items = get_items
         self.keyword_search_model = keyword_search_model
         self.search_response_model = search_response_model
-        self.crud = crud()
-        self.unique_keys = unique_keys or []
-        self.allowed_columns = allowed_columns or []
-        self.include_routes = include_routes or self.default_include_routes
-        self.route_map = {
-            "create": self._default_create_route,
-            "read": self._default_read_route,
-            "reads": self._default_reads_router,
-            "update": self._default_update_route,
-            "delete": self._default_delete_route,
-            "search": self._default_search_routes,
+
+        self.default_include_routes = {
+            "create": self.create_model is not None,
+            "get": True,
+            "gets": True,
+            "read": True,
+            "reads": True,
+            "update": self.update_model is not None,
+            "delete": True,
+            "search": self.keyword_search_model is not None,
         }
-        self.custom_route_map = None
+
+        if include_routes is not None:
+            self.include_routes = {key: include_routes.get(key, self.default_include_routes[key]) for key in
+                                   self.default_include_routes}
+        else:
+            self.include_routes = self.default_include_routes
         self.setup_routes()
 
+    def _add_router(self, path: str, method: str, endpoint, response_model=None):
+        if method == "get":
+            self.router.get(path, response_model=response_model)(endpoint)
+        elif method == "post":
+            self.router.post(path, response_model=response_model)(endpoint)
+        elif method == "put":
+            self.router.put(path, response_model=response_model)(endpoint)
+        elif method == "delete":
+            self.router.delete(path)(endpoint)
+
     def setup_routes(self):
-        self.route_map.update(self.custom_route_map or {})
+        routes = {
+            "get": ("/get_item/{_id}/", self._default_get_item(), self.response_model),
+            "gets": ("/get_items/", self._default_get_items(), List[self.response_model]),
+            "create": ("/create_item/", self._default_create_item(), self.response_model),
+            "read": ("/read_item/", self._default_read_item(), self.response_model),
+            "reads": ("/read_items/", self._default_read_items(), List[self.response_model]),
+            "update": ("/update_item/", self._default_update_item(), self.response_model),
+            "delete": ("/delete_item/{_id}/", self._default_delete_item(), None),
+            "search": ("/search/", self._default_search_items(), List[self.search_response_model]),
+        }
 
-        for route_name, route_func in self.route_map.items():
-            if self.include_routes.get(route_name, True):
-                route_func()
-        self.setup_custom_routes()
+        method_map = {
+            "get": "get",
+            "gets": "get",
+            "create": "post",
+            "read": "post",
+            "reads": "post",
+            "update": "put",
+            "delete": "delete",
+            "search": "post",
+        }
 
-    def _default_create_route(self):
-        async def create(model: self.create_model, db: AsyncSession = Depends(get_db)):
-            return await self.crud.create_item(db=db, dbmodel=self.dbmodel, model=model,
-                                               unique_keys=self.unique_keys)
+        for route, (path, endpoint, response_model) in routes.items():
+            if self.include_routes.get(route, False):
+                self._add_router(path, method_map[route], endpoint, response_model)
 
-        self.router.post("/create_item/", response_model=self.response_model)(create)
+    def _default_get_item(self):
+        async def get_item(_id: int, db: AsyncSession = Depends(get_db)):
+            return await self.operator.get_item(db=db, _id=_id)
 
-    def _default_read_route(self):
-        async def read(model: BaseModel = Depends(self.get_item),
-                       db: AsyncSession = Depends(get_db)):
-            return await self.crud.get_item(db=db, dbmodel=self.dbmodel, model=model)
+        return get_item
 
-        self.router.get("/read_item/", response_model=self.response_model)(read)
+    def _default_get_items(self):
+        async def get_items(offset: int = 0, limit: int = 20, db: AsyncSession = Depends(get_db)):
+            return await self.operator.get_items(db=db, offset=offset, limit=limit)
 
-    def _default_reads_router(self):
-        async def reads(model: BaseModel = Depends(self.get_items),
-                        db: AsyncSession = Depends(get_db)):
-            items = await self.crud.get_items(db=db, dbmodel=self.dbmodel, model=model)
-            return items
+        return get_items
 
-        self.router.get("/read_items/", response_model=List[self.response_model])(reads)
+    def _default_create_item(self):
+        async def create_item(model: self.create_model, db: AsyncSession = Depends(get_db)):
+            return await self.operator.create_item(db=db, model=model)
 
-    def _default_update_route(self):
-        async def update(model: self.update_model, db: AsyncSession = Depends(get_db)):
-            return await self.crud.update_item(db=db, dbmodel=self.dbmodel, model=model,
-                                               unique_keys=self.unique_keys)
+        return create_item
 
-        self.router.put("/update_item/", response_model=self.response_model)(update)
+    def _default_read_item(self):
+        async def read_item(model: self.read_model = Depends(), db: AsyncSession = Depends(get_db)):
+            return await self.operator.read_item(db=db, model=model)
 
-    def _default_delete_route(self):
-        async def delete(model: BaseModel = Depends(self.get_item),
-                         db: AsyncSession = Depends(get_db)):
-            return await self.crud.delete_item(db=db, dbmodel=self.dbmodel, model=model)
+        return read_item
 
-        self.router.delete("/delete_item/")(delete)
+    def _default_read_items(self):
+        async def read_items(model: self.reads_model, db: AsyncSession = Depends(get_db)):
+            return await self.operator.read_items(db=db, model=model)
 
-    def _default_search_routes(self):
-        async def search(model: self.keyword_search_model, db: AsyncSession = Depends(get_db)):
-            return await self.crud.search(db=db, dbmodel=self.dbmodel, model=model,
-                                          allowed_columns=self.allowed_columns)
+        return read_items
 
-        self.router.post("/search/", response_model=List[self.search_response_model])(search)
+    def _default_update_item(self):
+        async def update_item(model: self.update_model, db: AsyncSession = Depends(get_db)):
+            return await self.operator.update_item(db=db, model=model)
 
-    @abstractmethod
-    def setup_custom_routes(self):
-        pass
+        return update_item
+
+    def _default_delete_item(self):
+        async def delete_item(_id: int, db: AsyncSession = Depends(get_db)):
+            return await self.operator.delete_item(db=db, _id=_id)
+
+        return delete_item
+
+    def _default_search_items(self):
+        async def search_items(model: self.keyword_search_model, db: AsyncSession = Depends(get_db)):
+            return await self.operator.search(db=db, model=model)
+
+        return search_items

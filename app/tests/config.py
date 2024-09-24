@@ -49,7 +49,7 @@ class ServeConfig:
     minio_bucket_name = os.getenv("MINIO_BUCKET_NAME", "file-storage")
 
     ###
-    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/{db_name}"
+    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/using_test"
     NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
     ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"
     ADMIN_NO_ASYNC_NEW_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"

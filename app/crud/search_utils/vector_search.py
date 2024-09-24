@@ -27,15 +27,18 @@ def build_vector_search_query(db_model: Type[DeclarativeBase], query_vector,
     return query
 
 
-async def vector_search(db: AsyncSession, db_model: Type[DeclarativeBase],
-                        model: BaseModel, filter_handler: FilterHandler, threshold: float = None) -> List[Type[DeclarativeBase]]:
+async def vector_search(db: AsyncSession,
+                        model: BaseModel, filter_handler: FilterHandler) -> List[
+    Type[DeclarativeBase]]:
     model_dict = model.model_dump(exclude_unset=True)
     query_vector = model_dict.pop('vector')
     offset = model_dict.pop('offset', 0)
     limit = model_dict.pop('limit', 20)
     filters = model_dict.pop('filters', {})
+    threshold = model_dict.pop('threshold')
 
     filter_conditions = [filter_handler.create_filter_clause(filters)]
-    query = build_vector_search_query(db_model, query_vector, filter_conditions, offset, limit, threshold)
+    query = build_vector_search_query(filter_handler.db_model, query_vector, filter_conditions, offset, limit,
+                                      threshold)
 
     return await execute_query(db, query)

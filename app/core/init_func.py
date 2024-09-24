@@ -6,8 +6,8 @@ from sqlalchemy.future import select
 from app.apis.db_config import Base, no_async_engine
 from app.crud.file_utils.minio_service import MinIOFileService, init_minio_client
 from app.db import db_models
-from app.serves.model_serves import RAG
 from app.serves.model_serves.client_manager import ClientManager
+from app.serves.model_serves.rag_model import RAGModel
 from config import ServeConfig
 from contant import set_rag_embedding, set_rag_chat
 
@@ -47,28 +47,42 @@ def initialize_super_admin(session: Session):
 
 def create_database_and_user():
     """创建数据库和用户"""
-    with create_engine(ServeConfig.ADMIN_NO_ASYNC_DB_URL).connect() as conn:
-        conn.execute(text("COMMIT"))
+    try:
+        with create_engine(ServeConfig.ADMIN_NO_ASYNC_DB_URL).connect() as conn:
+            conn.execute(text("COMMIT"))
 
-        # 创建数据库
-        if not conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{ServeConfig.db_name}'")).first():
-            conn.execute(text(
-                f"CREATE DATABASE {ServeConfig.db_name} ENCODING 'UTF8' "
-                f"LC_COLLATE='zh_CN.UTF-8' LC_CTYPE='zh_CN.UTF-8'"))
-            logging.info(f"Database '{ServeConfig.db_name}' created successfully.")
+            # 检查数据库是否存在
+            db_exists = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{ServeConfig.db_name}'")).first()
+            if not db_exists:
+                conn.execute(text(
+                    f"CREATE DATABASE {ServeConfig.db_name} ENCODING 'UTF8' "
+                    f"LC_COLLATE='zh_CN.UTF-8' LC_CTYPE='zh_CN.UTF-8'"))
+                logging.info(f"Database '{ServeConfig.db_name}' created successfully.")
+            else:
+                logging.info(f"Database '{ServeConfig.db_name}' already exists.")
 
-        # 创建用户
-        if not conn.execute(text(f"SELECT 1 FROM pg_roles WHERE rolname = '{ServeConfig.db_serve_user}'")).first():
-            conn.execute(text(
-                f"CREATE USER {ServeConfig.db_serve_user} WITH PASSWORD '{ServeConfig.db_serve_user_password}'"))
-            logging.info(f"User '{ServeConfig.db_serve_user}' created successfully.")
+            # 检查用户是否存在
+            user_exists = conn.execute(
+                text(f"SELECT 1 FROM pg_roles WHERE rolname = '{ServeConfig.db_serve_user}'")).first()
+            if not user_exists:
+                conn.execute(text(
+                    f"CREATE USER {ServeConfig.db_serve_user} WITH PASSWORD '{ServeConfig.db_serve_user_password}'"))
+                logging.info(f"User '{ServeConfig.db_serve_user}' created successfully.")
+            else:
+                logging.info(f"User '{ServeConfig.db_serve_user}' already exists.")
+            conn.execute(text("COMMIT"))
 
-        # 为新数据库赋予权限
-        with create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL).connect() as new_conn:
-            new_conn.execute(text(
-                f"GRANT ALL PRIVILEGES ON DATABASE {ServeConfig.db_name} TO {ServeConfig.db_serve_user}"))
-            logging.info(
-                f"Granted privileges on database '{ServeConfig.db_name}' to user '{ServeConfig.db_serve_user}'.")
+            # 为新数据库赋予权限
+            with create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL).connect() as new_conn:
+                new_conn.execute(text(
+                    f"GRANT ALL PRIVILEGES ON DATABASE {ServeConfig.db_name} TO {ServeConfig.db_serve_user}"))
+                logging.info(
+                    f"Granted privileges on database '{ServeConfig.db_name}' to user '{ServeConfig.db_serve_user}'.")
+                new_conn.execute(text("COMMIT"))
+
+    except Exception as e:
+        logging.error(f"Error creating database and user: {e}")
+        raise
 
 
 def create_extensions(conn: Connection, extensions: list):
@@ -89,31 +103,29 @@ def setup_database(reset_db: bool = True):
     new_db_engine = create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL)
     if reset_db:
         logging.info("Dropping all tables...")
-        Base.metadata.drop_all(bind=new_db_engine)
+        with new_db_engine.connect() as conn:
+            conn.execute(text("DROP TABLE IF EXISTS cache_entries CASCADE"))
+            conn.execute(text("DROP TABLE IF EXISTS partitions CASCADE"))
+            conn.commit()
 
     logging.info("Creating all tables...")
     Base.metadata.create_all(bind=new_db_engine)
     with new_db_engine.connect() as conn:
         try:
-            # 提交事务以确保表的创建
             conn.commit()
 
-            # Log the existing tables
             result = conn.execute(text("SELECT table_name FROM information_schema.tables WHERE table_schema='public'"))
             tables = result.fetchall()
             logging.info(f"Existing tables: {[table[0] for table in tables]}")
 
-            # 初始化MinIO
             minio_client = init_minio_client()
             MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
             logging.info("MinIO client initialized successfully.")
 
-            # 授予权限
             logging.info(f"Granting privileges to user {ServeConfig.db_serve_user}.")
             conn.execute(text(f"GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {ServeConfig.db_serve_user}"))
             conn.execute(text(f"GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO {ServeConfig.db_serve_user}"))
 
-            # Explicitly grant privileges on the vectors table
             conn.execute(text(f"GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE vectors TO {ServeConfig.db_serve_user}"))
             conn.commit()
 
@@ -147,8 +159,8 @@ def init_rag():
         embedding_client = ClientManager(api_configs=ServeConfig.embedding_api_configs)
         chat_client = ClientManager(api_configs=ServeConfig.llm_api_configs)
 
-        rag_embedding = RAG(client_manager=embedding_client)
-        rag_chat = RAG(client_manager=chat_client)
+        rag_embedding = RAGModel(client_manager=embedding_client)
+        rag_chat = RAGModel(client_manager=chat_client)
 
         set_rag_embedding(rag_embedding)
         set_rag_chat(rag_chat)

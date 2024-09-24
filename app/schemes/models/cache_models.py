@@ -3,8 +3,7 @@ from typing import Optional, List
 
 from pydantic import BaseModel
 
-from app.schemes.base_models import KeywordSearchModel, SingleItemModel, PaginationModel
-from app.schemes.model_filters import UserFilter
+from app.schemes.keyword_search import KeywordSearchModel
 
 
 # RAGCache相关模型
@@ -13,7 +12,7 @@ class RAGCacheBase(BaseModel):
     response: str
     partition_id: Optional[int] = None
     user_id: Optional[int] = None
-    expires_in: datetime
+    expires_in: Optional[datetime] = None
     is_valid: Optional[bool] = False
 
 
@@ -21,7 +20,7 @@ class RAGCacheCreate(RAGCacheBase):
     pass
 
 
-class RAGCacheUpdate(BaseModel):
+class RAGCacheUpdate(RAGCacheBase):
     id: int
     query: Optional[str] = None
     response: Optional[str] = None
@@ -39,28 +38,6 @@ class ResponseRAGCache(RAGCacheBase):
 
 class RAGCacheKeywordSearch(KeywordSearchModel):
     search_columns: List[str] = ["query", "response"]
-    filters: Optional[UserFilter] = None
-
-
-class RAGCacheSingleItem(SingleItemModel):
-    filters: Optional[UserFilter] = None
-
-
-class RAGCachePagination(PaginationModel):
-    filters: Optional[UserFilter] = None
-
-
-def get_rag_cache(id: int, partition_id: Optional[int] = None,
-                  user_id: Optional[int] = None):
-    filters = UserFilter(partition_id=partition_id, user_id=user_id)
-    return RAGCacheSingleItem(id=id, filters=filters)
-
-
-def get_rag_caches(offset: Optional[int] = 0, limit: Optional[int] = 20,
-                   partition_id: Optional[int] = None,
-                   user_id: Optional[int] = None):
-    filters = UserFilter(partition_id=partition_id, user_id=user_id)
-    return RAGCachePagination(offset=offset, limit=limit, filters=filters)
 
 
 class SearchRAGCacheResponse(RAGCacheBase):

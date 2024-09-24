@@ -36,7 +36,7 @@ def build_search_query(db_model: Type[DeclarativeBase], search_columns: List[str
     return query
 
 
-async def search(db: AsyncSession, db_model: Type[DeclarativeBase], model: BaseModel, filter_handler: FilterHandler,
+async def search(db: AsyncSession, model: BaseModel, filter_handler: FilterHandler,
                  ) -> \
         List[Type[DeclarativeBase]]:
     model_dict = model.model_dump(exclude_unset=True)
@@ -52,14 +52,16 @@ async def search(db: AsyncSession, db_model: Type[DeclarativeBase], model: BaseM
         return []
 
     if not search_columns:
-        search_columns = [col.name for col in db_model.__table__.columns if col.name not in filter_handler.disallowed_fields]
+        search_columns = [col.name for col in filter_handler.db_model.__table__.columns if
+                          col.name not in filter_handler.disallowed_fields]
 
     if not search_columns:
         return []
 
     query_condition = ' & '.join(sanitized_keywords)
 
-    query = build_search_query(db_model, search_columns, query_condition, filters, sort_by_rank, filter_handler)
+    query = build_search_query(filter_handler.db_model, search_columns, query_condition, filters, sort_by_rank,
+                               filter_handler)
     query = query.offset(offset).limit(limit)
 
     return await execute_query(db, query)

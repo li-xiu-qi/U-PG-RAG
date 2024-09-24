@@ -1,13 +1,23 @@
 from init_app import init_app
+import sys
+
+sys.setrecursionlimit(15000)  # 将递归深度限制增加到1500
 init_app()
 
 from pathlib import Path
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse
 
-from app.apis import partition_router, admin_router, user_router, file_router, markdown_router, document_router, \
-    rag_cache_router, conversation_router, response_record_router, vector_router
-
+from app.apis import (partition_router,
+                      admin_router,
+                      user_router,
+                      file_router,
+                      markdown_router,
+                      document_router,
+                      rag_cache_router,
+                      conversation_router,
+                      response_record_router,
+                      vector_router)
 
 app = FastAPI()
 # app.add_event_handler("startup", init_app)

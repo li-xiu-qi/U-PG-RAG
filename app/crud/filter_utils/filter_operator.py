@@ -1,6 +1,5 @@
 from typing import Any
 
-from sqlalchemy import not_
 from sqlalchemy.sql import ClauseElement
 
 
@@ -65,22 +64,17 @@ class ExistsOperator(Operator):
         return column.isnot(None) if value else column.is_(None)
 
 
-class NotOperator(Operator):
-    def apply(self, column, value: Any) -> ClauseElement:
-        return not_(column == value)
-
-
 OPERATORS = {
-    "=": EqualOperator(),
-    "!=": NotEqualOperator(),
-    "<": LessThanOperator(),
-    "<=": LessThanOrEqualOperator(),
-    ">": GreaterThanOperator(),
-    ">=": GreaterThanOrEqualOperator(),
+    "eq": EqualOperator(),
+    "ne": NotEqualOperator(),
+    "lt": LessThanOperator(),
+    "le": LessThanOrEqualOperator(),
+    "gt": GreaterThanOperator(),
+    "ge": GreaterThanOrEqualOperator(),
     "in": InOperator(),
     "between": BetweenOperator(),
     "like": LikeOperator(),
     "ilike": ILikeOperator(),
     "exists": ExistsOperator(),
-    "not": NotOperator(),
+
 }

@@ -24,7 +24,7 @@ def llm_cached_call():
 
             cache_key = create_hash_key(self.cache.partition_name, messages, parameters)
 
-            cached_result = await self.cache.get(cache_key)
+            cached_result = self.cache.get(cache_key)
             if cached_result:
                 logger.debug(f"Cache hit: {cache_key}")
                 result = LLMOutput(output=json.dumps(cached_result), total_tokens=0)
@@ -33,7 +33,7 @@ def llm_cached_call():
             logger.debug(f"Cache miss: {cache_key}")
             result = await func(self, *args, **kwargs)
 
-            await self.cache.set(cache_key, result.output, expire_after_seconds=self.cache_expire_after_seconds)
+            self.cache.set(cache_key, result.output, expire_after_seconds=self.cache_expire_after_seconds)
             return result
 
         return wrapper
@@ -58,8 +58,10 @@ def embedding_cached_call():
             cache_miss_indices = []
             total_tokens = 0
             for idx, content in enumerate(input_content):
-                cache_key = create_hash_key(self.cache.partition_name, content, parameters)
-                cached_result = await self.cache.get(cache_key)
+                # cache_key = create_hash_key(self.cache.partition_name, content, parameters)
+                cache_key = create_hash_key("test_embedding", content, parameters)
+
+                cached_result = self.cache.get(cache_key)
                 if cached_result:
                     logger.debug(f"Cache hit: {cache_key}")
                     results[idx] = cached_result
@@ -74,8 +76,10 @@ def embedding_cached_call():
                 result = await func(self, *args, **kwargs)
                 for idx, res in zip(cache_miss_indices, result.output):
                     results[idx] = res
-                    cache_key = create_hash_key(self.cache.partition_name, input_content[idx], parameters)
-                    await self.cache.set(cache_key, res)
+                    # cache_key = create_hash_key(self.cache.partition_name, input_content[idx], parameters)
+                    cache_key = create_hash_key("test_embedding", input_content[idx], parameters)
+
+                    self.cache.set(cache_key, res)
                 total_tokens = result.total_tokens
 
             return EmbeddingOutput(output=results, total_tokens=total_tokens)

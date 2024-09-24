@@ -1,9 +1,7 @@
-from app.serves.model_serves import RAG
+from app.serves.model_serves.rag_model import RAGModel
 
-# 全局变量定义
-
-rag_embedding: RAG | None = None
-rag_chat: RAG | None = None
+rag_embedding: RAGModel | None = None
+rag_chat: RAGModel | None = None
 
 
 def get_rag_embedding():
@@ -11,7 +9,7 @@ def get_rag_embedding():
     return rag_embedding
 
 
-def set_rag_embedding(rag: RAG):
+def set_rag_embedding(rag: RAGModel):
     global rag_embedding
     rag_embedding = rag
 
@@ -21,6 +19,6 @@ def get_rag_chat():
     return rag_chat
 
 
-def set_rag_chat(rag: RAG):
+def set_rag_chat(rag: RAGModel):
     global rag_chat
     rag_chat = rag

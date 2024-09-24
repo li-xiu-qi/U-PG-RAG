@@ -3,10 +3,10 @@ from typing import List
 from pgvector.sqlalchemy import VECTOR
 from pydantic import BaseModel
 from sqlalchemy import Column, Integer, Text, text
-from sqlalchemy.ext.asyncio import async_sessionmaker
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
+from app.crud.filter_utils.filters import FilterHandler
 from app.crud.search_utils.vector_search import vector_search
 from app.serves.model_serves.client_manager import ClientManager
 from app.serves.model_serves.rag_model import RAGModel
@@ -26,7 +26,7 @@ class Base(DeclarativeBase):
 
 class SampleData(BaseModel):
     vector: List[float]
-    filters: dict | None = None
+    filters: dict | list[dict] | None = None
     threshold: float | None = None
 
 
@@ -35,6 +35,10 @@ class DBSampleData(Base):
     doc_id = Column(Integer, primary_key=True)
     vector = Column(VECTOR)
     content = Column(Text)
+
+    @classmethod
+    def get_disallowed_columns(cls):
+        return set()
 
 
 engine = create_async_engine(DATABASE_URL, echo=False)
@@ -90,7 +94,7 @@ async def table_exists(session: AsyncSession, table_name: str) -> bool:
     return result.scalar()
 
 
-async def main():
+async def initialize_database():
     async with AsyncSessionLocal() as session:
         if not await table_exists(session, 'vector_data'):
             async with engine.begin() as conn:
@@ -98,27 +102,36 @@ async def main():
                 await conn.run_sync(Base.metadata.create_all)
             await insert_sample_data(session)
 
+
+async def perform_vector_search(session: AsyncSession, input_content: str, filters=None):
+    embedding_input = EmbeddingInput(name="BAAI/bge-m3", input_content=[input_content])
+    vector_result = await embedding_rag.embedding(model_input=embedding_input)
+    search_model = SampleData(vector=vector_result.output[0], filters=filters, threshold=None)
+    filter_handler = FilterHandler(
+        db_model=DBSampleData,
+    )
+    results = await vector_search(session, search_model, filter_handler)
+    return results
+
+
+async def main():
+    await initialize_database()
+
     async with AsyncSessionLocal() as session:
         input_content = "如何学习编程语言"
-        embedding_input = EmbeddingInput(name="BAAI/bge-m3", input_content=[input_content])
-        vector_result = await embedding_rag.embedding(model_input=embedding_input)
-
-        # 测试用例1：无过滤条件
-        search_model = SampleData(vector=vector_result.output[0], threshold=None)
-        results = await vector_search(session, DBSampleData, search_model, threshold=search_model.threshold)
+        results = await perform_vector_search(session, input_content)
         print("输入:", input_content)
         for res in results:
             print(res.doc_id, res.content, res.rank_position)
 
         # 测试用例2：带过滤条件
-        filters = {"content": {"not": [{"like": "%编程%"}, {"like": "%天气%"}]}}
+        # filters = {"content": {"not": [{"like": "%编程%"}, {"like": "%天气%"}]}}
         # filters = {"content": {"in": ["你的名字叫什么"]}}
         # filters = {"doc_id": {"between": [1, 10]}}
         # filters = {"content": {"exists": True}}
-
-        search_model_with_filters = SampleData(vector=vector_result.output[0], filters=filters, threshold=None)
-        results_with_filters = await vector_search(session, DBSampleData, search_model_with_filters,
-                                                   threshold=search_model_with_filters.threshold)
+        filters = {"content": {"=": "你的名字叫什么"}}
+        # filters = [{"content": {"like": "%编程%"}}, {"doc_id": {"in": [1, 2, 3]}}]
+        results_with_filters = await perform_vector_search(session, input_content, filters=filters)
         print("输入:", input_content, "带过滤条件:", filters)
         for res in results_with_filters:
             print(res.doc_id, res.content, res.rank_position)
