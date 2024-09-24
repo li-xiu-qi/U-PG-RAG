@@ -138,11 +138,6 @@ class ExistsOperator(Operator):
         return column.isnot(None) if value else column.is_(None)
 
 
-class NotOperator(Operator):
-    def apply(self, column, value: Any) -> ClauseElement:
-        return not_(column == value)
-
-
 OPERATORS = {
     "eq": EqualOperator(),
     "ne": NotEqualOperator(),
@@ -155,100 +150,86 @@ OPERATORS = {
     "like": LikeOperator(),
     "ilike": ILikeOperator(),
     "exists": ExistsOperator(),
-    "not": NotOperator(),
 }
 
 
 class FilterHandler:
     def __init__(self, db_model: Type["DBaseModel"]):
+        """
+        初始化 FilterHandler，设置数据库模型、禁止字段和操作符。
+        """
         self.db_model = db_model
         self.disallowed_fields = self.db_model.get_disallowed_columns()
         self.operators: Dict[str, Operator] = OPERATORS
 
     def add_operator(self, name: str, operator: Operator):
+        """
+        添加自定义操作符到操作符字典中。
+        """
         self.operators[name] = operator
 
     def handle_field_filter(self, field: str, value: Any):
+        """
+        处理特定字段和值的过滤逻辑。
+        """
+        # 检查字段是否被禁止
         if field in self.disallowed_fields:
-            raise ValueError(f"Invalid field: {field}. Disallowed fields: {', '.join(self.disallowed_fields)}")
+            raise ValueError(f"无效字段: {field}。禁止字段: {', '.join(self.disallowed_fields)}")
 
         column = getattr(self.db_model, field)
 
-        if isinstance(value, list):
-            conditions = [self.handle_field_filter(field, v) for v in value]
-            return and_(*conditions) if conditions else None
-
+        # 如果值是字典，处理每个操作符及其对应的值
         if isinstance(value, dict):
             conditions = []
             for operator, filter_value in value.items():
                 if filter_value is not None:
-                    if operator not in self.operators:
-                        raise ValueError(f"Unsupported operator: {operator}")
-                    conditions.append(self.operators[operator].apply(column, filter_value))
+                    if operator not in self.operators and operator not in ["and", "or"]:
+                        raise ValueError(f"不支持的操作符: {operator}")
+                    if operator == "or" and isinstance(filter_value, list):
+                        or_conditions = [self.handle_field_filter(field, v) for v in filter_value]
+                        conditions.append(or_(*or_conditions))
+                    elif operator == "and" and isinstance(filter_value, list):
+                        and_conditions = [self.handle_field_filter(field, v) for v in filter_value]
+                        conditions.append(and_(*and_conditions))
+                    else:
+                        conditions.append(self.operators[operator].apply(column, filter_value))
             if len(conditions) == 1:
                 return conditions[0]
             return and_(*conditions) if conditions else None
         else:
+            # 如果值不是字典，默认使用等于操作符
             operator = "eq"
             filter_value = value
 
         return self.operators[operator].apply(column, filter_value)
 
     def create_filter_clause(self, filters: Any) -> Any:
-        if isinstance(filters, dict):
-            if len(filters) == 0:
-                return True
-            if len(filters) == 1:
-                key, value = list(filters.items())[0]
-                if key.startswith("$"):
-                    if key.lower() not in ["and", "or", "not"]:
-                        raise ValueError(f"Invalid filter condition. Expected and, or or not but got: {key}")
+        """
+        从提供的过滤器创建 SQLAlchemy 过滤子句。
+        """
+        stack = [(filters, [])]
+        while stack:
+            current_filters, conditions = stack.pop()
+            if isinstance(current_filters, dict):
+                if len(current_filters) == 0:
+                    conditions.append(True)
+                elif len(current_filters) == 1:
+                    key, value = list(current_filters.items())[0]
+                    conditions.append(self.handle_field_filter(key, value))
                 else:
-                    return self.handle_field_filter(key, filters[key])
-
-                if key.lower() == "and":
-                    if not isinstance(value, list):
-                        raise ValueError(f"Expected a list, but got {type(value)} for value: {value}")
-                    and_conditions = [self.create_filter_clause(el) for el in value]
-                    and_conditions = [cond for cond in and_conditions if cond is not None]
-                    if len(and_conditions) > 1:
-                        return and_(*and_conditions)
-                    elif len(and_conditions) == 1:
-                        return and_conditions[0]
-                    else:
-                        return None
-                elif key.lower() == "or":
-                    if not isinstance(value, list):
-                        raise ValueError(f"Expected a list, but got {type(value)} for value: {value}")
-                    or_conditions = [self.create_filter_clause(el) for el in value]
-                    or_conditions = [cond for cond in or_conditions if cond is not None]
-                    if len(or_conditions) > 1:
-                        return or_(*or_conditions)
-                    elif len(or_conditions) == 1:
-                        return or_conditions[0]
-                    else:
-                        return None
-                elif key.lower() == "not":
-                    if isinstance(value, list):
-                        not_conditions = [self.create_filter_clause(el) for el in value]
-                        not_conditions = [cond for cond in not_conditions if cond is not None]
-                        return and_(*[not_(condition) for condition in not_conditions])
-                    else:
-                        return not_(self.create_filter_clause(value))
-            elif len(filters) > 1:
-                and_conditions = [self.create_filter_clause({k: v}) for k, v in filters.items()]
-                and_conditions = [cond for cond in and_conditions if cond is not None]
-                return and_(*and_conditions) if and_conditions else None
+                    for k, v in current_filters.items():
+                        stack.append(({k: v}, conditions))
+            elif isinstance(current_filters, list):
+                if len(current_filters) == 0:
+                    conditions.append(True)
+                else:
+                    for f in current_filters:
+                        stack.append((f, conditions))
             else:
-                raise ValueError("Got an empty dictionary for filters.")
-        elif isinstance(filters, list):
-            if len(filters) == 0:
-                return True
-            and_conditions = [self.create_filter_clause(f) for f in filters]
-            and_conditions = [cond for cond in and_conditions if cond is not None]
-            return and_(*and_conditions) if and_conditions else None
-        else:
-            return None
+                conditions.append(None)
+
+        and_conditions = [cond for cond in conditions if cond is not None]
+        return and_(*and_conditions) if and_conditions else None
 
 
 from typing import Any, Optional, List, Union, Dict
@@ -285,26 +266,3 @@ class ModelReads(BaseModel):
 
 def filter_model_to_dict(filter_model: FilterModel) -> Dict[str, Any]:
     return filter_model.model_dump(by_alias=True)
-
-
-# 示例数据
-data = {
-    "partition_name": "东北石油大学",
-    "id": 8,
-    "create_at": "2024-09-24T02:13:07.863979Z",
-    "update_at": "2024-09-24T02:13:07.864015Z"
-}
-
-# 创建 FilterCondition 实例
-filter_conditions = {
-    "partition_name": {"like": data["partition_name"]},
-    "id": {"in": [data["id"]]},
-    "create_at": {"between": [data["create_at"], data["update_at"]]}
-}
-
-# 创建 FilterHandler 实例
-filter_handler = FilterHandler(Partition)
-filters = filter_conditions
-filter_clause = filter_handler.create_filter_clause(filters)
-
-print(filter_clause)

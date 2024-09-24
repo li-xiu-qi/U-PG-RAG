@@ -57,21 +57,26 @@ class FilterHandler:
         """
         从提供的过滤器创建 SQLAlchemy 过滤子句。
         """
-        if isinstance(filters, dict):
-            if len(filters) == 0:
-                return True
-            if len(filters) == 1:
-                key, value = list(filters.items())[0]
-                return self.handle_field_filter(key, value)
+        stack = [(filters, [])]
+        while stack:
+            current_filters, conditions = stack.pop()
+            if isinstance(current_filters, dict):
+                if len(current_filters) == 0:
+                    conditions.append(True)
+                elif len(current_filters) == 1:
+                    key, value = list(current_filters.items())[0]
+                    conditions.append(self.handle_field_filter(key, value))
+                else:
+                    for k, v in current_filters.items():
+                        stack.append(({k: v}, conditions))
+            elif isinstance(current_filters, list):
+                if len(current_filters) == 0:
+                    conditions.append(True)
+                else:
+                    for f in current_filters:
+                        stack.append((f, conditions))
             else:
-                and_conditions = [self.create_filter_clause({k: v}) for k, v in filters.items()]
-                and_conditions = [cond for cond in and_conditions if cond is not None]
-                return and_(*and_conditions) if and_conditions else None
-        elif isinstance(filters, list):
-            if len(filters) == 0:
-                return True
-            and_conditions = [self.create_filter_clause(f) for f in filters]
-            and_conditions = [cond for cond in and_conditions if cond is not None]
-            return and_(*and_conditions) if and_conditions else None
-        else:
-            return None
+                conditions.append(None)
+
+        and_conditions = [cond for cond in conditions if cond is not None]
+        return and_(*and_conditions) if and_conditions else None
