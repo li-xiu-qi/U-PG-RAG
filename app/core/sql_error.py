@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 from fastapi import HTTPException
 from sqlalchemy.exc import SQLAlchemyError
@@ -6,11 +7,8 @@ from typing import Callable
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.log_config import setup_logger
-
-logger = setup_logger(__name__, "logs/error_handling.log", "error")
-
 ERROR_RECORD_FILE = 'error_record.json'
+logger = logging.getLogger(__name__)
 
 
 def save_unique_error(error_message: str):

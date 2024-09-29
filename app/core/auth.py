@@ -5,7 +5,6 @@ from jose import jwt, JWTError, ExpiredSignatureError
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db.db_models import User
 from config import ServeConfig
 from app.schemes.models.user_models import ResponseAdmin
 
@@ -30,7 +29,7 @@ async def get_admin_user(current_user: ResponseAdmin):
     return current_user
 
 
-async def authenticate_user(*, db: AsyncSession, dbmodel: Type[User], username: str, password: str):
+async def authenticate_user(*, db: AsyncSession, dbmodel: Type["User"], username: str, password: str):
     query = select(dbmodel).filter_by(account=username)
     result = await db.execute(query)
     user = result.scalar_one_or_none()

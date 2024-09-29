@@ -13,8 +13,16 @@ async def hybrid_search(
         db: AsyncSession,
         model: BaseModel,
         filter_handler: FilterHandler,
-) -> List[Type]:
+) -> list:
     k = model.k
+    vector_weight = model.vector_weight
+    keyword_weight = model.keyword_weight
+
+    # Normalize weights so that their sum is 1
+    total_weight = vector_weight + keyword_weight
+    vector_weight /= total_weight
+    keyword_weight /= total_weight
+
     vector_results = await vector_search(db, model, filter_handler)
     keyword_results = await search(db, model, filter_handler)
 
@@ -41,7 +49,7 @@ async def hybrid_search(
                     combined_results.values()]
     keyword_ranks = [item['keyword_rank'] if item['keyword_rank'] is not None else float('inf') for item in
                      combined_results.values()]
-    scores = [1.0 / (k + vector_rank) + 1.0 / (k + keyword_rank) for vector_rank, keyword_rank in
+    scores = [vector_weight / (k + vector_rank) + keyword_weight / (k + keyword_rank) for vector_rank, keyword_rank in
               zip(vector_ranks, keyword_ranks)]
 
     for i, item in enumerate(combined_results.values()):

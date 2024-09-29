@@ -12,6 +12,10 @@ find_project_root_and_load_dotenv("U-PG-RAG")
 
 
 class ServeConfig:
+    ###
+    server_host: str = os.getenv("SERVER_HOST")
+    ###
+    # pg数据库配置
     db_host: str = os.getenv("DB_HOST")
     db_port: str = os.getenv("DB_PORT")
     db_name: str = os.getenv("DB_NAME")
@@ -27,17 +31,21 @@ class ServeConfig:
     oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
     ACCESS_TOKEN_oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
     ###
+    # 超级管理员账号
     super_admin_account: str = os.getenv("SUPER_ADMIN_ACCOUNT")
     super_admin_password: str = os.getenv("SUPER_ADMIN_PASSWORD")
     super_admin_name: str = os.getenv("SUPER_ADMIN_NAME")
     super_admin_email: str = os.getenv("SUPER_ADMIN_EMAIL")
     ###
+    # api_key
     api_key = os.getenv("API_KEY")
     base_url = os.getenv("BASE_URL", None)
     ###
+    # rag配置
     embedding_api_configs = embedding_api_configs
     llm_api_configs = llm_api_configs
     ###
+    # minio 配置
     MINIO_DOWNLOAD_URL_EXPIRY = int(os.getenv("DOWNLOAD_URL_EXPIRY", 3600))
     minio_endpoint = os.getenv('MINIO_ENDPOINT', 'localhost:9000')
 
@@ -46,9 +54,11 @@ class ServeConfig:
 
     minio_region = os.getenv('MINIO_REGION', 'cn-beijing-1')
 
-    minio_bucket_name = os.getenv("MINIO_BUCKET_NAME", "file-storage")
+    minio_file_bucket_name = os.getenv("MINIO_BUCKET_NAME", "file-storage")
+    minio_public_images_bucket_name = os.getenv("MINIO_IMAGE_BUCKET_NAME", "public-images")
 
     ###
+    # pg 数据库url
     DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/{db_name}"
     NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
     ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"

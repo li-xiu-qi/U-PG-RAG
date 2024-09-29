@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text, Connection
 from sqlalchemy.orm import Session
 from sqlalchemy.future import select
 
-from app.apis.db_config import Base, no_async_engine
+from db_config import Base, no_async_engine
 from app.crud.file_utils.minio_service import MinIOFileService, init_minio_client
 from app.db import db_models
 from app.serves.model_serves.client_manager import ClientManager
@@ -98,14 +98,13 @@ def create_extensions(conn: Connection, extensions: list):
         raise
 
 
-def setup_database(reset_db: bool = True):
+def setup_database(reset_db: bool = False):
     """设置数据库，创建表，初始化MinIO客户端，并赋予权限"""
     new_db_engine = create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL)
     if reset_db:
         logging.info("Dropping all tables...")
         with new_db_engine.connect() as conn:
-            conn.execute(text("DROP TABLE IF EXISTS cache_entries CASCADE"))
-            conn.execute(text("DROP TABLE IF EXISTS partitions CASCADE"))
+            Base.metadata.drop_all(bind=new_db_engine)
             conn.commit()
 
     logging.info("Creating all tables...")
@@ -119,14 +118,13 @@ def setup_database(reset_db: bool = True):
             logging.info(f"Existing tables: {[table[0] for table in tables]}")
 
             minio_client = init_minio_client()
-            MinIOFileService(minio_client, ServeConfig.minio_bucket_name)
+            MinIOFileService(minio_client, ServeConfig.minio_file_bucket_name)
             logging.info("MinIO client initialized successfully.")
 
             logging.info(f"Granting privileges to user {ServeConfig.db_serve_user}.")
             conn.execute(text(f"GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {ServeConfig.db_serve_user}"))
             conn.execute(text(f"GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO {ServeConfig.db_serve_user}"))
 
-            conn.execute(text(f"GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE vectors TO {ServeConfig.db_serve_user}"))
             conn.commit()
 
             logging.info("Database setup completed successfully.")
@@ -136,7 +134,7 @@ def setup_database(reset_db: bool = True):
             raise
 
 
-def init_db(reset_db: bool = True):
+def init_db(reset_db: bool = False):
     """初始化数据库，包括创建数据库和用户，扩展模块，以及超级管理员"""
     try:
         create_database_and_user()

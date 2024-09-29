@@ -3,19 +3,21 @@ from fastapi import APIRouter
 from app.apis.routers.admin_crud_router import AdminCRUDRouter
 from app.apis.routers.base_crud_router import BaseCRUDRouter
 from app.apis.routers.cache_crud_router import CacheCRUDRouter
+from app.apis.routers.chunk_crud_router import ChunkRouter
 from app.apis.routers.file_crud_router import FileCRUDRouter
+from app.apis.routers.image_crud_router import ImageCRUDRouter
 from app.apis.routers.user_cu_router import UserCURouter
-from app.apis.routers.vector_crud_router import VectorRouter
 from app.crud.admin_operation import AdminOperation
-from app.crud.file_operation import FileOperation
-from app.crud.user_operation import UserOperation
-from app.crud.vector_operation import VectorOperation
-from app.schemes.models import cache_models, user_models, chat_models, data_models, partition_models, vector_models, \
-    file_models
-from app.crud.filter_utils.filters import FilterHandler
-from app.db import db_models
 from app.crud.base_operation import BaseOperation
-from app.tests.config import ServeConfig
+from app.crud.chunk_operation import ChunkOperation
+from app.crud.file_operation import FileOperator
+from app.crud.filter_utils.filters import FilterHandler
+from app.crud.image_operation import ImageOperation
+from app.crud.user_operation import UserOperation
+from app.db import db_models
+from app.schemes.models import cache_models, user_models, chat_models, document_models, partition_models, chunk_models, \
+    file_models
+from config import ServeConfig
 
 # Admin Router
 admin_router = APIRouter(prefix="/xiaoke_admin", tags=["后台管理员"])
@@ -33,11 +35,11 @@ AdminCRUDRouter(
     keyword_search_model=user_models.AdminKeywordSearch,
 )
 file_router = APIRouter(prefix="/file", tags=["文件管理"])
-file_operator = FileOperation(
+file_operator = FileOperator(
     filter_handler=FilterHandler(
         db_model=db_models.File
     ),
-    bucket_name=ServeConfig.minio_bucket_name
+    bucket_name=ServeConfig.minio_file_bucket_name
 )
 
 FileCRUDRouter(
@@ -48,6 +50,20 @@ FileCRUDRouter(
     response_model=file_models.ResponseFile,
     keyword_search_model=file_models.FileKeywordSearch,
     search_response_model=file_models.SearchFileResponse,
+)
+
+image_router = APIRouter(prefix="/public-images", tags=["图片管理"])
+image_operator = ImageOperation(
+    filter_handler=FilterHandler(
+        db_model=db_models.Image
+    ),
+    bucket_name=ServeConfig.minio_public_images_bucket_name,
+    public=True
+)
+ImageCRUDRouter(
+    router=image_router,
+    operator=image_operator,
+    response_model=file_models.ResponseFile,
 )
 
 # Partition Router
@@ -76,6 +92,7 @@ user_operator = UserOperation(
         db_model=db_models.User
     )
 )
+
 UserCURouter(
     router=user_router,
     operator=user_operator,
@@ -84,24 +101,23 @@ UserCURouter(
     update_model=user_models.UserUpdate
 )
 
-# Vector Router
-vector_router = APIRouter(prefix="/vector", tags=["向量数据管理"])
-vector_operator = VectorOperation(
+# Chunk Router
+chunk_router = APIRouter(prefix="/chunk", tags=["Chunk Data Management"])
+chunk_operator = ChunkOperation(
     filter_handler=FilterHandler(
-        db_model=db_models.Vector
+        db_model=db_models.Chunk
     )
 )
-router = VectorRouter(
-    router=vector_router,
-    operator=vector_operator,
-    response_model=vector_models.ResponseVector,
-    create_model=vector_models.VectorCreate,
-    update_model=vector_models.VectorUpdate,
-    keyword_search_model=vector_models.VectorKeywordSearch,
-    search_response_model=vector_models.SearchVectorResponse,
-    vector_search_model=vector_models.VectorSearch,
-    hybrid_search_model=vector_models.HybridSearchModel,
-
+router = ChunkRouter(
+    router=chunk_router,
+    operator=chunk_operator,
+    response_model=chunk_models.ResponseChunk,
+    create_model=chunk_models.ChunkCreate,
+    update_model=chunk_models.ChunkUpdate,
+    keyword_search_model=chunk_models.ChunkKeywordSearch,
+    search_response_model=chunk_models.SearchChunkResponse,
+    vector_search_model=chunk_models.ChunkSearch,
+    hybrid_search_model=chunk_models.HybridSearchModel,
 )
 
 # RAGCache Router
@@ -157,42 +173,22 @@ BaseCRUDRouter(
     update_model=chat_models.ResponseRecordUpdate,
     keyword_search_model=chat_models.ResponseRecordKeywordSearch,
     search_response_model=chat_models.SearchResponseRecordResponse,
-
-)
-
-# Markdown Router
-markdown_router = APIRouter(prefix="/markdown", tags=["Markdown查询"])
-markdown_operator = BaseOperation(
-    filter_handler=FilterHandler(
-        db_model=db_models.Markdown
-    )
-)
-BaseCRUDRouter(
-    router=markdown_router,
-    operator=markdown_operator,
-    response_model=data_models.ResponseMarkdown,
-    create_model=data_models.MarkdownCreate,
-    update_model=data_models.MarkdownUpdate,
-    keyword_search_model=data_models.MarkdownKeywordSearch,
-    search_response_model=data_models.SearchMarkdownResponse,
-
 )
 
 # Document Router
 document_router = APIRouter(prefix="/document", tags=["文档查询"])
 document_operator = BaseOperation(
     filter_handler=FilterHandler(
-        db_model=db_models.DBaseModel
+        db_model=db_models.Document
     )
 )
 BaseCRUDRouter(
     router=document_router,
     operator=document_operator,
-    response_model=data_models.ResponseDocument,
-    create_model=data_models.DocumentCreate,
-    update_model=data_models.DocumentUpdate,
-
-    keyword_search_model=data_models.DocumentKeywordSearch,
-    search_response_model=data_models.SearchDocumentResponse,
+    response_model=document_models.ResponseDocument,
+    create_model=document_models.DocumentCreate,
+    update_model=document_models.DocumentUpdate,
+    keyword_search_model=document_models.DocumentKeywordSearch,
+    search_response_model=document_models.SearchDocumentResponse,
 
 )

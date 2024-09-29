@@ -1,15 +1,18 @@
 import asyncio
+import logging
 from typing import TypeVar, AsyncGenerator, Callable, Any, Literal
 
 from openai import RateLimitError, APIConnectionError, APITimeoutError, AsyncClient
 from pg_cache import AsyncPgCache
 from pydantic import BaseModel
 from diskcache import Cache
-from app.core.sql_error import logger
 from app.schemes.models.chat_models import Message
 from app.serves.model_serves.client_manager import ClientManager
 from app.serves.model_serves.cache_manager import llm_cached_call, embedding_cached_call
 from app.serves.model_serves.types import LLMInput, LLMOutput, EmbeddingInput, EmbeddingOutput
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 TInput = TypeVar('TInput', bound=BaseModel)
 TOutput = TypeVar('TOutput', bound=BaseModel)
@@ -24,6 +27,7 @@ class RAGModel:
         self.cache_expire_after_seconds = cache_expire_after_seconds
         self.enable_cache = cache is not None
         self.cache = cache
+        logger.info("RAGModel initialized with cache: %s", self.enable_cache)
 
     def _obfuscate_api_key(self, api_key: str) -> str:
         """Obfuscate the API key to avoid exposing it directly."""
@@ -32,9 +36,11 @@ class RAGModel:
     async def _execute_with_retries(self, func: Callable[..., Any], *args, max_retries: int = 3, **kwargs) -> Any:
         async with self.client_manager.semaphore:
             retry_count = 0
+            logger.info("Starting execution with retries, max_retries: %d", max_retries)
 
             while retry_count < max_retries * len(self.client_manager.api_configs):
                 client, limiter = await self.client_manager.get_client()
+                logger.debug("Using client with API key: %s", self._obfuscate_api_key(limiter.api_key))
 
                 try:
                     result = await func(client, limiter, *args, **kwargs)
@@ -45,11 +51,11 @@ class RAGModel:
 
                 except (RateLimitError, APIConnectionError, APITimeoutError) as e:
                     obfuscated_key = self._obfuscate_api_key(limiter.api_key)
-                    logger.warning(f"Error {e.__class__.__name__} with API key {obfuscated_key}, retrying...")
+                    logger.warning("Error %s with API key %s, retrying...", e.__class__.__name__, obfuscated_key)
 
                     retry_count += 1
                     wait_time = min(60, 2 ** retry_count)
-                    logger.info(f"Waiting for {wait_time} seconds before retrying.")
+                    logger.info("Waiting for %d seconds before retrying.", wait_time)
                     await asyncio.sleep(wait_time)
 
                     if isinstance(e, RateLimitError):
@@ -57,6 +63,7 @@ class RAGModel:
 
                     self.client_manager.rotate_client()
 
+            logger.error("Max retries reached, retrying after 60 seconds.")
             await asyncio.sleep(60)
             return await self._execute_with_retries(func, *args, max_retries=max_retries, **kwargs)
 
@@ -66,6 +73,7 @@ class RAGModel:
 
     async def ainvoke(self, model_name, user_input, system_input,
                       response_format: Literal["json"] | None = None) -> LLMOutput:
+        logger.info("Invoking model: %s", model_name)
         messages = [Message(role="system", content=system_input),
                     Message(role="user", content=user_input)]
         input_data = LLMInput(name=model_name, input_content=messages)
@@ -75,6 +83,8 @@ class RAGModel:
     @llm_cached_call()
     async def chat(self, *, model_input: LLMInput, max_retries: int = 5,
                    response_format: Literal["json"] | None = None) -> LLMOutput:
+        logger.info("Chat request for model: %s", model_input.name)
+
         async def chat_func(client: AsyncClient, limiter, model_input, response_format):
             if response_format:
                 response_format = {"type": "json_object"}
@@ -87,6 +97,7 @@ class RAGModel:
 
             total_tokens = response.usage.total_tokens
             limiter.update_limit_status(tokens=total_tokens)
+            logger.debug("Chat response received with total tokens: %d", total_tokens)
 
             return LLMOutput(output=response.choices[0].message.content, total_tokens=total_tokens)
 
@@ -95,6 +106,8 @@ class RAGModel:
         return response
 
     async def stream_chat(self, model_input: LLMInput, max_retries: int = 5) -> AsyncGenerator[LLMOutput, None]:
+        logger.info("Streaming chat for model: %s", model_input.name)
+
         async def stream_chat_func(client, limiter, model_input):
             response = await client.chat.completions.create(
                 model=model_input.name,
@@ -116,11 +129,9 @@ class RAGModel:
 
     @embedding_cached_call()
     async def embedding(self, *, model_input: EmbeddingInput, max_retries: int = 3) -> EmbeddingOutput:
+        logger.info("Embedding request for model: %s", model_input.name)
+
         async def embedding_func(client: AsyncClient, limiter, model_input):
-            # input_content len should be less than 64
-            # it is a limitation of the API
-            if len(model_input.input_content) > 64:
-                raise ValueError("input_content len should be less than 64")
             response = await client.embeddings.create(
                 model=model_input.name,
                 input=model_input.input_content,
@@ -128,6 +139,7 @@ class RAGModel:
             )
             total_tokens = response.usage.total_tokens
             limiter.update_limit_status(tokens=total_tokens)
+            logger.debug("Embedding response received with total tokens: %d", total_tokens)
 
             output = [data.embedding for data in response.data]
             return EmbeddingOutput(output=output, total_tokens=total_tokens)

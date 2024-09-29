@@ -1,14 +1,15 @@
 import json
 from datetime import timedelta
 from typing import Set
-
+from fastapi import HTTPException
 from pgvector.sqlalchemy import VECTOR
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean, UniqueConstraint, CheckConstraint
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean, UniqueConstraint, select
 from sqlalchemy import JSON
+from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import class_mapper
-
-from app.apis.db_config import Base
+from db_config import Base
 from app.db.utils import get_current_time
 
 
@@ -29,14 +30,19 @@ class DBaseModel(Base):
 
     @classmethod
     def get_relationship(cls, exclude_relationships: list = None) -> list:
-        if exclude_relationships is None:
-            exclude_relationships = ["users"]
-        # return [rel.key for rel in class_mapper(cls).relationships if rel.key not in exclude_relationships]
         return [rel.key for rel in class_mapper(cls).relationships]
 
     @classmethod
     def get_all_columns(cls):
         return [col.name for col in cls.__table__.columns]
+
+    @staticmethod
+    async def check_foreign_key_exists(db: AsyncSession, table, foreign_key_id):
+        query = select(table).where(table.c.id == foreign_key_id)
+        result = await db.execute(query)
+        exists = result.scalar_one_or_none()
+        if not exists:
+            raise HTTPException(status_code=404, detail=f"{table.name} with ID {foreign_key_id} does not exist.")
 
 
 class Partition(DBaseModel):
@@ -47,9 +53,8 @@ class Partition(DBaseModel):
     users = relationship("User", back_populates="partition", lazy="select")
     rag_caches = relationship("RAGCache", back_populates="partition", lazy="select")
     files = relationship("File", back_populates="partition", lazy="select")
-    markdowns = relationship("Markdown", back_populates="partition", lazy="select")
     documents = relationship("Document", back_populates="partition", lazy="select")
-    vectors = relationship("Vector", back_populates="partition", lazy="select")
+    chunks = relationship("Chunk", back_populates="partition", lazy="select")
     conversations = relationship("Conversation", back_populates="partition", lazy="select")
     response_records = relationship("ResponseRecord", back_populates="partition", lazy="select")
 
@@ -86,14 +91,16 @@ class File(DBaseModel):
     __tablename__ = 'files'
 
     file_name = Column(String, index=True)
-    file_hash = Column(String, index=True)
+    file_hash = Column(String, index=True, unique=True, nullable=False)
+    file_size = Column(Integer, nullable=True)
+    content_type = Column(String, nullable=True)
     reference_count = Column(Integer, default=1)
+    is_convert = Column(Boolean, default=False)
     partition_id = Column(Integer, ForeignKey('partitions.id'), nullable=True)
 
     partition = relationship("Partition", back_populates="files", lazy="select")
-    markdowns = relationship("Markdown", back_populates="file", lazy="select")
     documents = relationship("Document", back_populates="file", lazy="select")
-    vectors = relationship("Vector", back_populates="file", lazy="select")
+    chunks = relationship("Chunk", back_populates="file", lazy="select")
 
     __table_args__ = (
         UniqueConstraint('partition_id', 'file_hash', name='uq_partition_file_hash'),
@@ -103,63 +110,54 @@ class File(DBaseModel):
         return f"<File(id={self.id}, file_name='{self.file_name}')>"
 
 
-class Markdown(DBaseModel):
-    __tablename__ = 'markdowns'
-
-    title = Column(String, nullable=True)
-    content = Column(Text, nullable=False)
-    category = Column(String, nullable=True)
-    hash_key = Column(String, unique=True, index=True, nullable=False)
-    partition_id = Column(Integer, ForeignKey('partitions.id'), nullable=True)
-    file_id = Column(Integer, ForeignKey('files.id'), nullable=True)
-
-    partition = relationship("Partition", back_populates="markdowns", lazy="select")
-    file = relationship("File", back_populates="markdowns", lazy="select")
-    documents = relationship("Document", back_populates="markdown", lazy="select")
-    vectors = relationship('Vector', back_populates="markdown", lazy="select")
+class Image(DBaseModel):
+    __tablename__ = 'images'
+    image_name = Column(String, index=True)
+    image_hash = Column(String, index=True, unique=True, nullable=False)
+    image_size = Column(Integer, nullable=True)
+    reference_count = Column(Integer, default=1)
 
     def __repr__(self):
-        return f"<Markdown(id={self.id}, title='{self.title}', hash_key='{self.hash_key}')>"
+        return f"<Image(id={self.id}, image_name='{self.image_name}')>"
 
 
 class Document(DBaseModel):
     __tablename__ = 'documents'
-
     title = Column(String, nullable=True)
     content = Column(Text, nullable=False)
     category = Column(String, nullable=True)
+    is_convert = Column(Boolean, default=False)
+    doc_metadata = Column(JSONB, nullable=True)
     hash_key = Column(String, unique=True, index=True, nullable=False)
     partition_id = Column(Integer, ForeignKey('partitions.id'), nullable=True)
     file_id = Column(Integer, ForeignKey('files.id'), nullable=True)
-    md_id = Column(Integer, ForeignKey('markdowns.id'), nullable=True)
 
     partition = relationship("Partition", back_populates="documents", lazy="select")
     file = relationship("File", back_populates="documents", lazy="select")
-    markdown = relationship("Markdown", back_populates="documents", lazy="select")
-    vectors = relationship("Vector", back_populates="document", lazy="select")
+    chunks = relationship("Chunk", back_populates="document", lazy="select")
 
     def __repr__(self):
         return f"<Document(id={self.id}, title='{self.title}', hash_key='{self.hash_key}')>"
 
 
-class Vector(DBaseModel):
-    __tablename__ = 'vectors'
+class Chunk(DBaseModel):
+    __tablename__ = 'chunks'
 
-    page_content = Column(Text, unique=True, nullable=False)
+    page_content = Column(Text, nullable=False)
     vector = Column(VECTOR, nullable=False)
     category = Column(String, nullable=True)
+    is_convert = Column(Boolean, default=False)
+    doc_metadata = Column(JSONB, nullable=True)
     partition_id = Column(Integer, ForeignKey('partitions.id'), nullable=True)
     file_id = Column(Integer, ForeignKey('files.id'), nullable=True)
-    md_id = Column(Integer, ForeignKey('markdowns.id'))
-    doc_id = Column(Integer, ForeignKey('documents.id'), nullable=True)
+    document_id = Column(Integer, ForeignKey('documents.id'), nullable=True)
 
-    partition = relationship("Partition", back_populates="vectors", lazy="select")
-    file = relationship("File", back_populates="vectors", lazy="select")
-    markdown = relationship("Markdown", back_populates="vectors", lazy="select")
-    document = relationship("Document", back_populates="vectors", lazy="select")
+    partition = relationship("Partition", back_populates="chunks", lazy="select")
+    file = relationship("File", back_populates="chunks", lazy="select")
+    document = relationship("Document", back_populates="chunks", lazy="select")
 
     def __repr__(self):
-        return f"<Vector(id={self.id}, query_or_chunk='{self.page_content}')>"
+        return f"<Chunk(id={self.id}, page_content='{self.page_content}')>"
 
 
 class Conversation(DBaseModel):

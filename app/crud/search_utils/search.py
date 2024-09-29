@@ -1,39 +1,18 @@
 from typing import List, Type, TypeVar
+
 from pydantic import BaseModel
-from sqlalchemy import func, select, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
-from app.crud.execute_query_utils import execute_query
+from app.crud.search_utils.execute_query_utils import execute_query
 from app.crud.filter_utils.filters import FilterHandler
+from app.crud.search_utils.search_utils import build_search_query
 
 T = TypeVar('T', bound=BaseModel)
 
 
 def sanitize_keywords(keywords: List[str]) -> List[str]:
     return [keyword.strip() for keyword in keywords if keyword.strip()]
-
-
-def build_search_query(db_model: Type[DeclarativeBase], search_columns: List[str], query_condition: str, filters: dict,
-                       sort_by_rank: bool, filter_handler: FilterHandler):
-    search_vector = func.to_tsvector('jiebacfg',
-                                     func.concat_ws(' ', *[getattr(db_model, col) for col in search_columns]))
-    search_query = func.to_tsquery('jiebacfg', query_condition)
-    search_condition = search_vector.op('@@')(search_query)
-
-    query = select(db_model).where(search_condition)
-
-    filter_clause = filter_handler.create_filter_clause(filters)
-    query = query.where(filter_clause)
-
-    if sort_by_rank:
-        rank_score = func.ts_rank(search_vector, search_query).label('rank_score')
-        rank_position = func.row_number().over(order_by=rank_score.desc()).label('rank_position')
-        query = query.add_columns(*db_model.__table__.columns, rank_position, rank_score).order_by(rank_score.desc())
-    else:
-        query = query.add_columns(*db_model.__table__.columns)
-
-    return query
 
 
 async def search(db: AsyncSession, model: BaseModel, filter_handler: FilterHandler,

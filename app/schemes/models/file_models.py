@@ -7,9 +7,7 @@ from app.schemes.keyword_search import KeywordSearchModel
 
 
 class FileBase(BaseModel):
-    file_name: str
-    file_hash: str = None
-    partition_id: Optional[int] = None
+    partition_id: int | None = None
 
 
 class FileCreate(FileBase):
@@ -28,8 +26,11 @@ class FileKeywordSearch(KeywordSearchModel):
 
 class ResponseFile(BaseModel):
     id: int
-    file_name: str
-    reference_count: int
+    file_name: str | None
+    reference_count: int | None
+    file_size: int | None
+    content_type: str | None
+    is_convert: bool | None
     create_at: datetime
     update_at: datetime
     partition_id: Optional[int] = None
@@ -38,3 +39,12 @@ class ResponseFile(BaseModel):
 class SearchFileResponse(ResponseFile):
     rank_score: Optional[float] = None
     rank_position: Optional[int] = None
+
+
+class DbFile(BaseModel):
+    file_name: str
+    file_size: int
+    content_type: str
+    is_convert: bool
+    file_hash: str
+    partition_id: Optional[int] = None
