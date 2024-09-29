@@ -179,4 +179,6 @@ Desktop.ini
 # *.tmp
 *.db
 rag_config.py
+app/temp
+
 # End of https://www.toptal.com/developers/gitignore/api/python
