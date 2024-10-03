@@ -1,15 +1,19 @@
 import logging
-from sqlalchemy import create_engine, text, Connection
-from sqlalchemy.orm import Session
-from sqlalchemy.future import select
 
-from db_config import Base, no_async_engine
+from diskcache import Cache
+from sqlalchemy import create_engine, text, Connection
+from sqlalchemy.future import select
+from sqlalchemy.orm import Session
+
 from app.crud.file_utils.minio_service import MinIOFileService, init_minio_client
 from app.db import db_models
+from app.serves.model_serves.chat_model import ChatModel
 from app.serves.model_serves.client_manager import ClientManager
-from app.serves.model_serves.rag_model import RAGModel
+from app.serves.model_serves.embedding_model import EmbeddingModel
+from app.serves.model_serves.rerank_model import RerankModel
 from config import ServeConfig
-from contant import set_rag_embedding, set_rag_chat
+from db_config import Base, no_async_engine
+from model_constant import set_embedding_model, set_chat_model, set_rerank_model
 
 
 def initialize_super_admin(session: Session):
@@ -154,14 +158,18 @@ def init_db(reset_db: bool = False):
 def init_rag():
     """初始化RAG模型的客户端管理器"""
     try:
+        embedding_cache = Cache("./embedding_cache")
         embedding_client = ClientManager(api_configs=ServeConfig.embedding_api_configs)
         chat_client = ClientManager(api_configs=ServeConfig.llm_api_configs)
+        rerank_client = ClientManager(api_configs=ServeConfig.rerank_api_configs)
 
-        rag_embedding = RAGModel(client_manager=embedding_client)
-        rag_chat = RAGModel(client_manager=chat_client)
+        embedding_model = EmbeddingModel(client_manager=embedding_client, cache=embedding_cache)
+        chat_model = ChatModel(client_manager=chat_client)
+        rerank_model = RerankModel(client_manager=rerank_client)
 
-        set_rag_embedding(rag_embedding)
-        set_rag_chat(rag_chat)
+        set_embedding_model(embedding_model)
+        set_chat_model(chat_model)
+        set_rerank_model(rerank_model)
         logging.info("RAG model initialized successfully.")
     except Exception as e:
         logging.error(f"Error initializing RAG model: {e}")

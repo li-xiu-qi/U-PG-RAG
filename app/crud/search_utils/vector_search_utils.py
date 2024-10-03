@@ -1,4 +1,4 @@
-from sqlalchemy import func, select, and_
+from sqlalchemy import func, select, and_, Float
 
 
 def build_vector_search_query(db_model, query_vector,
@@ -10,9 +10,10 @@ def build_vector_search_query(db_model, query_vector,
     if filter_conditions:
         query = query.where(and_(*filter_conditions))
 
-    similarity_score = db_model.vector.op('<=>')(query_vector)
-    rank_position = func.row_number().over(order_by=similarity_score.asc()).label('rank_position')
-    query = query.add_columns(rank_position).order_by(rank_position).offset(offset).limit(limit)
+    similarity_score = (1 - db_model.vector.op('<=>', return_type=Float)(query_vector)).label('rank_score')
+    rank_position = func.row_number().over(order_by=similarity_score.desc()).label('rank_position')
+
+    query = query.add_columns(similarity_score, rank_position).order_by(rank_position).offset(offset).limit(limit)
 
     if threshold is not None:
         query = query.where(similarity_score >= threshold)

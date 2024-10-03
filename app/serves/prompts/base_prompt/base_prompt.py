@@ -16,7 +16,7 @@ class PromptExample:
         定义对象的字符串表示形式，方便打印输出。
         :return: 输入和输出的格式化字符串
         """
-        return f"输入：{self.input_text}\n输出：{self.output_text}"
+        return f"输入内容：{self.input_text}\n输出内容：{self.output_text}"
 
 
 class BasePrompt(ABC):
@@ -87,12 +87,12 @@ class BasePrompt(ABC):
         :return: 包含部分内容的字典
         """
         return {
-            "任务": self.task,
-            "约束": "\n".join(self.constraints) if self.constraints else "",
-            "示例": "\n".join(str(example) for example in self.examples) if self.examples else "",
+            "你的任务": self.task,
+            "你的约束": "\n".join(self.constraints) if self.constraints else "",
+            "输入输出示例": "\n".join(str(example) for example in self.examples) if self.examples else "",
             "上下文": self.context,
-            "输入": self.input_format,
-            "输出": self.output_format
+            "输入内容": self.input_format,
+            "输出格式要求": self.output_format
         }
 
     def generate_prompt(self, **kwargs):
@@ -103,7 +103,7 @@ class BasePrompt(ABC):
         """
         self._apply_dynamic_constraints(**kwargs)
         sections = self.generate_sections()
-        markdown_prompt = "\n\n".join(f"# {title}\n{content}" for title, content in sections.items() if content)
+        markdown_prompt = "\n\n".join(f"## {title}\n{content}" for title, content in sections.items() if content)
         return markdown_prompt
 
     def to_messages(self, **kwargs):

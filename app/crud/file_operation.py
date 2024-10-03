@@ -4,7 +4,7 @@ import os
 
 import aiofiles
 from fastapi import UploadFile
-from sqlalchemy.exc import SQLAlchemyError, IntegrityError
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud.base_file import BaseFile
@@ -13,8 +13,9 @@ from app.crud.chunk_operation import ChunkOperation
 from app.crud.file_utils.utils import sanitize_filename, generate_hash
 from app.crud.filter_utils.filters import FilterHandler
 from app.crud.image_operation import ImageOperation
-from app.db.db_models import File, Chunk, Document, Image
+from app.db.db_models import Chunk, Document, Image
 from app.schemes.models.chunk_models import ChunkCreate
+from app.schemes.models.data_precess_models import DataPrecess
 from app.schemes.models.document_models import DocumentCreate
 from app.schemes.models.file_models import FileCreate
 from app.serves.file_processing.file_convert import FileConvert
@@ -28,10 +29,10 @@ logger = logging.getLogger(__name__)
 
 class FileOperator(BaseFile):
     # TODO  加入事务维护数据一致性
-    async def process_single_file(self, db: AsyncSession, partition_id: int, file: UploadFile,
+    async def process_single_file(self, db: AsyncSession, model: DataPrecess, file: UploadFile,
                                   remove_image_tag=True) -> None:
         logger.info(f"Processing file: {file.filename}")
-        file_model = FileCreate(partition_id=partition_id)
+        file_model = FileCreate(partition_id=model.partition_id)
         try:
             file_data = await self.create_file_item(file=file, model=file_model, db=db)
             if file_data.reference_count > 1:
@@ -64,7 +65,7 @@ class FileOperator(BaseFile):
             doc_operator = BaseOperation(filter_handler=FilterHandler(db_model=Document))
             doc_model = DocumentCreate(
                 content=md_content,
-                partition_id=partition_id,
+                partition_id=model.partition_id,
                 file_id=file_data.id,
                 hash_key=doc_hash_key,
             )
@@ -74,7 +75,14 @@ class FileOperator(BaseFile):
             file_name = file_path.split('/')[-1]
 
             chunks = await nested_split_markdown(
-                file_path=new_file_path, text=md_content, chunk_size=2000, metadata={"source": file_name},
+                file_path=new_file_path, text=md_content,
+                chunk_size=model.chunk_size,
+                chunk_overlap=model.chunk_overlap,
+                metadata={
+                    "source": file_name,
+                    "chunk_size": model.chunk_size,
+                    "chunk_overlap": model.chunk_overlap
+                },
                 remove_image_tag=remove_image_tag, uri2remote=True,
                 image_operator=ImageOperation(
                     filter_handler=FilterHandler(db_model=Image),
@@ -90,7 +98,7 @@ class FileOperator(BaseFile):
                 ChunkCreate(
                     page_content=chunk.content_or_path,
                     doc_metadata=chunk.metadata,
-                    partition_id=partition_id,
+                    partition_id=model.partition_id,
                     file_id=file_data.id,
                     document_id=doc_data.id,
                 )
@@ -105,14 +113,14 @@ class FileOperator(BaseFile):
             await db.rollback()
             raise
 
-    async def data_process(self, db: AsyncSession, partition_id: int, files: list[UploadFile],
+    async def data_process(self, db: AsyncSession, model: DataPrecess, files: list[UploadFile],
                            remove_image_tag=True) -> None:
-        logger.info(f"Starting data processing for partition {partition_id}")
+        logger.info(f"Starting data processing for partition {model.partition_id}")
         try:
-            tasks = [self.process_single_file(db, partition_id, file, remove_image_tag) for file in files]
+            tasks = [self.process_single_file(db, model, file, remove_image_tag) for file in files]
             await asyncio.gather(*tasks)
-            logger.info(f"Data processing completed for partition {partition_id}")
+            logger.info(f"Data processing completed for partition {model.partition_id}")
         except (Exception, SQLAlchemyError) as e:
-            logger.error(f"Error processing data for partition {partition_id}: {e}")
+            logger.error(f"Error processing data for partition {model.partition_id}: {e}")
             await db.rollback()
             raise

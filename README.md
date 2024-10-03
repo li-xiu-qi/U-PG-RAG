@@ -2,7 +2,7 @@
 
 ## 版本：0.0.1
 
-### 更新日期：2024-09-15
+### 更新日期：2024-09-29
 
 ### **Note**:
 - 递归爬取数据的项目地址：[https://github.com/li-xiu-qi/recursive-crawl](https://github.com/li-xiu-qi/recursive-crawl)

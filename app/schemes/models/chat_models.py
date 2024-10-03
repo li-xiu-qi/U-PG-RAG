@@ -7,7 +7,7 @@ from app.schemes.keyword_search import KeywordSearchModel
 
 
 class Message(BaseModel):
-    role: Union[Literal['user'], Literal['assistant'], Literal['system']]
+    role: Literal['user', 'assistant', 'system']
     content: str
 
 

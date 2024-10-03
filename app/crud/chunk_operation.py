@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud.base_operation import BaseOperation
 from app.crud.search_utils import vector_search, hybrid_search
 from app.serves.model_serves.types import EmbeddingInput
-from contant import get_rag_embedding
+from model_constant import get_embedding_model
 from app.crud.filter_utils.filters import FilterHandler
 
 
@@ -18,7 +18,7 @@ class ChunkOperation(BaseOperation):
     async def process_vector_field(model: BaseModel):
         if model.vector is None and model.page_content:
             model_input = EmbeddingInput(input_content=[model.page_content])
-            rag_embedding = get_rag_embedding()
+            rag_embedding = get_embedding_model()
             embedding_output = await rag_embedding.embedding(model_input=model_input)
             model.vector = embedding_output.output[0]
 
@@ -62,7 +62,7 @@ class ChunkOperation(BaseOperation):
             chunks.append(current_chunk)
             chunked_models.append(current_chunk_models)
 
-        rag_embedding = get_rag_embedding()
+        rag_embedding = get_embedding_model()
 
         # 处理每个批次
         for chunk, models_chunk in zip(chunks, chunked_models):

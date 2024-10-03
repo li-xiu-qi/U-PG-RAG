@@ -1,4 +1,6 @@
+import jieba
 import jieba.analyse
+from nltk.corpus import stopwords
 
 
 async def query2keywords(query: str, keyword_count: int = 3) -> list:
@@ -24,6 +26,29 @@ async def query2keywords(query: str, keyword_count: int = 3) -> list:
     xc：其他虚词
 
     """
-    json_keywords = jieba.analyse.extract_tags(query, topK=keyword_count, withWeight=True,
-                                               allowPOS=('n', 'nr', 'ns', 'nt', 'nz'))
+    keywords = jieba.analyse.extract_tags(query, topK=keyword_count, withWeight=True,
+                                          allowPOS=('n', 'nr', 'ns', 'nt', 'nz'))
+    json_keywords = [keyword[0] for keyword in keywords]
     return json_keywords
+
+
+def to_keywords(input_string, num_keywords=-1):
+    """将句子转成检索关键词序列，并选择最长的几个词"""
+    # 按搜索引擎模式分词
+    word_tokens = jieba.cut_for_search(input_string)
+
+    # 加载停用词表
+    stop_words = set(stopwords.words('chinese'))
+
+    # 去除停用词
+    filtered_sentence = [w for w in word_tokens if w not in stop_words]
+
+    # 按照词的长度排序
+    sorted_keywords = sorted(filtered_sentence, key=len, reverse=True)
+
+    # 选择最长的几个词
+    top_keywords = sorted_keywords[:num_keywords]
+
+    return ' '.join(top_keywords)
+
+

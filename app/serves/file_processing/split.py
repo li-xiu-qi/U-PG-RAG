@@ -9,7 +9,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud.image_operation import ImageOperation
 from app.serves.file_processing.md_split import MarkdownHeaderTextSplitter, MarkdownTextRefSplitter, Chunk
 
-# Configure logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -17,6 +16,7 @@ logger = logging.getLogger(__name__)
 async def nested_split_markdown(file_path: str,
                                 text: str | None = None,
                                 chunk_size: int = 832,
+                                chunk_overlap: int = 32,
                                 metadata: dict = {},
                                 remove_image_tag: bool = True,
                                 uri2remote: bool = False,
@@ -36,7 +36,8 @@ async def nested_split_markdown(file_path: str,
     chunks = head_splitter.create_chunks(text, metadata=metadata)
     text_chunks = []
 
-    text_ref_splitter = MarkdownTextRefSplitter(chunk_size=chunk_size)
+    text_ref_splitter = MarkdownTextRefSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+    paragraph_counter = 1
 
     for chunk in chunks:
         header = ''
@@ -60,6 +61,8 @@ async def nested_split_markdown(file_path: str,
                                                       db=db)
                     if remove_image_tag:
                         sub_chunk = remove_image_tags(sub_chunk)
+                    sub_chunk.metadata['paragraph_number'] = paragraph_counter
+                    paragraph_counter += 1
                     text_chunks.append(sub_chunk)
 
         elif len(chunk.content_or_path) >= 10:
@@ -69,6 +72,8 @@ async def nested_split_markdown(file_path: str,
                                           db=db)
             if remove_image_tag:
                 chunk = remove_image_tags(chunk)
+            chunk.metadata['paragraph_number'] = paragraph_counter
+            paragraph_counter += 1
             text_chunks.append(chunk)
 
     logger.info(f"Completed nested_split_markdown for file: {file_path}")
@@ -145,5 +150,3 @@ def clean_md(text: str):
     # 使用小写
     new_text = new_text.lower()
     return new_text
-
-

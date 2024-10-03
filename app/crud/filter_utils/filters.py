@@ -57,6 +57,8 @@ class FilterHandler:
         """
         从提供的过滤器创建 SQLAlchemy 过滤子句。
         """
+        if filters is None:
+            filters = []
         stack = [(filters, [])]
         while stack:
             current_filters, conditions = stack.pop()

@@ -5,10 +5,11 @@ from logging_config import setup_logging
 # sys.setrecursionlimit(15000)  # 将递归深度限制增加到15000
 
 init_app()
-
+setup_logging()
 from pathlib import Path
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.apis import (partition_router,
                       admin_router,
@@ -19,11 +20,20 @@ from app.apis import (partition_router,
                       conversation_router,
                       response_record_router,
                       chunk_router,
-                      image_router)
+                      image_router,
+                      rag_router)
 
 app = FastAPI()
-app.add_event_handler("startup", setup_logging)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(rag_router)
 app.include_router(partition_router)
 app.include_router(admin_router)
 app.include_router(user_router)

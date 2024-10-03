@@ -2,12 +2,12 @@ import logging
 import logging.config
 
 
-def setup_logging():
+def setup_logging(log_level=logging.INFO):
     """
     配置日志系统。
 
     此函数配置了应用程序的日志记录方式，包括控制台输出和文件记录。
-    日志级别设置为INFO，这意味着INFO级别及以上的日志信息将被记录。
+    日志级别可以通过log_level参数进行设置。
     """
 
     # 定义日志配置字典
@@ -30,7 +30,7 @@ def setup_logging():
         'handlers': {
             'console': {
                 # 控制台处理器，用于在控制台显示日志
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'class': 'logging.StreamHandler',
                 'formatter': 'standard'
             },
@@ -52,8 +52,8 @@ def setup_logging():
             '': {  # 根日志器
                 # 使用的处理器列表
                 'handlers': ['console', 'file'],
-                # 设置日志级别为INFO
-                'level': 'INFO',
+                # 设置日志级别为传入的log_level参数
+                'level': log_level,
                 # 是否传递给父日志器
                 'propagate': True
             },

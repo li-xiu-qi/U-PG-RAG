@@ -2,12 +2,13 @@ from app.serves.prompts.base_prompt.base_prompt import BasePrompt, PromptExample
 
 
 class MultiSourceCiteMerger(BasePrompt):
-    def __init__(self, responses, input_format=None, output_format=None):
+    def __init__(self, question, responses, input_format=None, output_format=None):
         response_content = ""
         for i, response in enumerate(responses, start=1):
             response_content += f"[响应{i}]:\n{response}\n"
         input_format = input_format or (
-            f"根据以下多个响应，合并并调整引用序号：\n"
+            f"根据以下问题和多个响应，合并并调整引用序号：\n"
+            f"问题：{question}\n"
             "[响应内容]:\n"
             f"{response_content}\n"
             "[响应结束]"
@@ -20,6 +21,7 @@ class MultiSourceCiteMerger(BasePrompt):
 
         self.add_example(PromptExample(
             input_text="""
+            问题：什么是量子计算？
             [响应1]:
             量子计算是一种使用量子位进行计算的技术[1][2]。
             [响应2]:
@@ -32,6 +34,7 @@ class MultiSourceCiteMerger(BasePrompt):
 
         self.add_example(PromptExample(
             input_text="""
+            问题：量子计算的优势是什么？
             [响应1]:
             量子计算是一种使用量子位进行计算的技术[1][2]。
             [响应2]:

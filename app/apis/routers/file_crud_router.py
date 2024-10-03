@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.apis.deps import get_db
 from app.apis.routers.base_crud_router import BaseCRUDRouter
 from app.crud.file_operation import FileOperator
+from app.schemes.models.data_precess_models import DataPrecess
 from config import ServeConfig
 
 
@@ -58,9 +59,10 @@ class FileCRUDRouter(BaseCRUDRouter):
         return generate_file_url
 
     def _default_data_process(self):
-        async def data_process(partition_id: int, files: list[UploadFile],
+        async def data_process(files: list[UploadFile], model: DataPrecess = Depends(),
                                remove_image_tag=True, db: AsyncSession = Depends(get_db), ):
-            await self.operator.data_process(db=db, partition_id=partition_id, files=files,
+            await self.operator.data_process(db=db, model=model,
+                                             files=files,
                                              remove_image_tag=remove_image_tag)
             return {"message": "success"}
 

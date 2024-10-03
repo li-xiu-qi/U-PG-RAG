@@ -9,15 +9,13 @@ from sqlalchemy.orm import DeclarativeBase
 from app.crud.filter_utils.filters import FilterHandler
 from app.crud.search_utils.vector_search import vector_search
 from app.serves.model_serves.client_manager import ClientManager
-from app.serves.model_serves.rag_model import RAGModel
+from app.serves.model_serves.embedding_model import EmbeddingModel
 from app.serves.model_serves.types import EmbeddingInput
 from tests.config import ServeConfig
-from diskcache import Cache
 
 DATABASE_URL = ServeConfig.DATABASE_URL
-async_embedding_cache = Cache("./cache")
 embedding_client = ClientManager(api_configs=ServeConfig.embedding_api_configs)
-embedding_rag = RAGModel(client_manager=embedding_client, cache=async_embedding_cache)
+embedding_rag = EmbeddingModel(client_manager=embedding_client)
 
 
 class Base(DeclarativeBase):
@@ -57,7 +55,7 @@ async def insert_sample_data(session: AsyncSession):
         "如何学习Python编程",
         "今天天气真好",
         "如何提高英语听力",
-        "中国历史概述",
+        "学习中国历史概述",
         "最新科技新闻",
         "健康饮食小贴士",
         "旅游推荐：云南大理",
@@ -100,6 +98,7 @@ async def initialize_database():
             async with engine.begin() as conn:
                 await conn.run_sync(Base.metadata.drop_all)
                 await conn.run_sync(Base.metadata.create_all)
+                await conn.commit()
             await insert_sample_data(session)
 
 
@@ -115,26 +114,28 @@ async def perform_vector_search(session: AsyncSession, input_content: str, filte
 
 
 async def main():
-    await initialize_database()
+    # init database
+    # await initialize_database()
 
     async with AsyncSessionLocal() as session:
         input_content = "如何学习编程语言"
         results = await perform_vector_search(session, input_content)
         print("输入:", input_content)
         for res in results:
-            print(res.doc_id, res.content, res.rank_position)
+            print(res.doc_id, res.content, res.rank_position, res.rank_score)
 
         # 测试用例2：带过滤条件
         # filters = {"content": {"not": [{"like": "%编程%"}, {"like": "%天气%"}]}}
         # filters = {"content": {"in": ["你的名字叫什么"]}}
-        # filters = {"doc_id": {"between": [1, 10]}}
+        # filters = [{"doc_id": {"between": [1, 10]}}]
         # filters = {"content": {"exists": True}}
-        filters = {"content": {"=": "你的名字叫什么"}}
+        # filters = [{"content": {"eq": "你的名字叫什么"}}]
         # filters = [{"content": {"like": "%编程%"}}, {"doc_id": {"in": [1, 2, 3]}}]
-        results_with_filters = await perform_vector_search(session, input_content, filters=filters)
-        print("输入:", input_content, "带过滤条件:", filters)
-        for res in results_with_filters:
-            print(res.doc_id, res.content, res.rank_position)
+        # results_with_filters = await perform_vector_search(session, input_content, filters=filters)
+        # print("输入:", input_content, "带过滤条件:", filters)
+        # for res in results_with_filters:
+        #     print(res.doc_id, res.content, res.rank_position, res.rank_score)
+        #
 
 
 """
@@ -164,6 +165,7 @@ async def main():
     }
   ]
 """
+
 if __name__ == "__main__":
     import asyncio
 

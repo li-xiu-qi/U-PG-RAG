@@ -64,7 +64,7 @@ class ChunkSearch(BaseModel):
     page_content: str
     offset: int = 0
     limit: int = 20
-    vector: Optional[List[float]] = None
+    vector: List[float] | None = None
     filters: List[Dict[str, Union[Dict[str, Any]]]] = None
 
 
@@ -72,13 +72,18 @@ class HybridSearchModel(BaseModel):
     page_content: str
     keywords: List[str]
     search_columns: Optional[List[str]] = ["page_content"]
+    use_vector_search: bool = True
+    use_keyword_search: bool = True
+    rerank: bool = False
     sort_by_rank: Optional[bool] = True
     offset: Optional[int] = 0
     limit: Optional[int] = 20
-    vector: Optional[List[float]] = None
+    vector: List[float] | None = None
     k: Optional[int] = 1
     vector_weight: Optional[float] = 1.0
     keyword_weight: Optional[float] = 1.0
+    paragraph_number_ranking: Optional[bool] = False
+    filter_count: int | None = -1
 
 
 class SearchHybridResponse(BaseModel):
