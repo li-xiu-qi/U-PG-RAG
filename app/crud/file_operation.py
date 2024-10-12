@@ -19,7 +19,7 @@ from app.schemes.models.data_precess_models import DataPrecess
 from app.schemes.models.document_models import DocumentCreate
 from app.schemes.models.file_models import FileCreate
 from app.serves.file_processing.file_convert import FileConvert
-from app.serves.file_processing.split import nested_split_markdown
+from app.serves.file_processing.md_spliter import MarkdownSpliter
 from tests.config import ServeConfig
 from utils.find_root_dir import get_project_root
 
@@ -73,17 +73,18 @@ class FileOperator(BaseFile):
             logger.info(f"Document created for file {file.filename}")
 
             file_name = file_path.split('/')[-1]
-
-            chunks = await nested_split_markdown(
+            md_process = MarkdownSpliter(chunk_size=model.chunk_size,
+                                         chunk_overlap=model.chunk_overlap,
+                                         remove_image_tag=remove_image_tag,
+                                         uri2remote=True,
+                                         )
+            chunks = await md_process.nested_split_markdown(
                 file_path=new_file_path, text=md_content,
-                chunk_size=model.chunk_size,
-                chunk_overlap=model.chunk_overlap,
                 metadata={
                     "source": file_name,
                     "chunk_size": model.chunk_size,
                     "chunk_overlap": model.chunk_overlap
                 },
-                remove_image_tag=remove_image_tag, uri2remote=True,
                 image_operator=ImageOperation(
                     filter_handler=FilterHandler(db_model=Image),
                     bucket_name=ServeConfig.minio_public_images_bucket_name,
@@ -96,7 +97,7 @@ class FileOperator(BaseFile):
             chunk_operator = ChunkOperation(filter_handler=FilterHandler(db_model=Chunk))
             chunk_models = [
                 ChunkCreate(
-                    page_content=chunk.content_or_path,
+                    page_content=chunk.content,
                     doc_metadata=chunk.metadata,
                     partition_id=model.partition_id,
                     file_id=file_data.id,

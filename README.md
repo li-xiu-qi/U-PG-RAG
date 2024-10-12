@@ -47,11 +47,11 @@
 ### 效果展示
 
 - **关键词检索**：用户可以通过关键词检索问题，系统会返回相关问题列表。
-  ![](img/fd101857cada1e4504bb1e40547f16f2.png)
+  ![](data/img/fd101857cada1e4504bb1e40547f16f2.png)
 
 ## RAG 设计思路
 
-![1fb0e8cca8248839d0e4647dd2752e59_720.png](img/1fb0e8cca8248839d0e4647dd2752e59_720.png)
+![1fb0e8cca8248839d0e4647dd2752e59_720.png](data/img/1fb0e8cca8248839d0e4647dd2752e59_720.png)
 
 ## 使用方法
 

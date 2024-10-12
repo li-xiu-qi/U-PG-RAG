@@ -1,0 +1,1381 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>东北石油大学教务处</title><meta name="pageType" content="1">
+<meta name="pageTitle" content="东北石油大学教务处">
+<META Name="keywords" Content="东北石油大学教务处" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<link rel="stylesheet" href="css/default.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  
+$("#tuji .tempWrap").css("width","416px");
+
+});
+
+</script>
+<style>
+
+.w980{ width:1200px !important; margin:0 auto;}
+.w1000{ width:1200px !important; margin:0 auto;}
+ 
+</style>
+<!--Announced by Visual SiteBuilder 9-->
+<script language="javascript" src="_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232306578475050525742000400014e50 -->
+<link rel="stylesheet" type="text/css" href="index.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen" devices="pc|pad"></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1595299426)</script>
+</head>
+<body>
+<!--header-->
+<div class="header cleafix w980">
+    <!--logo-->
+    <div class="logo fl">
+<!-- 网站logo图片地址请在本组件"内容配置-网站logo"处填写 -->
+<a href="index.htm" title="教务处"><img src="images/jwc.png" /></a></div>
+    <!--right-->
+   
+</div>
+<!--nav-->
+<div style="width:1200px;margin:0 auto;background: #006666;height:46px;">
+<table>
+    <tr>
+        <td>
+            <div class="nav_menustyle_1_1">
+                <ul>
+                    <li><a href="index.htm" target="_blank">首页<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="jgsz.htm" target="_blank">机构设置<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="jgsz/zzjg.htm" target="_blank">组织机构<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jgsz/jygl.htm" target="_blank">教研管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jgsz/jwgl.htm" target="_blank">教务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jgsz/xjgl.htm" target="_blank">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jgsz/sjjx.htm" target="_blank">实践教学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jgsz/jsjxfz.htm">教师教学发展<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="http://cxcyxy.nepu.edu.cn/">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="bszn.htm" target="_blank">办事指南<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="bszn/jygl.htm" target="_blank">教研管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/jwgl.htm" target="_blank">教务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/kwgl.htm" target="_blank">考务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/sjjx.htm" target="_blank">实践教学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/cxcy.htm" target="_blank">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/jcgl.htm" target="_blank">教材管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/xjgl.htm" target="_blank">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="bszn/jsjxfz.htm">教师教学发展<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="gzzd.htm" target="_blank">规章制度<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="gzzd/gjzcfg.htm" target="_blank">国家政策法规<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/jygl.htm" target="_blank">教研管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/jwgl.htm" target="_blank">教务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/kwgl.htm" target="_blank">考务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/sjjx.htm">实践教学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/jcgl.htm" target="_blank">教材管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/cxcy.htm" target="_blank">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/xjgl.htm" target="_blank">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="gzzd/jsjxfz.htm">教师教学发展<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="jxjs.htm" target="_blank">教学建设<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="jxjs/kcjs.htm">课程建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/zyjs.htm">专业建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/jcjs.htm">教材建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/sjjdjs.htm">实践基地建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/jxcgjs.htm">教学成果建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/jgxmjs.htm">教改项目建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/jxms.htm">教学名师<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/cxcyjy.htm">创新创业教育<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jxjs/jsjxfz.htm">教师教学发展<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="zlxz.htm">资料下载<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="zlxz/jszlxz1.htm" target="_blank">教师资料下载<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]><table><tr><td><![endif]-->
+                        <ul>
+                            <li><a href="zlxz/jszlxz1/jygl.htm">教研管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/jcgl.htm">教材管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/jwgl.htm">教务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/sjjx.htm">实践教学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/cxcy.htm">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/kwgl.htm">考务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/jszlxz1/xjgl.htm">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                        </ul>
+                        <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                        <li><a href="zlxz/xszlxz.htm" target="_blank">学生资料下载<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]><table><tr><td><![endif]-->
+                        <ul>
+                            <li><a href="zlxz/xszlxz/jygl.htm">教研管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/jcgl.htm">教材管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/jwgl.htm">教务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/sjjx.htm">实践教学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/cxcy.htm">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/kwgl.htm">考务管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                            <li><a href="zlxz/xszlxz/xjgl.htm">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                            <!--[if lte IE 6]></a><![endif]-->
+                            </li>
+                        </ul>
+                        <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="xxfb.htm" target="_blank">信息发布<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="xxfb/jsfc.htm">教师风采<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/jcfb.htm">奖惩发布<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/tkxx.htm">听课信息<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/xsxw.htm">学士学位<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/ljytx.htm">留级与退学<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/cxcy.htm">创新创业<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="xxfb/xjgl.htm">学籍管理<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="jwzl.htm">教务助理<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="jwzl/jgjj1.htm">机构简介<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jwzl/zzjg.htm">组织机构<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jwzl/gzzd.htm">规章制度<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jwzl/hdtz1.htm">活动通知<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="jwzl/wjxz.htm">文件下载<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="gjsc.htm" target="_blank">高教视窗<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]></a><![endif]-->
+                    </li>
+                    <li><a href="zbjs1/zbxw.htm">党建工作<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]><table><tr><td><![endif]-->
+                    <ul>
+              
+                    
+                        <li><a href="zbjs1/zbxw.htm">支部新闻<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                        <li><a href="zbjs1/zbjs.htm">支部建设<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+                        <!--[if lte IE 6]></a><![endif]-->
+                        </li>
+                    </ul>
+                    
+                    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                    </li>
+                    <li><a href="http://myfzyjzx.nepu.edu.cn">美育教育<!--[if gte IE 7]><!--></a><!--<![endif]-->  
+                    <!--[if lte IE 6]></a><![endif]-->
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+<!--banner-->
+<div class="vsb-box">
+    
+    <!--banner1-->
+  
+    <!--banner2-->
+                
+</div>
+
+<!--页面主体部分-->
+<div class="main cleafix">
+    <!--left-->
+    <div class="vsb-box main-l fl">
+        <!--学院简介-->
+    
+        <script type="text/javascript">jQuery(".scholar").slide();</script>
+        <!--院长信箱-->
+        <div class="vsb-container" containerid="2" columns="1">
+            <div class="vsb-space mailWrap" columns="1">
+            
+                <div class="mail">
+               
+                </div>
+                <div> 
+
+<div class="tzgg">  
+<div class="sy-tzgg-title">
+    <ul class="tabs">
+    </ul>
+</div>
+    <!-- 显示日历 -->
+    <div id="calendar" style="width:318px; margin-top:0px;background:#fff;"></div>  
+    <div class="dqsj one">
+    <div class="dqsj-title">
+        <!-- h3 class="onetitle" style="display: none;">校</h3 -->
+        <div style="tetx-align:center;font-size:16px;padding:10px;">
+            <a class="dqsj-link" href="" target="_blank"></a>
+        </div>
+    </div>
+    <div class="dqsj-con"></div>
+    <div>
+       <span class="dqsj-date"></span>
+        
+    </div>
+    <div><a class="dqsj-more" href="gzzd/jygl.htm" target="_blank">更多</a></div>
+    </div>
+</div>
+<script>
+    var owner='1595299426';
+    var contentid="152917,152918,152919";
+    var map = {}; //存储date-json:index对应关系
+    var tb = ["一","二","三","四","五","六","七","八","九","十","十一","十二",
+              "十三","十四","十五","十六","十七","十八","十九","二十","二十一",
+              "二十二","二十三","二十四","二十五","二十六","二十七","二十八","二十九","三十","三十一"];
+    
+    var json = [];
+    var colTitle=""; 
+    //栏目切换
+     $(".tabs li").mouseover(function(){
+        var i = $(this).index();
+        if(i<3){
+            $(this).addClass("aaa_current").siblings().removeClass("aaa_current");
+            map={};
+            calUtil.eventName="current";
+            calUtil.curTab = i;
+            calUtil.init(json[i]);
+            //colTitle=$(".sy-tzgg-title a").eq(i).text().substring(0,1);
+            //$(".dqsj-title h3").text(colTitle);
+            var addr="";
+            if(i==0) addr="gzzd/jygl.htm";
+            else if (i==1) addr="gzzd/jwgl.htm";
+            else if (i==2) addr="gzzd/kwgl.htm";
+            $(".dqsj-more").attr("href",addr);
+        }
+    })
+    
+     function getJson(year,date){
+        var time=year+"-"+date;
+        $.ajax({
+        url : "/system/resource/news/calendar/newsservices.jsp",
+        type: "post",
+        data:{"owner":owner,"contentid":contentid,"date":time},
+        dataType : "json",
+        contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+        async : false,
+        success : function(data) {
+            json = data;
+            //calUtil.init(json[0]);
+            calUtil.init(json[calUtil.curTab]);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            //alert(textStatus);   
+            },   
+            complete: function(XMLHttpRequest, textStatus) { 
+            this; // 调用本次AJAX请求时传递的options参数   
+            }
+        }); 
+    } 
+    //填写信息
+    function fillNotice(item,selector){
+        var rootrul="http://www.hip.edu.cn/";
+        var url =rootrul+item.url;
+        //通知内容
+        $( selector+" .dqsj-title a.dqsj-link").text(item.title);
+        $( selector+" .dqsj-title a.dqsj-link").attr("href",url);
+        $( selector+" .dqsj-con").text(item.add);
+        $( selector+" .dqsj-date").text(item.time);
+    }
+    //更新通知信息
+    function updateNotice(index,date){
+        //var colTitle=$(".sy-tzgg-title a").eq(i).text().substring(0,1);
+        //$(".dqsj-title h3").text(colTitle);
+        $(".dqsj").hide();
+        //$(".onetitle").show();
+        var item=json[index][map[date]];
+        fillNotice(item , ".one");
+
+        if (item.more!=undefined) {
+            $(".dqsj").fadeIn();
+            $(".one .dqsj-more").show();
+      
+        }else {
+           $(".dqsj").fadeIn();
+           $(".one .dqsj-more").hide();
+        }
+    }
+    
+    function updateCalName(date){
+        var calendarName=calUtil.showYear+"年"+calUtil.showMonth+"月";
+        $(".calendar_month_span").html(calendarName); 
+    }
+    $(function(){
+        //默认初始化
+        calUtil.init([{"date":""}]);
+        //使用服务器期时间戳,校正本地日历时间
+        var url="/system/resource/news/calendar/newsservices.jsp?"+Math.random();
+        $.get(url,function(data,state,xhr){
+            var datestr=xhr.getResponseHeader("Date");
+            if(datestr){
+                var date=new Date(datestr);
+                if(date!=undefined){
+                    calUtil.curYear=calUtil.showYear=date.getFullYear();
+                    calUtil.curMonth=calUtil.showMonth=date.getMonth() + 1;
+                    calUtil.curDate=calUtil.showDate=date.getDate();
+                }
+            }
+            calUtil.getCurJson();
+        },"json")
+    });
+</script>
+<script type="text/javascript"> 
+var calUtil = {
+  //当前日历显示的年份
+  showYear:2017,
+  //当前日历显示的月份
+  showMonth:1,
+  //当前日历显示的天数
+  showDate:1,
+  curYear:2017,
+  curMonth:1,
+  curDate:1,
+  eventName:"load",
+  curTab:0,
+  //初始化日历
+  init:function(signList){
+    calUtil.setMonthAndDay();
+    calUtil.draw(signList);
+    calUtil.bindEnvent();
+    //alert(calUtil.showYear+"-"+calUtil.showMonth+"-"+calUtil.showDate);
+  }
+  ,
+  draw:function(signList){
+    //绑定日历
+    var str = calUtil.drawCal(calUtil.showYear,calUtil.showMonth,signList);
+    $("#calendar").html(str); 
+    //绑定日历表头
+    //var calendarName = buildCalName(terms[0],"三");
+    //$(".calendar_month_span").html(calendarName);  
+    if (calUtil.isCurrent()){
+        updateCalName(parseInt(calUtil.curDate));
+    }else{
+        $(".calendar_month_span").html(calUtil.showYear+"年"+calUtil.showMonth+"月"); 
+        $("#yuefen").attr("value",calUtil.showMonth);
+    }
+  },
+  //绑定事件
+  bindEnvent:function(){
+    //绑定上个月事件
+            $(".calendar_month_prev").click(function(){
+                //ajax获取日历json数据
+                calUtil.eventName="prev";
+                calUtil.init(json[calUtil.curTab]);
+                calUtil.eventName="current";
+                var year = calUtil.showYear;
+                var month = (calUtil.showMonth<10)?("0"+calUtil.showMonth):(""+calUtil.showMonth);
+                map={};
+                calUtil.getCurJson();
+                calUtil.showTodayNotice();
+            });
+            //绑定下个月事件
+            $(".calendar_month_next").click(function(){
+                //ajax获取日历json数据
+                calUtil.eventName="next";
+                calUtil.init(json[calUtil.curTab]);
+                calUtil.eventName="current";
+                map={};
+                calUtil.getCurJson();
+                calUtil.showTodayNotice();
+                //alert(calUtil.showMonth);
+            });
+            //日期点击事件
+            $("tbody td").click(function(){
+                //ajax获取日历json数据
+                var date = $(this).text();
+                if (date!=""){
+                    //$(".calendar_cur_date").text(tb[calUtil.showMonth-1] + "月" + tb[date-1] + ((tb[date-1].length)>1?"":"日"));
+                }
+                //更新日历表头
+                updateCalName(parseInt(date));
+                //更新活动通知
+                if ($(this).hasClass("on"))
+                    updateNotice(calUtil.curTab,date);
+                else
+                    $(".dqsj").hide();
+            });
+  },
+  getCurJson:function(){
+            var year = calUtil.showYear;
+            var month = (calUtil.showMonth<10)?("0"+calUtil.showMonth):(""+calUtil.showMonth);
+            getJson(year,month);
+        },
+        showTodayNotice:function(){
+            $(".dqsj").hide();
+            if(calUtil.dateHasNotice>0){
+                updateNotice(calUtil.curTab,calUtil.dateHasNotice);
+                calUtil.dateHasNotice=0;
+            }
+        },
+  //获取当前选择的年月
+  setMonthAndDay:function(){
+    switch(calUtil.eventName)
+    {
+      case "load":
+        var current = new Date();
+        calUtil.curYear=calUtil.showYear=current.getFullYear();
+        calUtil.curMonth=calUtil.showMonth=current.getMonth() + 1;
+        calUtil.curDate=calUtil.showDate=current.getDate();
+        break;
+      case "prev":
+        var nowMonth=calUtil.showMonth;
+        calUtil.showMonth=parseInt(nowMonth)-1;
+        if(calUtil.showMonth==0)
+        {
+            calUtil.showMonth=12;
+            calUtil.showYear-=1;
+        }
+        break;
+      case "next":
+        var nowMonth=calUtil.showMonth;
+        calUtil.showMonth=parseInt(nowMonth)+1;
+        if(calUtil.showMonth==13)
+        {
+            calUtil.showMonth=1;
+            calUtil.showYear+=1;
+        }
+        break;
+      case "current":
+        break; 
+    }
+  },
+  getDaysInmonth : function(iMonth, iYear){
+   var dPrevDate = new Date(iYear, iMonth, 0);
+   return dPrevDate.getDate();
+  },
+  bulidCal : function(iYear, iMonth) {
+   var aMonth = new Array();
+   aMonth[0] = new Array(7);
+   aMonth[1] = new Array(7);
+   aMonth[2] = new Array(7);
+   aMonth[3] = new Array(7);
+   aMonth[4] = new Array(7);
+   aMonth[5] = new Array(7);
+   aMonth[6] = new Array(7);
+   var dCalDate = new Date(iYear, iMonth - 1, 1);
+   var iDayOfFirst = dCalDate.getDay();
+   if(iDayOfFirst==0)iDayOfFirst=7;
+   var iDaysInMonth = calUtil.getDaysInmonth(iMonth, iYear);
+   var iVarDate = 1;
+   var d, w;
+   aMonth[0][0] = "一";
+   aMonth[0][1] = "二";
+   aMonth[0][2] = "三";
+   aMonth[0][3] = "四";
+   aMonth[0][4] = "五";
+   aMonth[0][5] = "六";
+   aMonth[0][6] = "日";
+   for (d = iDayOfFirst-1; d < 7; d++) {
+    aMonth[1][d] = iVarDate;
+    iVarDate++;
+   }
+   for (w = 2; w < 7; w++) {
+    for (d = 0; d < 7; d++) {
+     if (iVarDate <= iDaysInMonth) {
+      aMonth[w][d] = iVarDate;
+      iVarDate++;
+     }
+    }
+   }
+   return aMonth;
+  },
+  ifHasSigned : function(signList,day){
+   var signed = false;
+   $.each(signList,function(index,item){
+    if(item.date == day) {
+     signed = true;
+     if(map[day]==undefined){
+        map[day]=index;
+     }else{//多个活动则在json中添加more字段
+        if(signList[map[day]].more==undefined){
+            signList[map[day]].more=[index];
+        }else {
+            signList[map[day]].more.push(index);
+        }
+     }  
+    }
+   });
+   return signed ;
+  },
+  isCurrent :function(){
+   return (calUtil.curYear==calUtil.showYear && calUtil.curMonth==calUtil.showMonth);
+  },
+  drawCal : function(iYear, iMonth ,signList) {
+   var myMonth = calUtil.bulidCal(iYear, iMonth);
+   var htmls = new Array();
+   htmls.push("<div class='cal_main' id='cal_layer'>");
+   htmls.push("<div class='cal_succ_calendar_title'>");
+   htmls.push("<div class='calendar_cur_date'></div>");
+   htmls.push("<div class='calendar_top_right'>");
+   htmls.push("<div class='calendar_month_next'><img src='images/2.jpg'></div>");
+   htmls.push("<div class='calendar_month_prev'><img src='images/1.jpg'></div>");
+   htmls.push("<div class='calendar_month_span'></div>");
+   htmls.push("</div></div>");
+   htmls.push("<div class='cal'>");
+   htmls.push("<table>");
+   htmls.push("<tr>");
+   htmls.push("<th>" + myMonth[0][0] + "</th>");
+   htmls.push("<th>" + myMonth[0][1] + "</th>");
+   htmls.push("<th>" + myMonth[0][2] + "</th>");
+   htmls.push("<th>" + myMonth[0][3] + "</th>");
+   htmls.push("<th>" + myMonth[0][4] + "</th>");
+   htmls.push("<th>" + myMonth[0][5] + "</th>");
+   htmls.push("<th>" + myMonth[0][6] + "</th>");
+   htmls.push("</tr>");
+   var d, w;
+   for (w = 1; w < 7; w++) {
+    htmls.push("<tr>");
+    for (d = 0; d < 7; d++) {
+     var ifHasSigned = calUtil.ifHasSigned(signList,myMonth[w][d]);
+     //console.log(ifHasSigned);
+     if(ifHasSigned){
+      htmls.push("<td class='on'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</td>");
+     } else if(myMonth[w][d]==calUtil.curDate){
+      htmls.push("<td class='cur'>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</td>");
+      var str=tb[calUtil.showMonth-1] + "月" + tb[calUtil.showDate-1] + ((tb[calUtil.showDate-1].length)>1?"":"日");
+      htmls[2]="<div class=calendar_cur_date>"+str+"</div>"
+     } else {
+      if (!isNaN(myMonth[w][d]))
+      {
+        htmls.push("<td>" + myMonth[w][d] + "</td>");     
+      }
+      else{
+        htmls.push("<td class='empty'></td>");
+      }
+     }
+    }
+    htmls.push("</tr>");
+   }
+   htmls.push("</table>");
+   htmls.push("</div>");
+   htmls.push("</div>");
+   return htmls.join('');
+  }
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            </div>
+        </div>
+        <!--系所中心-->
+        <div class="vsb-container" containerid="2" columns="1">
+            
+        </div>
+        <!--校友风采-->
+        <div class="vsb-container" containerid="2" columns="1">
+            <div class="vsb-space college wangluo" columns="1" style="margin-top: 15px;padding-bottom: 0">
+                <h2>网络平台<a href="index/wlpt.htm" target="">更多</a></h2>
+                <div class="coll-bom">
+                    <ul>
+                        <script language="javascript" src="/system/resource/js/dynclicks.js"></script><script language="javascript" src="/system/resource/js/openlink.js"></script>    <li><a href="http://jwgl.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63730)">教务管理系统</a></li>
+    <li><a href="bkkcszjxyjzx/jbgk.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63731)">本科课程思政教学研究中心</a></li>
+    <li><a href="http://nepujf.mh.chaoxing.com" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63732)">教师教学发展平台</a></li>
+    <li><a href="http://nepu.fanya.chaoxing.com/portal" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63733)">在线课程平台</a></li>
+    <li><a href="https://portals.zhihuishu.com/dqpi/privateCourse" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63735)">智慧树网络课堂</a></li>
+    <li><a href="https://cloud.fanyu.com/organ/lib/nepu" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 74545)">维普论文管理系统</a></li>
+    <li><a href="https://www.xybsyw.com/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 74546)">校友邦实习实训系统</a></li>
+    <li><a href="http://210.46.136.17/Home/Index" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 88335)">考试测评中心系统</a></li>
+    <li><a href="index/xnfzsy.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 95602)">虚拟仿真实验</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--院内办公-->
+        <div class="xxx">
+        <div class="hea-search">
+            
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script>
+ 
+<div id="divu5"></div>
+<script type="text/html" id="htmlu5">
+    <div id="appu5">
+        <div v-if="!isError">
+            <input type="text" class="sea-text" placeholder="输入关键字搜索" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <input class="sea-but" name="submit_button" type="button" value="" v-on:click="onSubmit()"/>
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu5").html($("#htmlu5").text());
+</script>
+<script>
+    var appOwner = "1595299426";
+    var token = gettoken(10);
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu5",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script>
+        </div>
+        
+        </div>
+               
+        
+        
+         <!--院长信箱-->
+        <div class="vsb-container" containerid="2" columns="1">
+            <div class="vsb-space mailWrap mailWrap22" columns="1">
+                <div class="mail">
+                    <ul class="cleafix">
+                            
+
+            <li class="upi cleafix">
+                    
+                            <img src="images/dianhua.png" border="0">
+                            <p>举报电话：6503604</p>
+                   
+            </li>
+
+
+
+    
+        <li class="upi cleafix" style="margin-right: 0">
+                        <img src="img/index-pic.png" border="0">
+                        <p style="width: 270px;line-height: 20px;">举报信箱:nepujwcjsfk@126.com（教师）</p>
+                        <p style="width: 210px;line-height: 20px;padding-left: 60px;">nepujwcxsfk@126.com（学生）</p>
+             
+            
+        </li><br />
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--精品课程-->
+        
+        <!--友情链接-->
+        <div class="vsb-container" containerid="2" columns="1">
+            
+        </div>
+    </div>
+    <!--center-->
+    <div class="vsb-box main-c fl">
+        <!--焦点图切换-->
+        <div class="vsb-container" containerid="2" columns="2">
+            
+            <script type="text/javascript">
+            jQuery(".fonus").slide({mainCell:".bd ul",autoPlay:true});
+            </script>
+        </div>
+        <!--缩略图切换-->
+        <div class="vsb-container" containerid="2" columns="2">
+            
+            <script type="text/javascript">jQuery(".thumbnail").slide({ mainCell:".bd ul",effect:"left",autoPlay:true });</script>
+        </div>
+        <!--新闻焦点-->
+        <div class="vsb-container" containerid="2" columns="2">
+            
+        </div>
+        <!--综合新闻 tab切换-->
+        <div class="vsb-container" containerid="2" columns="2">
+            <div class="vsb-space compre-tab" columns="2" ">
+                <div class="hd">
+                    <ul>
+                        <a href="index/tzgg.htm" target=""> <li>    通知公告</li> </a>
+                       <a href="index/xwdt.htm" target=""> <li style="background:url(images/tab-bj1.png) no-repeat">新闻动态</li></a>
+                       <a href="index/zdgz.htm" target=""> <li style="margin-right: 0;float: right;background:url(images/tab-bj2.png) no-repeat;">  重点工作 </li> </a>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+
+<script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script> 
+ 
+
+<li>
+<ol>
+ 
+<li><a href="info/1164/7808.htm" title="关于做好2024-2025-1学期本科生课程认定与学分转换工作的通知" target="_blank">关于做好2024-2025-1学期本科生课程认定与学分转换工作的通...</a><span>2024-09-02</span></li>
+ 
+ 
+<li><a href="info/1166/9612.htm" title="关于2024年校级高等教育（本科）教学改革研究项目拟立项名单的公示" target="_blank">关于2024年校级高等教育（本科）教学改革研究项目拟立项名...</a><span>2024-09-30</span></li>
+ 
+ 
+<li><a href="info/1166/9602.htm" title="关于组织评选2024年校级教学成果奖（本科）暨推荐省级教学成果奖的通知" target="_blank">关于组织评选2024年校级教学成果奖（本科）暨推荐省级教学...</a><span>2024-09-29</span></li>
+ 
+ 
+<li><a href="info/1167/9582.htm" title="关于对审核评估课程材料进行全面自查的通知" target="_blank">关于对审核评估课程材料进行全面自查的通知</a><span>2024-09-27</span></li>
+ 
+ 
+<li><a href="info/1166/9562.htm" title="关于2024年基层教学组织备案及虚拟教研室、名师工作室立项建设的通知" target="_blank">关于2024年基层教学组织备案及虚拟教研室、名师工作室立项...</a><span>2024-09-26</span></li>
+ 
+ 
+<li><a href="info/1167/9542.htm" title="关于2022、2023级学生四级拓展课程安排及学分认定的重要通知" target="_blank">关于2022、2023级学生四级拓展课程安排及学分认定的重要通...</a><span>2024-09-24</span></li>
+ 
+ 
+<li><a href="info/1167/9522.htm" title="关于2024-2025学年第一学期重修课程安排的通知" target="_blank">关于2024-2025学年第一学期重修课程安排的通知</a><span>2024-09-23</span></li>
+ 
+ 
+<li><a href="info/1162/9492.htm" title="关于统计2022年-2023年大创立项项目成果的通知" target="_blank">关于统计2022年-2023年大创立项项目成果的通知</a><span>2024-09-18</span></li>
+ 
+ 
+<li><a href="info/1162/9482.htm" title="2024年省级以上大学生创新训练计划项目立项等级公示" target="_blank">2024年省级以上大学生创新训练计划项目立项等级公示</a><span>2024-09-18</span></li>
+ 
+ 
+<li><a href="info/1166/9422.htm" title="关于开展2024年高等教育（本科）教学改革研究项目立项工作的通知" target="_blank">关于开展2024年高等教育（本科）教学改革研究项目立项工作...</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="info/1167/9282.htm" title="关于2024-2025学年第一学期重修报名通知" target="_blank">关于2024-2025学年第一学期重修报名通知</a><span>2024-09-12</span></li>
+ 
+ 
+<li><a href="info/1161/9272.htm" title="关于东北石油大学“十四五”普通高等教育本科省级规划教材具备推荐资格名单的公示" target="_blank">关于东北石油大学“十四五”普通高等教育本科省级规划教材...</a><span>2024-09-10</span></li>
+ 
+ 
+<li><a href="info/1164/9262.htm" title="关于大学英语2重修课程免修的通知" target="_blank">关于大学英语2重修课程免修的通知</a><span>2024-09-09</span></li>
+ 
+ 
+<li><a href="info/1164/9242.htm" title="关于做好2025届优秀应届本科毕业生免试攻读硕士学位研究生遴选工作的通知" target="_blank">关于做好2025届优秀应届本科毕业生免试攻读硕士学位研究生...</a><span>2024-09-09</span></li>
+ 
+ 
+<li><a href="info/1164/9212.htm" title="关于做好2024级新生学籍注册工作的通知" target="_blank">关于做好2024级新生学籍注册工作的通知</a><span>2024-09-06</span></li>
+ 
+</ol>
+</li>
+
+
+
+
+                
+
+
+
+
+<script>_showDynClickBatch(['dynclicks_u7_7808','dynclicks_u7_9612','dynclicks_u7_9602','dynclicks_u7_9582','dynclicks_u7_9562','dynclicks_u7_9542','dynclicks_u7_9522','dynclicks_u7_9492','dynclicks_u7_9482','dynclicks_u7_9422','dynclicks_u7_9282','dynclicks_u7_9272','dynclicks_u7_9262','dynclicks_u7_9242','dynclicks_u7_9212'],[7808,9612,9602,9582,9562,9542,9522,9492,9482,9422,9282,9272,9262,9242,9212],"wbnews", 1595299426)</script>
+</ul>
+<ul>
+
+ 
+ 
+
+<li>
+<ol>
+ 
+<li><a href="https://www.nepu.edu.cn/info/1050/14747.htm" title="教务处带队赴审核评估访谈实习基地走访交流" target="_blank">教务处带队赴审核评估访谈实习基地走访交流</a><span>2024-09-29</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1050/14157.htm" title="抓好开学第一课 教务处开展新学期课堂教学检查" target="_blank">抓好开学第一课 教务处开展新学期课堂教学检查</a><span>2024-09-18</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1050/14177.htm" title="教务处召开审核评估实践教学基地访谈推进会" target="_blank">教务处召开审核评估实践教学基地访谈推进会</a><span>2024-09-18</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/12667.htm" title="东油召开2023-2024学年第二学期第五次教学工作例会与审核评估推进会" target="_blank">东油召开2023-2024学年第二学期第五次教学工作例会与审核评...</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13507.htm" title="东油召开2024年教学管理人员暑期培训会" target="_blank">东油召开2024年教学管理人员暑期培训会</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13637.htm" title="校长董宏丽带队开展开学初教学条件保障检查工作" target="_blank">校长董宏丽带队开展开学初教学条件保障检查工作</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13677.htm" title="东油学子获第十八届全国大学生化工设计竞赛全国一等奖" target="_blank">东油学子获第十八届全国大学生化工设计竞赛全国一等奖</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13737.htm" title="东油获批中国石油教育学会2024年石油高等教育（本科）教学成果奖6项" target="_blank">东油获批中国石油教育学会2024年石油高等教育（本科）教学...</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13927.htm" title="东油召开本学期第一次教学例会暨审核评估推进会" target="_blank">东油召开本学期第一次教学例会暨审核评估推进会</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/13907.htm" title="东油干部师生热议全国教育大会" target="_blank">东油干部师生热议全国教育大会</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/14037.htm" title="黑龙江建筑职业技术学院来校走访交流" target="_blank">黑龙江建筑职业技术学院来校走访交流</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/14087.htm" title="东油在中国国际大学生创新大赛（2024）黑龙江省省赛再创佳绩" target="_blank">东油在中国国际大学生创新大赛（2024）黑龙江省省赛再创佳...</a><span>2024-09-14</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1050/13867.htm" title="教务处完成2024年秋季学期新课程教师试讲评审工作" target="_blank">教务处完成2024年秋季学期新课程教师试讲评审工作</a><span>2024-09-13</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/11807.htm" title="东油召开2023—2024学年第二学期第四次教学工作例会" target="_blank">东油召开2023—2024学年第二学期第四次教学工作例会</a><span>2024-07-11</span></li>
+ 
+ 
+<li><a href="https://www.nepu.edu.cn/info/1049/11467.htm" title="校党委书记付晓飞作《应用型本科人才培养体系构建的思考》专题讲座" target="_blank">校党委书记付晓飞作《应用型本科人才培养体系构建的思考》...</a><span>2024-07-01</span></li>
+ 
+</ol>
+</li>
+
+
+
+
+                
+
+
+
+
+<script>_showDynClickBatch(['dynclicks_u8_9592','dynclicks_u8_9512','dynclicks_u8_9502','dynclicks_u8_9432','dynclicks_u8_9412','dynclicks_u8_9402','dynclicks_u8_9392','dynclicks_u8_9382','dynclicks_u8_9372','dynclicks_u8_9362','dynclicks_u8_9352','dynclicks_u8_9342','dynclicks_u8_9292','dynclicks_u8_8772','dynclicks_u8_8632'],[9592,9512,9502,9432,9412,9402,9392,9382,9372,9362,9352,9342,9292,8772,8632],"wbnews", 1595299426)</script>
+</ul>
+<ul>
+
+ 
+ 
+
+<li>
+<ol>
+ 
+<li><a href="info/1091/5310.htm" title="国家教育考试考务工作培训视频" target="_blank">国家教育考试考务工作培训视频</a><span>2015-12-10</span></li>
+ 
+ 
+<li><a href="info/1091/8210.htm" title="教务处领导班子工作总结及领导干部述职述廉报告公示" target="_blank">教务处领导班子工作总结及领导干部述职述廉报告公示</a><span>2024-04-03</span></li>
+ 
+ 
+<li><a href="http://jwc.nepu.edu.cn/info/1177/5713.htm" title="2020年届本科毕业生毕业和授位资格审查专题" target="_blank">2020年届本科毕业生毕业和授位资格审查专题</a><span>2020-03-26</span></li>
+ 
+ 
+<li><a href="http://jwc.nepu.edu.cn/info/1177/5581.htm" title="关于宣传《东北石油大学普通全日制本科生毕业管理办法》的通知" target="_blank">关于宣传《东北石油大学普通全日制本科生毕业管理办法》的通知</a><span>2019-12-27</span></li>
+ 
+ 
+<li><a href="info/1091/2071.htm" title="关于开展2020届本科毕业生自行学业预警工作的通知" target="_blank">关于开展2020届本科毕业生自行学业预警工作的通知</a><span>2019-09-30</span></li>
+ 
+ 
+<li><a href="info/1091/2070.htm" title="2018年12月CET考试专题" target="_blank">2018年12月CET考试专题</a><span>2018-12-07</span></li>
+ 
+ 
+<li><a href="http://jwc.nepu.edu.cn/info/1177/4850.htm" title="关于宣传《东北石油大学学士学位授予工作实施细则》的通知" target="_blank">关于宣传《东北石油大学学士学位授予工作实施细则》的通知</a><span>2018-11-14</span></li>
+ 
+ 
+<li><a href="info/1091/2063.htm" title="东北石油大学学士学位授予工作实施细则（东油校发〔2018〕104号）" target="_blank">东北石油大学学士学位授予工作实施细则（东油校发〔2018〕1...</a><span>2018-11-14</span></li>
+ 
+ 
+<li><a href="info/1091/2059.htm" title="关于公布2019与2020届本科毕业生部分政策的通知（东油校发〔2018〕105号）" target="_blank">关于公布2019与2020届本科毕业生部分政策的通知（东油校发...</a><span>2018-11-14</span></li>
+ 
+ 
+<li><a href="info/1091/2047.htm" title="关于开展2019届本科毕业生自行学业预警工作的通知" target="_blank">关于开展2019届本科毕业生自行学业预警工作的通知</a><span>2018-11-07</span></li>
+ 
+ 
+<li><a href="info/1091/2046.htm" title="2019届本科毕业生毕业与学位授予资格审核相关材料" target="_blank">2019届本科毕业生毕业与学位授予资格审核相关材料</a><span>2018-11-06</span></li>
+ 
+ 
+<li><a href="info/1091/2042.htm" title="东北石油大学2019届优秀应届本科毕业生获得免试攻读硕士学位研究生资格及后备资格学生名单公示" target="_blank">东北石油大学2019届优秀应届本科毕业生获得免试攻读硕士学...</a><span>2018-09-18</span></li>
+ 
+ 
+<li><a href="info/1091/2040.htm" title="2019届本科毕业生免试攻读硕士学位研究生各学院拟进入综合测试（面试）环节学生名单、拟推荐免试研究生学生名单公示" target="_blank">2019届本科毕业生免试攻读硕士学位研究生各学院拟进入综合...</a><span>2018-09-07</span></li>
+ 
+ 
+<li><a href="info/1091/2032.htm" title="关于推荐优秀2019届本科毕业生免试攻读硕士学位研究生工作实施细则" target="_blank">关于推荐优秀2019届本科毕业生免试攻读硕士学位研究生工作...</a><span>2018-09-05</span></li>
+ 
+ 
+<li><a href="info/1091/2031.htm" title="关于2018届毕业生提交重修课程（环节）总学分减免申请的通知" target="_blank">关于2018届毕业生提交重修课程（环节）总学分减免申请的通...</a><span>2018-06-14</span></li>
+ 
+</ol>
+</li>
+
+
+
+
+                
+
+
+
+
+<script>_showDynClickBatch(['dynclicks_u9_5310','dynclicks_u9_8210','dynclicks_u9_5715','dynclicks_u9_5582','dynclicks_u9_2071','dynclicks_u9_2070','dynclicks_u9_2064','dynclicks_u9_2063','dynclicks_u9_2059','dynclicks_u9_2047','dynclicks_u9_2046','dynclicks_u9_2042','dynclicks_u9_2040','dynclicks_u9_2032','dynclicks_u9_2031'],[5310,8210,5715,5582,2071,2070,2064,2063,2059,2047,2046,2042,2040,2032,2031],"wbnews", 1595299426)</script>
+</ul>
+                </div>
+            </div>
+            <script type="text/javascript">jQuery(".compre-tab").slide();</script>
+        </div>
+        <!--学院新闻 通知公告 学术动态-->
+        <div class="vsb-container" containerid="2" columns="2">
+            
+            <script type="text/javascript">
+                $(".school-tab").slide({ titCell:".hd li", mainCell:".bd", targetCell:".more a",autoPlay:false,delayTime:300 });
+            </script>
+        </div>
+        <!--学院新闻-->
+    
+            <div class="vsb-space school-news" columns="2">
+                
+
+<H2><SPAN>问题解答</SPAN><A href="index/wtjd.htm">更多</A></H2>
+<UL class="cleafix">
+
+<Li><A href="info/1088/7480.htm"><em title="本科生教学事务常见问题解答" target="_blank"> 本科生教学事务常见问题解答</em><SPAN>2023-02-16</SPAN></A></LI>
+ 
+<Li><A href="info/1088/6107.htm"><em title="新版教务系统使用指南（持续更新）" target="_blank"> 新版教务系统使用指南（持续更新）</em><SPAN>2020-10-19</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7985.htm"><em title="关于全校本科生完善个人手机号邮箱及安装东油企业微信的通知" target="_blank"> 关于全校本科生完善个人手机号邮箱及安装东油企业微信的通知</em><SPAN>2023-12-04</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7996.htm"><em title="智慧教室使用说明" target="_blank"> 智慧教室使用说明</em><SPAN>2023-12-01</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7819.htm"><em title="关于新学期多媒体教室维护服务保障的通知" target="_blank"> 关于新学期多媒体教室维护服务保障的通知</em><SPAN>2024-03-01</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7657.htm"><em title="​蓝贝思特光能黑板使用说明" target="_blank"> ​蓝贝思特光能黑板使用说明</em><SPAN>2023-04-24</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7497.htm"><em title="阅卷机使用手册" target="_blank"> 阅卷机使用手册</em><SPAN>2023-02-22</SPAN></A></LI>
+ 
+<Li><A href="info/1088/6710.htm"><em title="东北石油大学毕业（学位）证明办理流程" target="_blank"> 东北石油大学毕业（学位）证明办理流程</em><SPAN>2022-12-12</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7291.htm"><em title="雨课堂帮助指南" target="_blank"> 雨课堂帮助指南</em><SPAN>2022-11-08</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7289.htm"><em title="超星课堂使用帮助指南" target="_blank"> 超星课堂使用帮助指南</em><SPAN>2022-11-07</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7166.htm"><em title="东北石油大学“学习通”学生使用手册" target="_blank"> 东北石油大学“学习通”学生使用手册</em><SPAN>2022-08-31</SPAN></A></LI>
+ 
+<Li><A href="info/1088/7089.htm"><em title="通识教育选修课网络平台学习手册" target="_blank"> 通识教育选修课网络平台学习手册</em><SPAN>2022-06-24</SPAN></A></LI>
+ 
+</UL><script>_showDynClickBatch(['dynclicks_u10_7480','dynclicks_u10_6107','dynclicks_u10_7985','dynclicks_u10_7996','dynclicks_u10_7819','dynclicks_u10_7657','dynclicks_u10_7497','dynclicks_u10_6710','dynclicks_u10_7291','dynclicks_u10_7289','dynclicks_u10_7166','dynclicks_u10_7089'],[7480,6107,7985,7996,7819,7657,7497,6710,7291,7289,7166,7089],"wbnews", 1595299426)</script>
+
+            </div>
+        
+        <!--通知公告-->
+        
+        <!--精彩图集-->
+        
+        <!--快速链接-->
+        
+    </div>
+    <!--right-->
+    <div class="vsb-box main-r fl">
+        <!--学院新闻-->
+        
+        <!--近期学术讲座-->
+        
+        <!--讲座信息-->
+        
+        <!--学院师资-->
+        
+        <!--广告-->
+        
+        <!--广告 推荐免试研究生招生启动-->
+
+
+<div class="vsb-container" containerid="2" columns="2">
+            <div class="vsb-space serverWrap college " columns="2">
+             <h2 class="cleafix"><span>服务中心</span><a href="index/fwzx.htm" target="">更多</a></h2>
+                <div class="server">
+                   
+                    <ul>
+                        <LI><A href="index/jxxlyl.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63725)"><EM>教学校历一览</EM></A></LI>
+
+<LI><A href="zlxz/jszlxz1.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63726)"><EM>教师资料下载</EM></A></LI>
+
+<LI><A href="zlxz/xszlxz.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63727)"><EM>学生资料下载</EM></A></LI>
+
+<LI><A href="http://call.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63728)"><EM>办公电话查询</EM></A></LI>
+
+<LI><A href="gzzd.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63729)"><EM>教学管理制度</EM></A></LI>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!--服务中心-->
+        <div class="vsb-container" containerid="2" columns="2">
+
+<div class="vsb-space college college2" columns="2" style="margin-top: 0px;*margin-top:15px;padding-bottom: 8px">
+                <h2 class="cleafix"><span>考试安排</span><a href="index/ksap.htm" target="_blank">更多</a></h2>
+            <ol class="cleafix">
+ 
+ 
+ 
+<li><a href="info/1092/9082.htm" title="2024-2025-1学期开学初补考考试安排（更新中）" target="_blank">2024-2025-1学期开学初补考...</a><span>2024-09-02</span></li>
+ 
+ 
+<li><a href="info/1092/8291.htm" title="关于2023-2024学年第二学期公共基础课重修考试安排的通知" target="_blank">关于2023-2024学年第二学期...</a><span>2024-05-10</span></li>
+ 
+ 
+<li><a href="info/1092/8108.htm" title="2023-2024-2学期开学初补考考试安排（更新中）" target="_blank">2023-2024-2学期开学初补考...</a><span>2024-02-26</span></li>
+ 
+ 
+<li><a href="info/1092/7809.htm" title="2023-2024-1学期开学初补考考试安排（更新中）" target="_blank">2023-2024-1学期开学初补考...</a><span>2023-08-25</span></li>
+ 
+ 
+<li><a href="info/1092/7525.htm" title="2022-2023-2学期开学初补考考试安排（更新中）" target="_blank">2022-2023-2学期开学初补考...</a><span>2023-03-01</span></li>
+ 
+ 
+<li><a href="info/1092/7419.htm" title="2022-2023-1学期17、18周期末线上考试安排（更新中）" target="_blank">2022-2023-1学期17、18周期...</a><span>2022-12-31</span></li>
+ 
+ 
+<li><a href="info/1092/7350.htm" title="2022-2023-1学期12周线上考试安排（更新中）" target="_blank">2022-2023-1学期12周线上考...</a><span>2022-11-21</span></li>
+ 
+ 
+<li><a href="info/1092/7163.htm" title="2022-2023-1学期开学初线上补考考试安排（更新中）" target="_blank">2022-2023-1学期开学初线上...</a><span>2022-08-29</span></li>
+ 
+ 
+<li><a href="info/1092/7049.htm" title="2021-2022-2学期16周线上期末考试安排（更新中）" target="_blank">2021-2022-2学期16周线上期...</a><span>2022-06-02</span></li>
+ 
+ 
+<li><a href="info/1092/6992.htm" title="2021-2022-2学期线上重修考试安排（更新中）" target="_blank">2021-2022-2学期线上重修考...</a><span>2022-05-09</span></li>
+ 
+ 
+<li><a href="info/1092/6896.htm" title="2021-2022-2学期《大学英语1》课程（补考）在线考试实施方案" target="_blank">2021-2022-2学期《大学英语...</a><span>2022-03-11</span></li>
+ 
+ 
+<li><a href="info/1092/6895.htm" title="2021-2022-2学期《大学英语3》课程（补考）线上考试实施方案" target="_blank">2021-2022-2学期《大学英语...</a><span>2022-03-10</span></li>
+ 
+ 
+<li><a href="info/1092/6888.htm" title="2021-2022-2学期马克思主义学院线上补考考试安排" target="_blank">2021-2022-2学期马克思主义...</a><span>2022-03-06</span></li>
+ 
+ 
+<li><a href="info/1092/6884.htm" title="2021-2022-2学期大学物理（下）补考考试在线考试实施方案" target="_blank">2021-2022-2学期大学物理（...</a><span>2022-03-03</span></li>
+ 
+ 
+<li><a href="info/1092/6880.htm" title="2021-2022-2学期公共数学课程在线考试实施方案（补考）" target="_blank">2021-2022-2学期公共数学课...</a><span>2022-03-03</span></li>
+ 
+ 
+</ol>
+            </div><script>_showDynClickBatch(['dynclicks_u12_9082','dynclicks_u12_8291','dynclicks_u12_8108','dynclicks_u12_7809','dynclicks_u12_7525','dynclicks_u12_7419','dynclicks_u12_7350','dynclicks_u12_7163','dynclicks_u12_7049','dynclicks_u12_6992','dynclicks_u12_6896','dynclicks_u12_6895','dynclicks_u12_6888','dynclicks_u12_6884','dynclicks_u12_6880'],[9082,8291,8108,7809,7525,7419,7350,7163,7049,6992,6896,6895,6888,6884,6880],"wbnews", 1595299426)</script>
+</div>
+        <!--下拉菜单-->
+        <div class="vsb-container" containerid="2" columns="2">
+            <div class="vsb-space" columns="2">
+
+<div class="choice choice1">
+            <dl class="select">
+            <dt>----------校内常用站点-----------</dt>
+            <dd>
+                <ul>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63704)"> 实验室综合管理系统 </a></li>
+                </ul>
+            </dd>
+        </div>
+
+
+
+
+                <div class="choice choice1 choice2">
+            <dl class="select">
+            <dt>----------校外常用站点-----------</dt>
+            <dd>
+                <ul>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63708)"> 教育部高教司 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63709)"> 黑龙江省高等教育信息网 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63710)"> 高等学校本科专业信息管理与... </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63711)"> 黑龙江省教育厅教学改革项目... </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63712)"> 黑龙江省高教综合改革试点专... </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63713)"> 黑龙江省高等教育教学成果管... </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63714)"> 教育部考试中心综合查询网 </a></li>
+
+                    <li><a href="http://chaxun.neea.edu.cn/examcenter/query.cn?op=doQuerySubject&amp;pram=results" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63715)"> 教育部考试中心成绩查询系统 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63716)"> 中国高等教育学生信息网 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63717)"> 中华人民共和国学位证书查询 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63718)"> 学位网 </a></li>
+
+                    <li><a href="http://www.cet.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63719)"> 全国大学英语四、六级考试 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63720)"> 99宿舍—全国大学英语四六级... </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63721)"> 高等学校俄语专业教学管理平台 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63722)"> 黑龙江招生考试信息港 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63723)"> 黑龙江省学位委员会办公室 </a></li>
+
+                    <li><a href="http://jwc.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1595299426, 63724)"> 高等教育出版社产品信息检索系统 </a></li>
+                </ul>
+            </dd>
+        </div>
+
+
+
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    
+<!--footer-->
+<div class="footerWrap w1000">
+<div class="footer w1000 cleafix"><div class="footer w1000 cleafix">
+    <p>版权所有©东北石油大学 黑龙江省大庆市高新技术产业开发区学府街99号</p><p>信息维护：东北石油大学教务处 | 技术支持：现代教育技术中心</p>
+    </div></div>
+<script type="text/javascript">
+
+    jQuery(".banner1").slide({mainCell:".bd ul",autoPlay:true});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,44 @@
+# from app.serves.model_serves.chat_model import ChatModel
+# from app.serves.model_serves.embedding_model import EmbeddingModel
+# from app.serves.model_serves.rag_model import RAGModel
+# from app.serves.model_serves.rerank_model import RerankModel
+#
+# embedding_model: EmbeddingModel | None = None
+# chat_model: ChatModel | None = None
+# util_chat_model: ChatModel | None = None
+# rerank_model: RerankModel | None = None
+#
+# class BaseFactory:
+#     def __init__(self):
+#         self.models = {}
+#
+#     def get_model(self, model_name: str):
+#         return self.models.get(model_name)
+#
+#     def set_model(self, model_name: str, model):
+#         if self.models.get(model_name) is None:
+#             self.models[model_name] = model
+#
+#
+# class ModelFactory(BaseFactory):
+#     def __init__(self):
+#         super().__init__()
+#         self.models = {
+#             'embedding_model': None,
+#             'chat_model': None,
+#             'util_chat_model': None,
+#             'rerank_model': None
+#         }
+#
+#
+# class CacheFactory(BaseFactory):
+#     def __init__(self):
+#         super().__init__()
+#         self.models = {
+#             'html_fetch_cache': None
+#         }
+#
+
 from app.serves.model_serves.chat_model import ChatModel
 from app.serves.model_serves.embedding_model import EmbeddingModel
 from app.serves.model_serves.rag_model import RAGModel

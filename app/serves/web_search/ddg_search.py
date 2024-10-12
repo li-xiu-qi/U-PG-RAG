@@ -1,6 +1,6 @@
 from duckduckgo_search import DDGS
 
-from app.serves.web_search.web_search import WebSearch, SearchResult
+from app.serves.web_search.web_search_base import WebSearch, SearchResult
 
 
 class DDGSearch(WebSearch):

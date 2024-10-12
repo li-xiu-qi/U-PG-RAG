@@ -9,6 +9,7 @@ from app.serves.prompts.base_prompt import source_cite
 from app.serves.prompts.base_prompt import multi_source_cite_merger
 from app.serves.prompts.base_prompt import step_back_question
 from app.serves.prompts.base_prompt import multi_step_back_question
+from app.serves.prompts.base_prompt import rag_prompt
 
 
 class PromptFactory:
@@ -22,3 +23,4 @@ class PromptFactory:
     multi_source_cite_merger = multi_source_cite_merger.MultiSourceCiteMerger
     step_back_query = step_back_question.StepBackQuestion
     multi_step_back_question = multi_step_back_question.MultiStepBackQuestion
+    rag_prompt = rag_prompt.RAGPrompt

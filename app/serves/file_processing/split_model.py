@@ -1,13 +1,10 @@
-# 从  https://github.com/InternLM/HuixiangDou 修改而来
-
-
 from dataclasses import dataclass, field
 from typing import (Dict, TypedDict)
 
 
 @dataclass
 class Chunk:
-    content_or_path: str = ''  # 文本内容或路径
+    content: str = ''  # 文本内容或路径
     metadata: dict = field(default_factory=dict)  # 元数据字典
     modal: str = 'text'  # 模态类型，可以是 'text', 'image', 'audio' 之一
 
@@ -27,9 +24,9 @@ class Chunk:
         该重写可能会在将来被移除，取而代之的是在提示中直接格式化内容的更通用解决方案。
         """
         if self.metadata:
-            return f"modal='{self.modal}' content_or_path='{self.content_or_path}' metadata={self.metadata}"
+            return f"modal='{self.modal}' content_or_path='{self.content}' metadata={self.metadata}"
         else:
-            return f"modal='{self.modal}' content_or_path='{self.content_or_path}'"
+            return f"modal='{self.modal}' content_or_path='{self.content}'"
 
     def __repr__(self) -> str:
         return self.__str__()

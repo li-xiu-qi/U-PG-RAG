@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="keywords" content="网易企业邮箱,登录企业邮箱,企业邮箱注册,电子邮箱" />
+		<meta name="description" content="网易企业邮箱登录页面繁体版，帮助用户登录企业邮箱，开启随时随地，极速收发的便捷体验。" />
+		<meta name="title" content="网易企业邮箱 - 企业信息化专业解决方案">
+		<title>东北石油大学 - 邮箱用户登录</title>
+		<style type="text/css">
+			body{color:#707070;background:#fff;font-family:simsun,sans-serif;line-height:1.666em;}body,select,input,button,h1,h2,h3,h4,h5,h6{font-size:12px;}body,h1,h2,h3,h4,h5,h6,ul,ol,li,form,p,dl,dt,dd,table,th,td,img,blockquote{margin:0;padding:0;border:0;}input,button,textarea,img{line-height:normal;}abbr,acronym,address,cite,q,em,code,var,dfn,ins{font-style:normal;text-decoration:none;border:0;}q:before,q:after{content:"";}ul,ol{list-style:none;}table{border-collapse:collapse;border-spacing:0;}select,button,input{vertical-align:middle;}.ipt-c,.ipt-r{width:16px;height:16px;overflow:hidden;padding:0;margin:0 3px 0 0;}a{color:#154077;}a:hover{text-decoration:underline;}.header,.body,.footer,.part,.clear{+zoom:1;}.header:after,.body:after,.footer:after,.part:after,.clear:after{clear:both;content:".";font-size:0;display:block;height:0;overflow:hidden;visibility:hidden;}.sec-mod,.sec-mod h2,.login-mod .goto,.login-mod .ipt-b,.login-mod h2,.login-mod h2 em,.logo span,.bg{background-image:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/bg.gif);background-repeat:no-repeat;}.login-mod .ipt-t,.bgx{background-image:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/bgx.gif);background-repeat:repeat-x;}.page{width:950px;margin:auto;}.header{padding:25px 0;}.logo{float:left;}.logo img,.logo span{float:left;display:inline;}.logo img{margin-top:2px;margin-right:15px;}.logo span{width:176px;height:32px;text-indent:-999em;overflow:hidden;}.toplinks{float:right;line-height:32px;}.toplinks,.toplinks a{color:#8e8e8e;}.toplinks a{margin:0 3px;text-decoration:none;}.toplinks a:hover{text-decoration:underline;}.body{}.main-part{position:relative;width:950px;height:428px;overflow:hidden;}.login-mod{position:absolute;top:35px;left:505px;padding:35px 25px;width:363px;height:288px;}.login-mod h2,.login-mod .fi{margin:0 10px;}.login-mod h2{width:151px;height:30px;text-indent:-999em;overflow:hidden;margin-bottom:10px;}.login-mod .fi{padding:10px 0;}.login-mod .fi-notit{padding-left:4em;position:relative;}.login-mod .fi-notit label{margin-right:20px;}.login-mod label.tit{float:left;_margin-right:-3px;width:66px;line-height:29px;color:#000;}.login-mod .ipt-t{width:235px;border:1px solid #7A8395;padding:6px 4px;font-size:14px;margin-right:10px;font-family:Arial,sans-serif;}.login-mod .ipt-sample{color:#788F9E;}.login-mod .ipt-b{width:90px;height:30px;font-size:14px;font-weight:bold;color:#444;padding:0;border:0;background-position:0 -72px;cursor:pointer;}.login-mod .goto{background-position:0 -144px;margin-top:20px;padding:20px 0 0 10px;font-size:14px;}.body .login-mod-multidomain{padding:18px 25px}.body .login-mod-multidomain .goto{margin-top:0;padding:13px 0 8px 10px;}.login-mod form .fi select{padding:0 0 0 0;height:28px;width:245px;line-height:28px;}.login-mod .err{color:#D80001;}.login-mod .err.admin{left:154px}.sec-part{padding-top:20px;}.sec-mod{width:445px;padding-bottom:20px;line-height:25px;}.sec-mod h2{width:110px;height:36px;text-indent:-999em;overflow:hidden;margin-bottom:10px;}.intro-mod{float:left;background-position:350px -252px;}.intro-mod h2{background-position:-144px -72px;}.news-mod{float:right;background-position:45px -360px;}.news-mod h2{background-position:-288px -72px;}.login-mod .fi{position:relative;}.fi .eye{position:absolute;right:40px;top:10px;width:20px;height:20px;background-size:contain;cursor:pointer;}.fi .icon-open{background-image:url(../img/eye_open@2x.png);background-image:url(../img/eye_open.png)\9;}.fi .icon-close{background-image:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/eye_close@2x.png);background-image:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/eye_close.png)\9;}.footer{border-top:1px solid #ededed;margin-top:20px;text-align:center;}.footer,.footer a{color:#8e8e8e;}.footer span,.footer a{margin:0 10px;text-decoration:none;}.footer span{font-family:Arial,sans-serif;}.footer a:hover{text-decoration:underline;}.footer .link,.footer .right{padding:10px 0;}
+		</style>
+		<!-- <link href="//mg.127.net/static/mimg/o/domain/202407311830/index/css/global.css" rel="stylesheet" type="text/css" /> -->
+		<link href="//mg.127.net/static/mimg/o/domain/202407311830/index/css/user.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			.login-mod h2, .intro-mod h2, .news-mod h2 {
+				background-image:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/bg_cn_noqiye.png);
+				background-repeat:no-repeat;
+			}
+			.login-mod-wrapper {
+				display: block;
+				width: 413px;
+				height: 355px;
+				position: absolute;
+				top:40px;
+				left: 498px;
+			}
+			.login-mod-form {
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/loginFormBg.png) no-repeat;
+			}
+			.login-mod-qr {
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/bg_qr_expand.png) no-repeat;
+			}
+			.login-mod .fi-notit {
+				padding-left:30px;
+			}
+			.login-qr {
+				position: absolute;
+				left: 350px;
+				top: 291px;
+				width: 64px;
+				height: 64px;
+				cursor: pointer;
+			}
+			.login-qr-1 {
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/ic_qr.png) no-repeat;
+			}
+			.login-qr-1-hover {
+				left: 349px;
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/ic_qr_hover.png) no-repeat;
+			}
+			.app-download {
+				float:left;
+				margin-left:10px;
+				padding-left:20px;
+				margin-top:6px;
+			}
+			.app-download-android {
+				background:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/ic_android.png) no-repeat;
+			}
+			.app-download-iphone {
+				background:url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/ic_apple.png) no-repeat;
+			}
+			.app-download-link {
+				color: #9eb8a0;
+				text-decoration: none;
+			}
+			.logo {
+				width:150px;
+				height:40px;
+				background: url("https://mailh.qiye.163.com/qiyeimage/logo/537227458/1665216920837.png") no-repeat 0 0;
+			}
+			.logo-xc{
+				width:150px;
+				height:40px;
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/xclogo_new.png) no-repeat 0 0;
+			}
+			.fi{
+				padding: 5px 0 !important;
+			}
+			.form-btn {
+				background: #4c6aff;
+				background: url(//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/button.png) no-repeat;
+				width: 156px;
+				height: 34px;
+				border: none;
+				color: #fff;
+				cursor: pointer;
+			}
+			.form-btn:focus {
+				outline: none;
+			}
+			#err-wrapper{
+				/* width: 280px !important; */
+				margin-left: 78px;
+				/* text-align: center; */
+				height: 16px;
+				font-size: 12px;
+			}
+			.ssl-line{display: inline-block;}
+			.ssl-line select{
+				border: none;
+				width: auto!important;
+				right: 10px;
+				height: auto!important;
+				line-height: initial !important;
+				vertical-align: inherit;
+			}
+      .official-app {
+        position: relative;
+        z-index: 10;
+      }
+      .official-app > .download-qrcode {
+        display: none;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        -ms-transform: translate(-50%, 15px);
+        -webkit-transform: translate(-50%, 15px);
+        transform: translate(-50%, 15px);
+        padding: 10px 0px 5px;
+        box-shadow: 0px 4px 8px rgba(38, 42, 51, 0.1);
+        border-radius: 8px;
+        background: #FFFFFF;
+        border: 1px solid #E1E1E1;
+        color: #000;
+        width: 130px;
+        text-align: center;
+      }
+      .official-app > .download-qrcode > img {
+        display: block;
+        margin: 0 auto;
+      }
+      .official-app > .download-qrcode > p {
+        font-size: 14px;
+        color: #888;
+      }
+      .official-app:hover > .download-qrcode {
+        display: block;
+      }
+			.lingxi-download-btn {display: inline-block;border: 1px solid #386ee7;color: #386ee7;padding:2px 12px;border-radius: 25px;font-size: 14px;}
+			#donwload_block{color: #386ee7;margin-bottom: 30px;font-size: 16px;margin: 10px auto 10px;cursor: pointer;width: 260px;text-align: center;}
+			#donwload_block .download-title{margin: 0 5px;}
+			#msgpid {
+				text-align: right;
+			}
+		</style>
+		<style type="text/css">
+			body,button,input,select,textarea{font:13px 'Helvetica Neue',Helvetica,Arial,Sans-serif;}.en .login-mod h2{background:none;text-indent:0;font-size:14px;color:#115D8B;position:relative;left:0;padding-left:40px;line-height:30px;}.en .login-mod em{position:absolute;left:0;top:0;background-position:-252px 0;width:30px;height:30px;}.tw .login-mod h2{background-position:-252px -36px;}.main-part{background-image:none;}.text-mod p{width:100%;height:100%;display:none;text-indent:-999em;overflow:hidden;}.login-mod-wrapper{}.sec-mod,.sec-mod h2,.login-mod .ipt-b,.login-mod h2,.logo span,.login-mod-wrapper-0,.login-mod-wrapper-3{left:498px;}.login-mod-wrapper-1{left:33px;}.login-mod-wrapper-2{left:271px;}.m-codebox .closeentry{background:url("//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/codebg.png") -9999px -9999px;_background-image:url("../img/codebg-ie.png")}.w-codeentry,.m-codebox{position:absolute;bottom:0;right:0;_bottom:0;_right:0;cursor:default;}.w-codeentry,.m-codebox .closeentry{width:64px;height:63px;}.w-codeentry{background-position:0 0;}.w-codeentry:hover{background-position:-65px 0;}.m-codebox{top:355px;left:413px;overflow:hidden;}.m-codebox .closeentry{position:absolute;right:0;_right:-1px;bottom:0;background-position:0 -65px;}.m-codebox .closeentry:hover{background-position:-65px -65px;}.m-codebox .title{margin-top:88px;line-height:40px;font-size:14px;color:#000;text-align:center;}.m-codebox .appLoginTab{font-size:16px;color:#626262;text-align:center;position:relative;overflow:hidden;}.m-codebox .appLoginTab h3{padding-top:20px;font-weight:normal;line-height:35px}.m-codebox .appCodeWrap{margin-top:30px;height:150px;position:relative;}.m-codebox .appCode{padding:2px;background:#fff;box-shadow:0 0 5px rgba(0,0,0,.3);width:134px;height:134px;}.m-codebox .appCodeBox,.m-codebox .appCode-example{-webkit-transition:all 0.5s ease-in-out;-moz-transition:all 0.5s ease-in-out;-o-transition:all 0.5s ease-in-out;-ms-transition:all 0.5s ease-in-out;transition:all 0.5s ease-in-out;}.m-codebox .appCodeBox{position:relative;left:0;width:100%;}.m-codebox .appLoginTab .hover.allowmove .appCodeBox{left:-66px;}.m-codebox .appCodeLoading{position:absolute;top:60px;left:140px;}.m-codebox .appCode-example{position:absolute;top:-20px;right:40px;opacity:0;filter:alpha(opacity=0);width:140px;height:175px;background:url('../img/applogin_example.png') no-repeat;_background-image:url('../img/applogin_example_ie6.png');}.m-codebox .appLoginTab .hover.allowmove .appCode-example{opacity:1;filter:alpha(opacity=100);}.m-codebox .appCodeRefresh{position:absolute;top:0;left:138px;width:138px;height:138px;cursor:pointer;}.m-codebox .appLoginTxt{height:12px;line-height:12px;font-size:12px;}.m-codebox .appLogin-hint{margin:5px auto 0;text-align:center;font-size:12px;line-height:22px;background:#74B9F4;background:rgba(117,187,245,0.8);color:#fff;border-radius:20px;padding:4px 8px;}.m-codebox .appLoginlink{padding-top:30px;font-size:13px;line-height:16px}.m-codebox .appLoginlink var{color:#e0e0e0;margin:0 10px;}.m-codebox .appLoginlink a{color:#4ea9f6;}.m-codebox .appLoginlink a:hover{color:#4ea9f6;text-decoration:underline;}.m-codebox .howToUseApp:hover{color:#67bdff;text-decoration:none;}.m-codebox .appCode-mask{height:100%;background:#000;opacity:0.7;filter:alpha(opacity=70);}.m-codebox .appCode-wrap{width:138px;text-align:center;color:#fff;line-height:26px;display:table-cell;vertical-align:middle;height:138px;background:rgba(0,0,0,.7);}.m-codebox .appLogin-scanSuc{margin:0 auto;width:230px;height:210px;background:url('../img/applogin_scansuc.png') no-repeat;_background-image:url('../img/applogin_scansuc_ie6.png');}.m-codebox .appLoginScan{padding-top:20px;}.m-codebox .appLoginRestart{color:#5b8cca;font-size:14px;}.m-codebox .appLogin-scantxt{margin-top:10px;line-height:40px;font-weight:bold;}.login-mod{position:static;}.text-link{position:absolute;display:block;cursor:pointer;width:226px;height:30px;}.text-mod{display:none;}.goto{position:relative;}.gotoLink{margin-right:20px;text-decoration:none;font-size:13px;cursor:pointer;}.gotoLink:hover{text-decoration:none;}.selectNetwork{position:absolute;left:28px;top:66px;font-size:13px;padding:3px;background:#4489B9;width:100px;}.selectNetwork .title{padding-left:10px;height:20px;line-height:20px;font-weight:bold;color:white;}.selectNetwork .isps{background:white;color:#848585;text-align:center;height:50px;}.selectNetwork .isp{width:100px;height:40px;padding:5px 0;border-right:1px solid #aaa;float:left;cursor:pointer;text-decoration:none;}.selectNetwork a:hover{background:#EEE;text-decoration:none;}.selectNetwork .selected{background:#EEE;}.selectNetwork .isp-1{border-right:none;}.selectNetwork .best{color:#22AC37;}.selectNetwork .error{color:red;}.f-cb:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}.f-cb{zoom:1;}.f-dn{display:none;}.app-list ul{list-style:none;text-align:center;width:100%;}.app-list ul li{display:inline-block;margin:8px;width:24px;height:24px;cursor:pointer;}.login-mod-wrapper .app_sirius{position:absolute;right:0;top:0;width:0;height:0;border-style:solid;border-width:0 80px 80px 0;border-color:transparent rgba(76,106,255,0.8) transparent transparent;margin:0;cursor:pointer;}.login-mod-wrapper .app_sirius img{width:39px;height:39px;padding:12px 12px 12px 16px;margin-left:12px;cursor:pointer;}
+		</style>
+		<!-- <link href="//mg.127.net/static/mimg/o/domain/202407311830/index/css/custom.css" rel="stylesheet" type="text/css" /> -->
+		<!--[if lt ie 9]>
+		<style type="text/css">
+			.logo {
+				background: none;
+				filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mailh.qiye.163.com/qiyeimage/logo/537227458/1665216920837.png', sizingMethod='scale');
+			}
+		</style>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<h1 class="logo"></h1>
+					<div class="toplinks">
+					<a  class="official-app" id="official_app" href="//dashi.163.com/index.html?from=mail413"  target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+					邮箱官方客户端
+					<!-- <div class="download-qrcode">
+						<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/user.png" width="102" height="102" />
+						<p>扫码下载官方APP</p>
+					</div> -->
+					</a> |
+                    <a href="/?hl=en_US" target="_self">English</a>
+                        
+                         |
+                        <a href="http://wlxxyfw.nepu.edu.cn/NewEmail_yhsc.pdf">用户手册</a>
+                             |<a href="http://wlxxyfw.nepu.edu.cn/NewEmail_yhxz.pdf">用户须知</a>
+                            </div>
+			</div>
+			<div class="body">
+				<div class="part main-part" id="main-part">
+					<div id="login-mod-wrapper" class="login-mod-wrapper login-mod-form">
+						<div id="loginmod" class="mod login-mod  login-mod-multidomain">
+							<form name="loginform" id="loginform" action="https://mailh.qiye.163.com/login/domainEntLogin" method="post" onsubmit="return frmvalidator();">
+								<!-- <input type="hidden" name="ch" id="ch" value=""> -->
+								<input type="hidden" name="pubid" id="pubid" value="">
+								<input type="hidden" name="passtype" id="passtype" value="">
+								<input type="hidden" name="support_verify_code" id="support_verify_code" value="1">
+								<div class="fi">
+									<label class="tit">
+										用户名
+									</label>
+									<input type="text" name="account_name" id="account_name" class="ipt-t ipt-sample" value="" />
+								</div>
+								<div class="fi">
+										<label class="tit">
+											域名
+										</label>
+										<select id="domain" name="domain" class="ipt-t">
+											<option value="nepu.edu.cn">nepu.edu.cn</option>
+											<option value="stu.nepu.edu.cn">stu.nepu.edu.cn</option>
+											</select>
+									</div>
+								<div class="fi">
+									<label class="tit">
+										密 码
+									</label>
+									<input type="password" class="ipt-t" name="password" id="password" value=""/>
+									<span class="eye icon-close js-eye" id="js-eye"></span>
+								</div>
+								<!-- 新增验证码 -->
+								<div id="verifyCodeWrap" class="fi f-dn">
+									<label class="tit">验证码</label>
+									<input type="text" name="verify_code" id="verify_code" style="float:left;width:140px;height:24px;line-height:24px;" class="ipt-sample">
+									<a id="codeImgWrap" style="float:left;width:100px;height:30px;padding:0;margin:0;display:block;cursor:pointer;" href="javascript:void(0);">
+										<img src="" style="width:100%;height:100%;">
+									</a>
+								</div>
+								<div class="fi" style="clear:both;">
+									<label for="remUsername">
+										<input name="remUser" id="remUsername" value="1" type="checkbox" class="ipt-c" />
+										记住用户名
+									</label>
+									&nbsp;&nbsp;
+									<input type="hidden" name="secure" value="1"/>
+									<div class="ssl-line">使用
+										<select name="all_secure" id="m_all_secure">
+											<option value="1">全程SSL登录</option>
+											<option value="0">SSL安全登录</option>
+										</select>
+										<select name="ch" id="ch" style="display: none;">
+											<option value="">默认线路</option>
+											<option value="hw">国际线路</option>
+										</select>
+									</div>
+								</div>
+								<div id="err-wrapper" class="err">
+									<span id="msgpid"></span>
+								</div>
+								<div class="fi fi-notit f-cb" style="text-align: center;">
+									<input type="submit" class="form-btn" value="登　录" id="submit-btn" />
+								</div>
+								<div class="app-list J_appList"> 
+									<ul>
+										<li>
+											<img id="mobilelogin" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/mobile_login.png" width="24" height="24" style="vertical-align: sub;" title="手机号登录"/>
+										</li>
+										<li  >
+											<img id="appWechat" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-wx.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+										<li  >
+											<img id="appQiyeWechat" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-qiyewx.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+										<li  >
+											<img id="appDingtalk" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-dingtalk.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+                                        <li >
+											<img id="appSirius" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-lingxi.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+									<ul>
+								</div>
+								<div class="app_sirius J_app_sirius" id="sirius_scan_wrapper">
+									<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon_scan.png"  id="appDashi" class="sirius_scan" width="24" height="24" />
+								</div>
+								<div class="goto" style="margin-top:0;">
+										<a href="/admin.jsp" class="gotoLink" target="_blank">管理员登录</a>
+                                        <a class="gotoLink" id="resetPwd">忘记密码？</a>
+										<a class="gotoLink" id="selectNetwork">登录太慢？</a>
+										</div>
+								</form>
+							<a href="//dashi.163.com/index.html?from=mail413" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+								<div id="donwload_block">
+									<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-ds.png" width="20" height="20" style="vertical-align: sub;" />
+									<span class="download-title">邮箱官方客户端</span>
+									<span class="lingxi-download-btn">立即下载</span>
+								</div>
+							</a>
+						</div>
+						<div  style="display: none;" id="mobilemod" class="mod login-mod  login-mod-multidomain">
+							<form name="loginform" id="mobileform" action="https://mailh.qiye.163.com/login/domainEntLogin" method="post" onsubmit="return frmvalidator();">
+								<input type="hidden" class="js_pubid" name="pubid" value="">
+								<input type="hidden" class="js-mobile" name="mobile" value="">
+                                <input type="hidden" class="js-prefix" name="prefix" value="86">
+                                <input type="hidden" class="js-code" name="code" value="">
+                                <input type="hidden" class="js-isSecure" name="secure" value="1">
+                                <input type="hidden" class="js-language" name="language" value="0">
+                                <input type="hidden" class="js-passtype" name="passtype" value="">
+                                <input type="hidden" class="js-referer" name="referer" value="">
+                                <input type="hidden" class="js-module" name="module" value="">
+                                <input type="hidden" class="js-ua" name="ua" value="" >
+                                <input type="hidden" id ="js-captcha" class="js-captcha" name="captcha" value="">
+                                <input type="hidden" class="js-unq_code" name="unq_code" value="">
+                                <input type="hidden" class="js-rsa" name="rsa" value="">
+                                <input type="hidden" class="js-area" name="area" value="">
+								<div class="fi">
+									<label class="tit">
+										手机号
+									</label>
+                                    <input id="phone" name="phone" class="ipt-t ipt-sample js-value js-phone u-mobile" tabindex="1" type="text" placeholder="请输入手机号码" title="请输入手机号码">
+								</div>
+								<div class="fi">
+									<label class="tit">验证码</label>
+									<input type="text" name="mobile_code" id="mobile_code" style="float: left;width: 154px;" class="ipt-t ipt-sample">
+									<div id="mobilecode" style="float: left;width: 70px;height: 30px;padding: 0;margin: 0;display: block;cursor: pointer;line-height: 30px;color: #487ad6;">
+										发送验证码
+									</div>
+									<div id="js_timer" class="sendCode grey" style="display: none;line-height: 30px;"></div>
+								</div>
+								<div id="captcha"></div>
+								<div class="fi" style="clear:both;">
+									<input type="hidden" name="secure" value="1"/>
+									<div class="ssl-line">使用
+										<select name="all_secure" id="all_secure">
+											<option value="1">全程SSL登录</option>
+											<option value="0">SSL安全登录</option>
+										</select>
+									</div>
+								</div>
+								<div id="err-wrapper" class="err">
+									<span id="msgpid"></span>
+								</div>
+								<div class="fi fi-notit f-cb" style="text-align: center;">
+									<div class="form-btn js-mobile-submit" style="display: inline-block;line-height: 34px;">登　录</div>
+								</div>
+								<div class="app-list J_appList"> 
+									<ul>
+										<li>
+											<img id="accountlogin" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/usr_login.png" width="24" height="24" style="vertical-align: sub;" title="账号密码登录" />
+										</li>
+										<li  >
+											<img id="appWechat" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-wx.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+										<li  >
+											<img id="appQiyeWechat" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-qiyewx.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+										<li  >
+											<img id="appDingtalk" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-dingtalk.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+                                        <li >
+											<img id="appSirius" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-lingxi.png" width="24" height="24" style="vertical-align: sub;" />
+										</li>
+									<ul>
+								</div>
+								<div class="app_sirius J_app_sirius" id="sirius_scan_wrapper">
+									<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon_scan.png"  id="appDashi" class="sirius_scan" width="24" height="24" />
+								</div>
+								<div class="goto" style="margin-top:0;">
+										<a href="/admin.jsp" class="gotoLink" target="_blank">管理员登录</a>
+                                        <a class="gotoLink" id="resetPwd">忘记密码？</a>
+										<a class="gotoLink" id="selectNetwork">登录太慢？</a>
+										</div>
+								</form>
+							<form class="login-form login-form-token js-loginform js-loginform-token" action="" name="tokenlogin" method="post" target="_top">
+								<input type="hidden" class="js-token-domain" name="domain" value="">
+								<input type="hidden" class="js-token-account" name="account_name" value="">
+								<input type="hidden" class="js-token" name="token" value="">
+								<input type="hidden" class="js-isAllSecure" name="all_secure" value="1">
+								<input type="hidden" class="js-isSecure" name="secure" value="1">
+								<input type="hidden" class="js-ch" name="ch" value="">
+							</form>
+							<div style="display: none;" id="accountList" class="m-loginbox-list">
+								<div class="m-loginbox-back" id="accountBack"><span class="u-prev-step"></span><span>返回</span></div>
+								<div class="m-loginbox-title" data-lang-key="请选择要登录的账号">请选择要登录的账号</div>
+								<ul class="login-account-list" id="mobileChoose">
+								</ul>
+							</div>
+							<div style="display: none;" id="mobileVerify">
+								<div class="m-loginbox-back" id="verifyBack"><span class="u-prev-step"></span><span data-lang-key="返回">返回</span></div>
+								<div class="m-loginbox-title">首次登录请完成账号验证</div>
+								<div class="m-loginbox-input" style="margin: 10px;">
+									<div class="m-ipt fi js-ipt disable">
+										<input class="ipt-t ipt-sample js-account-value" id="js-account-value" tabindex="1" type="text" disabled>
+										<div class="m-error"></div>
+									</div>
+									<div class="m-ipt fi js-ipt">
+										<input class="ipt-t ipt-sample js-pwd-value" id="js-pwd-value" tabindex="2" data-lang-placeholder="密码" placeholder="密码" data-lang-title="请输入密码" title="请输入密码" type="password" name="password">
+										<div class="m-error"></div>
+									</div>
+									<div class="loginbtn" id="verifyPwd" style="margin: 20px 0 20px 8px">
+										<button class="form-btn" tabindex="4" data-lang-key="验证并登录">验证并登录</button>
+									</div>
+									<div id="pwdmid" class="loginerror pwderror"></div>
+								</div>
+							</div>
+							<a href="//dashi.163.com/index.html?from=mail413" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+								<div id="donwload_block">
+									<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon-ds.png" width="20" height="20" style="vertical-align: sub;" />
+									<span class="download-title">邮箱官方客户端</span>
+									<span class="lingxi-download-btn">立即下载</span>
+								</div>
+							</a>
+						</div>
+						<div class="m-codebox js-codebox f-zindex-10 login-mod-form" id="codeContain">
+							<!-- 安全登录 -->
+							<div id="appLoginTab" class="appLoginTab">
+								<div id="appLoginWait" style="display: block;">
+									<h3>手机扫码 安全防盗</h3>
+									<div id="appCodeWrap" class="appCodeWrap allowmove">
+										<div id="appCodeBox" class="appCodeBox">
+											<img id="appCode" class="appCode" width="130" height="130" src="">
+											<div id="appCodeRefresh" class="appCodeRefresh" style="display: none;">
+												<div class="appCode-wrap"><p>二维码已失效<br>请点击刷新</p></div>
+											</div>
+										</div>
+									</div>
+									<p id="appLoginTxt" class="appLoginTxt txt-err"></p>
+									<span class="appLogin-hint">使用 <span id="appName" ></span> 扫描二维码登录</span>
+								</div>
+								<div id="appLoginScan" class="appLoginScan" style="display:none">
+									<div class="appLogin-scanSuc"></div>
+									<p class="appLogin-scantxt txt-suc">成功扫描，请在手机上确认登录</p>
+									<a id="appLoginRestart" class="appLoginRestart" href="javascript:void(0)">返回重新扫描</a>
+								</div>
+						</div>
+						<div class="app_sirius" id="sirius_pc_wrapper">
+							<img src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../img/icon_pc.png" id="appSiriusPc" class="sirius_pc" width="24" height="24" />
+						</div>
+						<a class="closeentry js-closeentry" href="javascript:;" hidefocus="true" id="closeEntryBtn"></a>
+					</div>
+            	</div>
+					</div>
+			<div class="part sec-part">
+					</div>
+			</div>
+		<div class="footer">
+			<div class="link">
+					</div>
+
+				<div class="right">
+					<span>
+						Copyright 东北石油大学 ©2022 Northeast Petroleum University. 咨询电话：0459-6504054</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function getId(id){
+			return document.getElementById(id);
+		}
+		function getCookie(name) {
+			   var search = name + "="
+			   if(document.cookie.length > 0) {
+				  offset = document.cookie.indexOf(search)
+				  if(offset != -1) {
+					 offset += search.length
+					 end = document.cookie.indexOf(";", offset)
+					 if(end == -1) end = document.cookie.length
+					 return unescape(document.cookie.substring(offset, end))
+				  }
+				  else return ""
+			   }
+		}
+		function frmvalidator(){
+			account = getId("account_name");
+			p = getId("password");
+			var account_name=account.value;
+			var password=p.value;
+			var domain = getId("domain").value;
+			var pos = account_name.indexOf("@");
+			if(pos > 0){
+				var ndomain=account_name.substring(pos + 1);
+				if(domain == "" || domain == "qiye.163.com"){
+					getId("domain").value = ndomain;
+				}
+				account.value=account_name.substring(0,pos);
+			}
+			getId("submit-btn").setAttribute("disabled", true);
+			var form = getId("loginform");
+			var url = form.action;
+			var _entryHost = (domainType == 'hz') ? entryhzhost : entrybjhost;
+				form.action = entryhzhost + "/login/domainEntLogin";
+				form.submit();
+		}
+	</script>
+	<script type="text/javascript">
+	var currentBanner = 'https://mailh.qiye.163.com/qiyeimage/logo/537227458/1665216905560.jpg',
+		isDefaultBg = !currentBanner || currentBanner.indexOf('img/user_bg.jpg') > -1 || false, // 兼容老版本使用user_bg.jpg 或者 为空 实际也表示默认背景
+		currentStyle = '3',
+		addresses = 't,c,h',
+		isHmail = true, // 邮箱系统类型：0-cm,1-hm
+        errMsg = '',
+        domainType = 'hz' || 'bj';
+        verifyCodeUrl = window.location.protocol + '//mailh.qiye.163.com/login/getverifycode.jsp';
+		var entryHost = 'https://mailh.qiye.163.com';
+		var entryhzhost = 'https://mailh.qiye.163.com';
+		var entrybjhost = 'https://mail.qiye.163.com';
+		var cssPath = '//mg.127.net/static/mimg/o/domain/202407311830/index/css/';
+        pageType = 'normal';
+        // verifyCode = 'false';
+		var mimgHost = 'mg.127.net';
+		if(window.location.href.indexOf('code=true') > -1){
+			verifyCode = 'true'
+		}else{
+			verifyCode = 'false';
+		}
+		var highTls = 'false';
+		var mailXc = {'data':'false', 'cname':'false'};
+		var cookie_ds = getCookie('ds');
+		var ignoreMobileLogin = cookie_ds ? +cookie_ds.charAt(0) : 'false';
+		var ipv6 = cookie_ds ? +cookie_ds.charAt(1) : false;
+		var cssPath = '//mg.127.net/static/mimg/o/domain/202407311830/index/css/';
+		// cssPath
+	</script>
+	<script type="text/javascript">
+		(function(document,datracker,root){if(ipv6) return;function loadJsSDK(){var script,first_script;script=document.createElement("script");script.type="text/javascript";script.async=true;script.src="https://hubble-js-bucket.nosdn.127.net/DATracker.globals.1.6.12.8.js";first_script=document.getElementsByTagName("script")[0];first_script.parentNode.insertBefore(script,first_script)}if(!datracker["__SV"]){var win=window;var gen_fn,functions,i,lib_name="DATracker";window[lib_name]=datracker;datracker["_i"]=[];datracker["init"]=function(token,config,name){var target=datracker;if(typeof(name)!=="undefined"){target=datracker[name]=[]}else{name=lib_name}target["people"]=target["people"]||[];target["abtest"]=target["abtest"]||[];target["toString"]=function(no_stub){var str=lib_name;if(name!==lib_name){str+="."+name}if(!no_stub){str+=" (stub)"}return str};target["people"]["toString"]=function(){return target.toString(1)+".people (stub)"};function _set_and_defer(target,fn){var split=fn.split(".");if(split.length==2){target=target[split[0]];fn=split[1]}target[fn]=function(){target.push([fn].concat(Array.prototype.slice.call(arguments,0)))}}functions="get_user_id track_heatmap register_attributes register_attributes_once clear_attributes unregister_attributes current_attributes single_pageview disable time_event get_appStatus track set_userId track_pageview track_links track_forms register register_once alias unregister identify login logout signup name_tag set_config reset people.set people.set_once people.set_realname people.set_country people.set_province people.set_city people.set_age people.set_gender people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.set_populationWithAccount  people.set_location people.set_birthday people.set_region people.set_account abtest.get_variation abtest.async_get_variable".split(" ");for(i=0;i<functions.length;i++){_set_and_defer(target,functions[i])}datracker["_i"].push([token,config,name])};datracker["__SV"]=1.6;loadJsSDK()}})(document,window["DATracker"]||[],window);
+		if(!ipv6){
+			DATracker.init('MA-B8B4-DCBCC6752B4F', {
+				truncateLength: 255,
+				persistence: "localStorage",
+				cross_subdomain_cookie: false
+			});
+		}
+	</script>
+	<script type="text/javascript" src="../js/loginjs.jsp"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/external/lib/md5/md5.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/external/lib/polyfill/es5-polyfill.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/external/lib/promise-polyfill/polyfill.min.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/external/lib/fingerprint/fingerprint_v3.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/dollardom.min.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/cstaticdun.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/qiye_finger.js"></script>
+    <script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/qiye_algorithm.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/ajax_util.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/login_util.js"></script>
+    <script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/select_banner.js"></script>
+	<script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/reset_pwd.js"></script>
+    <script type="text/javascript" src="//mg.127.net/static/mimg/o/domain/202407311830/index/css/../js/lingxi_download_config.js"></script>
+</html>

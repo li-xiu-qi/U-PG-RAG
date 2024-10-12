@@ -1,6 +1,6 @@
 import requests
 
-from app.serves.web_search.web_search import SearchResult
+from app.serves.web_search.web_search_base import SearchResult
 
 
 class GoogleSearch:

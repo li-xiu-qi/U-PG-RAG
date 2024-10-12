@@ -16,7 +16,6 @@ async def main():
     embed_input_data = EmbeddingInput(
         name="BAAI/bge-m3",
         input_content=[f"你好{_}" for _ in range(64)]
-
     )
     response = await rag.embedding(model_input=embed_input_data)
     print(len(response.output))

@@ -1,0 +1,1087 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>东北石油大学研究生部</title><meta name="pageType" content="1">
+<meta name="pageTitle" content="东北石油大学研究生部">
+<META Name="keywords" Content="东北石油大学研究生部" />
+
+  <link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
+  
+    <style type="text/css">
+            .imgbox{
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin-top: 9px;}
+            .imgbox img{width: 50px;
+                height: 50px;}
+            .wrap{
+                
+                width: 243px;
+                height: 68px;}
+            .pboxa{text-align: center;line-height: 68px;    float: left;padding-left: 20px;}
+        </style>
+<!--Announced by Visual SiteBuilder 9-->
+<script language="javascript" src="_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232306578475050525742000400014e50 -->
+<link rel="stylesheet" type="text/css" href="index.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen" devices="pc|pad"></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1596416069)</script>
+</head>
+<body class="cl">
+
+
+
+
+
+    <!-- 头部开始 -->
+  <div id="header">
+     <div id="top">
+        <div class="w cl">
+            <div class="f  ">
+                &nbsp;
+            </div>
+            <div class="cl" style="float: right;">
+<script language="javascript">
+function dosuba257096a()
+{
+    try{
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.indexOf("msie 8")>-1)
+        {
+            window.external.AddToFavoritesBar(document.location.href,document.title,"");//IE8
+        }else if(ua.toLowerCase().indexOf("rv:")>-1)
+        {
+            window.external.AddToFavoritesBar(document.location.href,document.title,"");//IE11+
+        }else{
+            if (document.all) 
+            {
+                window.external.addFavorite(document.location.href, document.title);
+            }else if(window.sidebar)
+            {
+                window.sidebar.addPanel( document.title, document.location.href, "");//firefox
+            }
+            else
+            {
+                alert(hotKeysa257096a());
+            }
+        }
+
+    }
+    catch (e){alert("无法自动添加到收藏夹，请使用 Ctrl + d 手动添加");}
+}
+function hotKeysa257096a() 
+{
+    var ua = navigator.userAgent.toLowerCase(); 
+    var str = "";    
+    var isWebkit = (ua.indexOf('webkit') != - 1); 
+    var isMac = (ua.indexOf('mac') != - 1);     
+    if (ua.indexOf('konqueror') != - 1) 
+    {  
+        str = 'CTRL + B'; // Konqueror   
+    } 
+    else if (window.home || isWebkit || isMac) 
+    {        
+        str = (isMac ? 'Command/Cmd' : 'CTRL') + ' + D'; // Netscape, Safari, iCab, IE5/Mac   
+    }
+    return ((str) ? '无法自动添加到收藏夹，请使用' + str + '手动添加' : str);
+}
+function setHomepagea257096a()
+{
+    var url = document.location.href;
+    if (document.all)
+    {
+        document.body.style.behavior='url(#default#homepage)';
+        document.body.setHomePage(url);
+    }
+    else if (window.sidebar)
+    {
+        if(window.netscape)
+        {
+             try{
+                  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+             }catch (e){
+                   alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+             }
+        }
+    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch);
+    prefs.setCharPref('browser.startup.homepage',url);
+    }
+    else
+    {
+        alert("浏览器不支持自动设为首页，请手动设置");
+    }
+}
+</script>
+  
+            <A href="javascript:setHomepagea257096a()" style="TEXT-DECORATION: none;">
+                <span style="COLOR: #222222;FONT-FAMILY: 宋体;FONT-SIZE: 9pt;color:white">设为首页</span>
+            </A>
+         <A>
+                <span style="COLOR: #222222;FONT-FAMILY: 宋体;FONT-SIZE: 9pt;color:white">|</span>
+            </A>
+            <A onclick="javascript:dosuba257096a();" href="#" style="TEXT-DECORATION: none;">
+                <span style="TEXT-DECORATION: none;COLOR: #222222;FONT-FAMILY: 宋体;FONT-SIZE: 9pt;color:white">加入收藏</span>
+            </A>
+</div>
+        </div><!--.w-->
+     </div><!--/top-->
+     <div id="mid">
+         <div class="logo w">
+<!-- 网站logo图片地址请在本组件"内容配置-网站logo"处填写 -->
+<a href="index.htm" title="研究生部"><img border="0" src="images/yjs.png" /></a></div><!--.logo-->
+     </div><!--/mid-->
+     <div id="bot"><!--.nav 菜单开始-->
+<DIV class="nav w">
+<UL class="cl">
+                  
+<li>
+<a href="index.htm">首页</a>
+   
+    <ul>
+          <li>  <a href="index/zsxx.htm">招生信息</a></li>
+          <li>  <a href="index/tzgg.htm">通知公告</a></li>
+          <li>  <a href="index/xwdt.htm">新闻动态</a></li>
+          <li>  <a href="index/cjwt.htm">常见问题</a></li>
+          <li>  <a href="index/xyfg.htm">校园风光</a></li>
+          <li>  <a href="index/xsfc.htm">学生风采</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="bmgk/jgsz.htm">部门概况</a>
+   
+    <ul>
+          <li>  <a href="bmgk/jgsz.htm">机构设置</a></li>
+          <li>  <a href="bmgk/gzzz.htm">工作职责</a></li>
+          <li>  <a href="bmgk/bszn.htm">办事指南</a></li>
+          <li>  <a href="bmgk/gzfwcn.htm">工作服务承诺</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="gzzd/sjzc.htm">规章制度</a>
+   
+    <ul>
+          <li>  <a href="gzzd/sjzc.htm">上级政策</a></li>
+          <li>  <a href="gzzd/zsgz.htm">招生工作</a></li>
+          <li>  <a href="gzzd/pygz.htm">培养工作</a></li>
+          <li>  <a href="gzzd/xwgz.htm">学位工作</a></li>
+          <li>  <a href="gzzd/xsgz.htm">学生工作</a></li>
+          <li>  <a href="gzzd/qtzc.htm">其他政策</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="zsgz/zsjz.htm">招生工作</a>
+   
+    <ul>
+          <li>  <a href="gzzd/zsgz.htm">规章制度</a></li>
+          <li>  <a href="zsgz/bszn.htm">办事指南</a></li>
+          <li>  <a href="zsgz/zsjz.htm">招生简章</a></li>
+          <li>  <a href="zsgz/lnzsxx.htm">历年招生信息</a></li>
+          <li>  <a href="zsgz/xkjdsjs.htm">学科及导师介绍</a></li>
+          <li>  <a href="zlxz/zsgz.htm">资料下载</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="pygz/bszn.htm">培养工作</a>
+   
+    <ul>
+          <li>  <a href="gzzd/pygz.htm">规章制度</a></li>
+          <li>  <a href="pygz/bszn.htm">办事指南</a></li>
+          <li>  <a href="pygz/xsjl.htm">学术交流</a></li>
+          <li>  <a href="pygz/kjjs.htm">科技竞赛</a></li>
+          <li>  <a href="zlxz/pygz.htm">资料下载</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="xwgz/bszn.htm">学位工作</a>
+   
+    <ul>
+          <li>  <a href="gzzd/xwgz.htm">规章制度</a></li>
+          <li>  <a href="xwgz/bszn.htm">办事指南</a></li>
+          <li>  <a href="xwgz/cxgz.htm">创新工作</a></li>
+          <li>  <a href="zlxz/xwgz.htm">资料下载</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="xsgz/bszn.htm">学生工作</a>
+   
+    <ul>
+          <li>  <a href="gzzd/xsgz.htm">规章制度</a></li>
+          <li>  <a href="xsgz/bszn.htm">办事指南</a></li>
+          <li>  <a href="xsgz/djsz.htm">党建思政</a></li>
+          <li>  <a href="xsgz/xljk.htm">心理健康</a></li>
+          <li>  <a href="zlxz/xsgz.htm">资料下载</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="lslm/glbf.htm">创新工程</a>
+   
+    <ul>
+          <li>  <a href="lslm/glbf.htm">管理办法</a></li>
+          <li>  <a href="lslm/cxxm.htm">创新项目</a></li>
+          <li>  <a href="lslm/sjjd.htm">实践基地</a></li>
+          <li>  <a href="zlxz/qtgz.htm">资料下载</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="http://dbsydx.bysjy.com.cn/">就业工作</a>
+   
+
+                  </li>
+                  
+<li>
+<a href="zlxz/zsgz.htm">资料下载</a>
+   
+    <ul>
+          <li>  <a href="zlxz/zsgz.htm">招生工作</a></li>
+          <li>  <a href="zlxz/pygz.htm">培养工作</a></li>
+          <li>  <a href="zlxz/xwgz.htm">学位工作</a></li>
+          <li>  <a href="zlxz/xsgz.htm">学生工作</a></li>
+          <li>  <a href="zlxz/qtgz.htm">其他工作</a></li>
+   
+
+
+                  
+                       
+                      </ul>
+                  </li>
+                  
+<li>
+<a href="https://www.nepu.edu.cn/">学校主页</a>
+   
+
+                  </li>
+                  
+</UL></DIV><!--.nav 菜单结束--></div><!--/bot-->
+</div>
+
+<div class="w cl" id="main">
+    <!--左边内容开始-->
+    <div class="vsb-box content f">
+        <!--图片新闻开始-->
+                          <!--实例3开始-->
+             <div class="vsb-container imgnews3 cl" containerid="2" columns="2">
+                  <div class="vsb-space slideTxtBox" columns="2">
+                      <div class="hd">
+                          <span class="more">
+                            <a href="index/tzgg.htm" target="">更多+</a>
+                            <a href="xsjl.htm" target="">更多+</a>
+                            <a href="gzzd/zsgz.htm" target="">更多+</a>
+                          </span>
+                          <ul>
+                              <li>通知公告</li> 
+                          </ul>
+                      </div>
+                       <div style="    height: 320px;">
+                      <div class="binahuan" style="float:left">
+<LINK href="/system/resource/style/component/news/list/imagechangenews.css" type="text/css" rel="stylesheet">
+<script language="javascript" src="/system/resource/js/news/imagechangenews.js"></script><script language="JavaScript">
+var u_u3_icn = new ImageChangeNews("u_u3_", 310, 280, 4, 2.0, true, false, false, true, false,"#u_u3_centerCutImg");
+
+//初始化图片, 并启动定时
+function u_u3_init_img()
+{
+
+    u_u3_icn.addimg("\/__local\/7\/82\/01\/24900DCF47B214DE30758F637F4_72109B79_BDA6.jpg", "info\/1098\/3237.htm", "副校长杨二龙带队赴大庆油田有限责任公...", "","副校长杨二龙带队赴大庆油田有限责任公司走访交流");
+
+    u_u3_icn.addimg("\/__local\/7\/75\/5F\/EB8066D65B87B66B4AC2D91080A_888BB6C1_5B63E.jpg?e=.jpg", "info\/1098\/2977.htm", "东油承办的第二届龙江专业学位研究生教...", "","东油承办的第二届龙江专业学位研究生教育发展研讨活动成功举办");
+
+    u_u3_icn.addimg("\/__local\/3\/BC\/B4\/56068F9EA912AABBC7684D76537_007C1FD9_7CDB.jpg", "info\/1098\/2922.htm", "东油赴黑龙江工业学院签署研究生生源基...", "","东油赴黑龙江工业学院签署研究生生源基地协议");
+
+    u_u3_icn.addimg("\/__local\/7\/97\/6A\/E9A9B74E2390E266247330AF1E8_DF91B060_50370.jpg?e=.jpg", "info\/1098\/2816.htm", "我校召开2023-2024学年度春季学期研究生...", "","我校召开2023-2024学年度春季学期研究生教育工作例会");
+
+    u_u3_icn.addimg("\/__local\/7\/5D\/90\/89B26385E7E3C4F8B37F8CACC9B_454AAA85_8750.jpg", "info\/1098\/2818.htm", "我校召开2023-2024秋季学期末研究生教育...", "","我校召开2023-2024秋季学期末研究生教育工作例会");
+
+    u_u3_icn.addimg("\/__local\/2\/2C\/34\/0C3DA36D53A90B5B6BD863F8C41_A8B30755_4EDE6.jpg?e=.jpg", "info\/1098\/2766.htm", "我校举办研究生学术年会暨第二届学术论坛", "","我校举办研究生学术年会暨第二届学术论坛");
+
+    u_u3_icn.changeimg(0);
+}
+</script><table cellspacing="0" cellpadding="0" border="0" style="padding:0px margin:0px; border:0px">
+    <tr><td>
+        <div id="u_u3_centerCutImg" style="OVERFLOW: hidden;height:280px;width:310px">
+            <div id="u_u3_div" align="center" style="padding:0px;margin:0px;border:0px solid black;background-color:#000000;FILTER: progid:DXImageTransform.Microsoft.RevealTrans (duration=2.0,transition=23);height:280px;width:310px">
+                <div id="u_u3_imgdiv" style="padding:0px;border:0px;"><a id="u_u3_url" target="_blank"><img id="u_u3_pic" border="0" src="/system/resource/images/space.gif"></a></div>
+            </div>
+            <div style="filter:alpha(style=1,opacity=10,finishOpacity=80);width:310px;height:19px;text-align:right;top:-19px;position:relative;padding:0px;margin:0px;border:0px;">
+<a href="javascript:u_u3_icn.changeimg(0)" ; id="u_u3_selectNode0" class="imagechangenews_pnode" target="_self">1</a><a href="javascript:u_u3_icn.changeimg(1)" ; id="u_u3_selectNode1" class="imagechangenews_pnode" target="_self">2</a><a href="javascript:u_u3_icn.changeimg(2)" ; id="u_u3_selectNode2" class="imagechangenews_pnode" target="_self">3</a><a href="javascript:u_u3_icn.changeimg(3)" ; id="u_u3_selectNode3" class="imagechangenews_pnode" target="_self">4</a><a href="javascript:u_u3_icn.changeimg(4)" ; id="u_u3_selectNode4" class="imagechangenews_pnode" target="_self">5</a><a href="javascript:u_u3_icn.changeimg(5)" ; id="u_u3_selectNode5" class="imagechangenews_pnode" target="_self">6</a>
+            </div></div></td></tr>
+       
+    <tr><td height="25">
+        <div align="center" style="overflow:hidden;text-overflow:ellipsis;height:25px;width:310px;"><a target="_blank" class="titlestyle257743" id="u_u3_newstitle"></a></div>
+    </td></tr>
+<div align="left" display="none" style="overflow:hidden;text-overflow:ellipsis;height:0px;width:310px;padding-left:2px;padding-right:2px"><a target="_blank" class="summarystyle257743" id="u_u3_newssummary"></a></div>   
+</table><SCRIPT language="JavaScript">u_u3_init_img();</SCRIPT></div>
+                      <div class="bd fr" style="float:right">
+                     
+                        <div><script language="javascript" src="/system/resource/js/dynclicks.js"></script> <div class="con cl">
+<div class="f fl">
+ 
+</div>
+    <div class="f fr">
+<UL class="main2_list">
+
+<LI class="mr"><A href="info/1099/3287.htm" style="font-weight:bold;color:#3d00ff;">东北石油大学2025年硕士研究生招生章程</A><span> 2024-10-02</span></LI>
+
+<LI><A href="info/1099/3247.htm" style="font-weight:bold;color:#ff0000;">东北石油大学关于调整计算机与信息技术学院...</A><span> 2024-09-25</span></LI>
+
+<LI class="mr"><A href="info/1099/2658.htm" style="font-weight:bold;color:#ff030b;">东北石油大学接收推荐优秀应届本科毕业生免...</A><span> 2023-09-18</span></LI>
+
+<LI><A href="info/1099/3307.htm">2024年度高等教育教学改革研究重点项目拟立...</A><span> 2024-10-03</span></LI>
+
+<LI class="mr"><A href="info/1099/3277.htm">关于组织评选2024年校级教学成果奖暨推荐省...</A><span> 2024-10-01</span></LI>
+
+<LI><A href="info/1099/3267.htm">2024年度高等教育教学改革研究一般项目拟立...</A><span> 2024-09-30</span></LI>
+
+<LI class="mr"><A href="info/1099/3207.htm">关于组织开展2024年度高等教育教学改革研究...</A><span> 2024-09-18</span></LI>
+
+</UL>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
+                        </div>
+                         <div class="con cl">
+<div class="f fl">
+ 
+</div>
+    <div class="f fr">
+<UL class="main2_list">
+
+<LI class="mr"><A href="info/1077/1892.htm">东北石油大学研究生学术活动汇总表</A> <span> 2021-04-29</span></LI>
+
+<LI><A href="/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1596416069&wbfileid=B775890C50ABA5B0ACD7FD73C5F95058">东北石油大学研究生学术报告申请书</A> <span> 2021-04-29</span></LI>
+
+<LI class="mr"><A href="info/1078/1282.htm">东北石油大学研究生校内学术交流活动管理办法</A> <span> 2017-03-14</span></LI>
+
+</UL>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                   <div class="con cl">
+<div class="f fl">
+ 
+</div>
+    <div class="f fr">
+<UL class="main2_list">
+
+<LI class="mr"><A href="info/1063/1239.htm">东北石油大学接收推荐优秀应届本科毕业生免...</A><span> 2021-10-08</span></LI>
+
+<LI><A href="info/1063/1893.htm" style="color:#000000;">东北石油大学2021年硕士研究生复试及录取工...</A><span> 2021-03-18</span></LI>
+
+<LI class="mr"><A href="info/1063/1818.htm" style="color:#000000;">东北石油大学2021年硕士研究生招生简章</A><span> 2020-09-21</span></LI>
+
+<LI><A href="info/1063/1727.htm">东北石油大学2020年博士研究生招生考试办法</A><span> 2020-06-01</span></LI>
+
+<LI class="mr"><A href="info/1063/1726.htm">东北石油大学硕博连读研究生招生管理办法</A><span> 2020-06-01</span></LI>
+
+<LI><A href="info/1063/1762.htm">东北石油大学2020年硕士研究生破格复试与录...</A><span> 2020-05-25</span></LI>
+
+<LI class="mr"><A href="info/1063/1706.htm">东北石油大学2020年硕士研究生复试及录取工...</A><span> 2020-05-07</span></LI>
+
+</UL>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+                 
+                      </div>
+                      <div style="clear:both;"></div>
+                       </div>
+                      
+                      
+                      
+                  </div>
+
+
+
+             </div>
+             <!--实例3结束-->
+        <!--图片新闻开始-->
+        
+            
+            
+            <!--实例3开始-->
+             <div class="vsb-container imgnews3 cl xxx " containerid="2" columns="2">
+                  <div class="vsb-space slideTxtBox" columns="2">
+                      <div class="hd">
+                          <span class="more">
+                            <a href="index/xyfg.htm" target="">更多+</a>
+                            <a href="index/xsfc.htm" target="">更多+</a>
+                           
+                          </span>
+                          <ul><li>校园风光</li>
+                              <li>学生风采</li>
+                       
+                          </ul>
+                      </div>
+                      <div class="bd">
+                       <div> 
+ 
+ 
+ 
+ 
+ 
+<div class="con">
+    <div class="picMarquee-left">
+    <div class="bd">
+        <ul class="picList cl piclist1">
+          <li><a href="info/1001/1196.htm"><img src="/__local/C/B5/B5/E0C1447448C8B82DDED1C40EE09_41DB9915_203A1.jpg" alt="春"></a></li>
+          <li><a href="info/1001/1206.htm"><img src="/__local/2/C7/0B/98E4688A912B0897C1484BA671A_FACE514C_21E71.jpg" alt="夜"></a></li>
+          <li><a href="info/1001/1197.htm"><img src="/__local/4/60/FF/6C11176C5A4333D14417680D62C_D0FE13B8_22731.jpg" alt="3"></a></li>
+          <li><a href="info/1001/1207.htm"><img src="/__local/B/96/78/D88E927A657D0AE679F58ED1778_F647ECDE_134CB.jpg" alt="4"></a></li>
+        </ul>
+        <ul class="picList cl piclist2">
+          <li><a href="info/1001/1198.htm"><img src="/__local/E/C1/7F/EB1E047B632EFF92D812E57628C_06DEA41F_169F7.jpg" alt="夏"></a></li>
+          <li><a href="info/1001/1208.htm"><img src="/__local/6/77/CD/015B79BC7DF464B14BEA412D9C0_FF8B0742_11210.jpg" alt="6"></a></li>
+        </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                      <div> 
+ 
+ 
+ 
+ 
+ 
+<div class="con">
+    <div class="picMarquee-left">
+    <div class="bd">
+        <ul class="picList cl piclist1">
+          <li><a href="info/1001/1196.htm"><img src="/__local/C/B5/B5/E0C1447448C8B82DDED1C40EE09_41DB9915_203A1.jpg" alt="春"></a></li>
+          <li><a href="info/1001/1206.htm"><img src="/__local/2/C7/0B/98E4688A912B0897C1484BA671A_FACE514C_21E71.jpg" alt="夜"></a></li>
+          <li><a href="info/1001/1197.htm"><img src="/__local/4/60/FF/6C11176C5A4333D14417680D62C_D0FE13B8_22731.jpg" alt="3"></a></li>
+          <li><a href="info/1001/1207.htm"><img src="/__local/B/96/78/D88E927A657D0AE679F58ED1778_F647ECDE_134CB.jpg" alt="4"></a></li>
+        </ul>
+        <ul class="picList cl piclist2">
+          <li><a href="info/1001/1198.htm"><img src="/__local/E/C1/7F/EB1E047B632EFF92D812E57628C_06DEA41F_169F7.jpg" alt="夏"></a></li>
+          <li><a href="info/1001/1208.htm"><img src="/__local/6/77/CD/015B79BC7DF464B14BEA412D9C0_FF8B0742_11210.jpg" alt="6"></a></li>
+        </ul>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>   
+                  
+                      </div>
+                  </div>
+
+
+
+             </div>
+             <!--实例3结束-->
+   
+            <!--实例3开始-->
+             <div class="vsb-container imgnews3 cl link3" containerid="2" columns="2">
+                  <div class="vsb-space slideTxtBox" columns="2">
+                      <div class="hd">
+                          <span class="more">
+                       
+                            <a href="index/cjwt.htm" target="">更多+</a>
+                          </span>
+                          <ul> 
+                          <li>常见问题</li>
+                              <li>友情链接</li>
+                              
+                          </ul>
+                      </div>
+                      <div class="bd">
+                       <div class="top  clearfix">
+
+<script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script><ul> 
+
+<li class="changli">
+<a href="info/1102/2888.htm" target="_blank" title="2024年硕士研究生调档函">2024年硕士研究生调档函</a>
+
+</li>
+
+
+<li class="changli">
+<a href="info/1102/2656.htm" target="_blank" title="常见问题">常见问题</a>
+
+</li>
+
+
+<li class="changli">
+<a href="info/1102/2546.htm" target="_blank" title="毕业生乘车证明">毕业生乘车证明</a>
+
+</li>
+
+
+<li class="changli">
+<a href="info/1102/1581.htm" target="_blank" title="离校通知单（2023届毕业生）">离校通知单（2023届毕业生）</a>
+
+</li>
+
+
+</ul><script>_showDynClickBatch(['dynclicks_u9_2888','dynclicks_u9_2656','dynclicks_u9_2546','dynclicks_u9_1581'],[2888,2656,2546,1581],"wbnews", 1596416069)</script>
+</div>   
+                      <div class="top clearfix topp">
+                      
+                      <div class="clearfix" style="float:left;">
+                      
+                       <script language="javascript" src="/system/resource/js/openlink.js"></script><p class="name"><b>  --学位学历认证--</b></p>
+
+
+<ul class="clearfix" style="flaot:left"> 
+
+
+
+<li class="youlian">
+ 
+ 
+<a href="https://www.chsi.com.cn/xlrz/ct05.shtml" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63766)">学历认证中心</a>
+
+ 
+ 
+
+</li>
+<li class="youlian">
+ 
+ 
+<a href="http://cqv.chinadegrees.cn/cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63767)">学位认证中心</a>
+
+ 
+ 
+
+</li>
+<li class="youlian">
+ 
+ 
+<a href="http://www.chinadegrees.com.cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63768)">学位证书网上查询</a>
+
+ 
+ 
+
+</li>
+
+</ul>
+                      
+                      
+                      </div>
+                      
+                      
+                      
+                                               <div class="clearfix" style="float:left;"><p class="name"><b>  --政府部门--</b></p><ul class="clearfix" style="flaot:left"> 
+
+
+<ul class="clearfix" style="flaot:left"> 
+
+<li class="youlian">
+<a href="http://www.hljedu.gov.cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63769)">黑龙江省教育厅</a>
+</li>
+<li class="youlian">
+<a href="http://www.moe.gov.cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63770)">教育部</a>
+</li>
+
+</ul></div>
+                      
+                      
+                      
+                                 <div class="clearfix" style="float:left;"><p class="name"><b>--兄弟院校--</b></p>
+<ul class="clearfix" style="flaot:left"> 
+
+<li class="youlian youlian3">
+<a href="http://gs.upc.edu.cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63987)">中国石油大学(华东)研究生院</a>
+</li>
+<li class="youlian youlian3">
+<a href="http://www.cup.edu.cn/graduate/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63771)">中国石油大学(北京)研究生院</a>
+</li>
+<li class="youlian youlian3">
+<a href="http://gs.swpu.edu.cn/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63772)">西南石油大学研究生院</a>
+</li>
+<li class="youlian youlian3">
+<a href="http://www1.hrbust.edu.cn/zuzhijigou/master/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63773)">哈尔滨理工大学研究生部</a>
+</li>
+<li class="youlian youlian3">
+<a href="http://graduate.cug.edu.cn/index.html" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63774)">中国地质大学研究生院</a>
+</li>
+
+</ul></div>
+
+                                 <div class="clearfix last" style="float:left;"><p class="name"><b>--校内链接--</b></p>
+<ul class="clearfix" style="flaot:left;"> 
+
+<li class="youlian">
+<a href="http://glbm2.nepu.edu.cn/kyc" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63983)">科研处</a>
+</li>
+<li class="youlian">
+<a href="http://glbm3.nepu.edu.cn/xkjsc/default.html" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63985)">学科建设处</a>
+</li>
+<li class="youlian">
+<a href="http://61.167.120.67/lib/" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1596416069, 63986)">图书馆</a>
+</li>
+
+</ul></div>
+                      </div>   
+                      
+                      </div>
+                  </div>
+
+
+
+             </div>
+             <!--实例3结束-->
+        
+    </div><!--.content-->
+    <!--左边内容结束-->
+    <!--侧边栏开始-->
+    <div class="vsb-box sidebar f">
+        <!--通知公告开始-->
+            <!--实例1开始-->
+            <div class="vsb-container tongzhi1 cl" containerid="4" columns="1">
+                <!--.slideTxtBox_tz-->
+            </div>
+            <!--实例1结束-->
+            <!--实例2开始-->
+            <div class="vsb-container tongzhi2 cl" containerid="4" columns="1">
+              <div class="vsb-space" columns="1" style="padding-top:20px;">
+                               <div class="tit"><h3>新闻动态       <span class="more" style="    float: right;color:#999">
+                            <a href="index/xwdt.htm" style="color:#999">更多+</a>
+                            
+                          </span></h3>
+                
+           
+                
+                </div>
+
+
+
+                <div class="con">
+                    <ul>
+                      <li class="cl">
+                          
+                          <div class="f fr">
+                              <h3><a href="info/1098/3237.htm">副校长杨二龙带队赴大庆油田有限责...</a></h3>
+                              <p>（通讯员 李彩瑞 记者 吕鸿浩）近日，副校长杨二龙带队赴大庆油田...  <span style="float:right;">   2024-09-20</p> </span> 
+                          </div>
+                      </li>
+                      <li class="cl">
+                          
+                          <div class="f fr">
+                              <h3><a href="info/1098/3227.htm">副校长杨二龙深入研究生部指导推进...</a></h3>
+                              <p>9月18日下午，副校长杨二龙深入研究生部调研指导研究生教育教学工...  <span style="float:right;">   2024-09-19</p> </span> 
+                          </div>
+                      </li>
+                      <li class="cl">
+                          
+                          <div class="f fr">
+                              <h3><a href="info/1098/3217.htm">东北石油大学2025年硕士研究生招生...</a></h3>
+                              <p>为加强我校研究生招生宣传，吸引优质生源报考，9月11日和15日，我...  <span style="float:right;">   2024-09-19</p> </span> 
+                          </div>
+                      </li>
+                      <li class="cl">
+                          
+                          <div class="f fr">
+                              <h3><a href="info/1098/3197.htm">副校长杨二龙组织召开分管部门、联...</a></h3>
+                              <p>9月12日，副校长杨二龙在机关楼五楼会议室组织召开分管部门、联系...  <span style="float:right;">   2024-09-14</p> </span> 
+                          </div>
+                      </li>
+                    </ul>
+                </div>
+<script>_showDynClickBatch(['dynclicks_u14_3237','dynclicks_u14_3227','dynclicks_u14_3217','dynclicks_u14_3197'],[3237,3227,3217,3197],"wbnews", 1596416069)</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               </div><!-- .vsb-space -->
+            </div>
+            <!--实例2结束-->
+            <!--实例3开始-->
+            <div class="vsb-container tongzhi3 cl" containerid="4" columns="1">
+                        
+
+            </div>
+            <!--实例3结束-->
+            <!--广告图开始-->
+            <div class="vsb-container linkimg cl" containerid="4" columns="1">
+<div class="vsb-space cl" columns="1">    
+ 
+    
+        <div class="wrap">
+            
+            
+           <a href="http://yjsb.nepu.edu.cn/index/a2020qgyjsjyhyjs.htm" onclick="_addDynClicks(&#34;wbimage&#34;, 1596416069, 55696)">  <img src="images/4.png"> </a>
+           
+        </div>
+
+ 
+ 
+
+
+
+ 
+    
+        <div class="wrap">
+            
+            
+           <a href="http://10.2.1.1/D_View_Pages" onclick="_addDynClicks(&#34;wbimage&#34;, 1596416069, 55699)">  <img src="images/19/10/30/1fh9bp99dw/11.jpg"> </a>
+           
+        </div>
+
+ 
+ 
+
+
+
+ 
+    
+        <div class="wrap">
+            
+            
+           <a href="http://172.16.199.10" onclick="_addDynClicks(&#34;wbimage&#34;, 1596416069, 55698)">  <img src="images/19/10/30/1fh9bp99dw/22.jpg"> </a>
+           
+        </div>
+
+ 
+ 
+
+
+
+ 
+    
+        <div class="wrap">
+            
+            
+           <a href="https://nepuyjs.yuketang.cn/pro/portal/home/" onclick="_addDynClicks(&#34;wbimage&#34;, 1596416069, 55697)">  <img src="images/444.jpg"> </a>
+           
+        </div>
+
+ 
+ 
+
+
+</div>
+            </div>
+            <!--广告图结束-->
+        <!--通知公告结束-->
+               <!--校园风采开始-->
+          <div class="vsb-container cl fengcai" containerid="6" columns="1">
+            
+
+           </div>
+        <!--校园风采结束-->
+                <!--站内搜索开始-->
+                        <!--实例3开始-->
+            <div class="vsb-container ss3 cl ss" containerid="8" columns="1">
+<div class="vsb-space con" columns="1">
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script>   
+<div id="divu16"></div>
+<script type="text/html" id="htmlu16">
+    <div id="appu16" style="    padding: 20px 15px;" >
+        <div v-if="!isError" class="cl">
+            <input type="text" class="ssk" placeholder="" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <input class="submit" name="submit_button" type="button" value="提交" v-on:click="onSubmit()"/>
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu16").html($("#htmlu16").text());
+</script>
+<script>
+    var appOwner = "1596416069";
+    var token = gettoken(10);
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu16",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script></div></div>
+            <!--实例3结束-->
+        <!--站内搜索结束-->
+        
+    </div>
+    <!--侧边栏结束-->
+</div>
+<!-- main部分结束 -->
+
+<!-- 底部开始 -->
+ 
+
+
+
+
+<div id="footer">
+    <div class="w cl">
+        <div class="f fl"><div><p><span style="color: rgb(255, 255, 255); font-family: 微软雅黑, arial, verdana, sans-serif; font-size: 14px; text-align: center; background-color: rgb(140, 0, 0);">版权所有©东北石油大学研究生部 | 技术支持：现代教育技术中心 | 最佳浏览效果IE8.0以上版本浏览器&nbsp;</span></p></div></div>
+     
+
+    </div>
+</div>
+<!-- 底部结束 -->
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<script id="eda_bar_script" src="https://answer.eol.cn/school/pc/school4670.js"></script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox1_tz").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox_tz").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>
+
+<script type="text/javascript">
+jQuery(".slideTxtBox1_fc").slide({ mainCell: ".bd", targetCell: ".more a",trigger:"click"});
+</script>                                                       
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

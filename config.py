@@ -16,6 +16,8 @@ find_project_root_and_load_dotenv("U-PG-RAG")
 class ServeConfig:
     ###
     server_host: str = os.getenv("SERVER_HOST")
+    model_name: str = os.getenv("MODEL_NAME")
+    embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME")
     ###
     # pg数据库配置
     db_host: str = os.getenv("DB_HOST")
@@ -47,6 +49,8 @@ class ServeConfig:
     embedding_api_configs = embedding_api_configs
     llm_api_configs = llm_api_configs
     rerank_api_configs = rerank_api_configs
+    zhipu_api_configs = zhipu_api_configs
+    deepseek_api_configs = deepseek_api_configs
     ###
     # minio 配置
     MINIO_DOWNLOAD_URL_EXPIRY = int(os.getenv("DOWNLOAD_URL_EXPIRY", 3600))
@@ -76,3 +80,11 @@ class ServeConfig:
     search_engine = os.getenv("SEARCH_ENGINE")
     text_search_url = os.getenv("TEXT_SEARCH_URL")
     news_search_url = os.getenv("NEWS_SEARCH_URL")
+    bo_api_key = os.getenv("BO_API_KEY")
+    google_api_key = os.getenv("GOOGLE_API_KEY")
+    google_cse_id = os.getenv("GOOGLE_CSE_ID")
+
+    ###
+    # site filter 目录
+    site_filter_path = os.getenv("SITE_FILTER_PATH")
+    web_search_host = os.getenv("WEB_SEARCH_HOST")

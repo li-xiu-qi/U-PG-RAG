@@ -40,8 +40,9 @@ def get_sorted_documents(query, documents):
     return sorted_documents
 
 
-query = "蔬菜呢？"
-documents = ["我想要吃一个苹果", "不过我也想要吃一个香蕉", "他们都是水果吗", "为什么没有蔬菜？"]
-sorted_docs = get_sorted_documents(query, documents)
-print("Sorted documents based on relevance scores:")
-print(sorted_docs)
+if __name__ == "__main__":
+    query = "蔬菜呢？"
+    documents = ["我想要吃一个苹果", "不过我也想要吃一个香蕉", "他们都是水果吗", "为什么没有蔬菜？"]
+    sorted_docs = get_sorted_documents(query, documents)
+    print("Sorted documents based on relevance scores:")
+    print(sorted_docs)

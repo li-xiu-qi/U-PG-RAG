@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Any
 
 from pydantic import BaseModel
@@ -28,11 +27,12 @@ class RAGServeModel(BaseModel):
     recursive_query: bool = False
     paragraph_number_ranking: bool = False
     filter_count: int = -1
+    school_site: str | None = "nepu.edu.cn"
 
 
 class RAGStreamResponse(BaseModel):
-    data_type: Literal["answer", "retrieval",
-    "web_search", "md_content"
+    data_type: Literal["assistant", "retrieval",
+    "web_search", "md_content", "link_resource"
     ]
     result: Any
 

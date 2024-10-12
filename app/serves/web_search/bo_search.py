@@ -1,7 +1,7 @@
 import requests
 import json
 
-from app.serves.web_search.web_search import SearchResult, WebSearch
+from app.serves.web_search.web_search_base import SearchResult, WebSearch
 
 
 class BoSearch(WebSearch):

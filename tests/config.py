@@ -16,6 +16,8 @@ find_project_root_and_load_dotenv("U-PG-RAG")
 class ServeConfig:
     ###
     server_host: str = os.getenv("SERVER_HOST")
+    model_name: str = os.getenv("MODEL_NAME")
+    embedding_model_name: str = os.getenv("EMBEDDING_MODEL_NAME")
     ###
     # pg数据库配置
     db_host: str = os.getenv("DB_HOST")
@@ -62,10 +64,10 @@ class ServeConfig:
 
     ###
     # pg 数据库url
-    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/using_test"
-    NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
-    ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"
-    ADMIN_NO_ASYNC_NEW_DB_URL: str = f"postgresql+psycopg2://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
+    DATABASE_URL: str = f"postgresql+asyncpg://{db_serve_user}:{db_serve_user_password}@{db_host}:{db_port}/{db_name}"
+    NO_ASYNC_DB_URL: str = f"postgresql+psycopg://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
+    ADMIN_NO_ASYNC_DB_URL: str = f"postgresql+psycopg://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{default_db_name}"
+    ADMIN_NO_ASYNC_NEW_DB_URL: str = f"postgresql+psycopg://{db_admin}:{db_admin_password}@{db_host}:{db_port}/{db_name}"
 
     ###
     # rag 配置
@@ -76,3 +78,10 @@ class ServeConfig:
     search_engine = os.getenv("SEARCH_ENGINE")
     text_search_url = os.getenv("TEXT_SEARCH_URL")
     news_search_url = os.getenv("NEWS_SEARCH_URL")
+    bo_api_key = os.getenv("BO_API_KEY")
+    google_api_key = os.getenv("GOOGLE_API_KEY")
+    google_cse_id = os.getenv("GOOGLE_CSE_ID")
+
+    ###
+    # site filter 目录
+    site_filter_path = os.getenv("SITE_FILTER_PATH")

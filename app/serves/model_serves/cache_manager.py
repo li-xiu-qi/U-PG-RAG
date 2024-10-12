@@ -1,8 +1,9 @@
+import asyncio
 import json
 import logging
 from functools import wraps
 
-from app.core.create_cache_key import create_hash_key
+from app.core.create_cache_key import create_hash_key, acreate_hash_key
 from app.serves.model_serves.types import LLMOutput, EmbeddingOutput
 
 logger = logging.getLogger(__name__)
@@ -57,29 +58,34 @@ def embedding_cached_call():
             results = [None] * len(input_content)
             cache_miss_indices = []
             total_tokens = 0
-            for idx, content in enumerate(input_content):
-                # cache_key = create_hash_key(self.cache.partition_name, content, parameters)
-                cache_key = create_hash_key("test_embedding", content, parameters)
+            # 并行创建key并获取缓存
+            cache_key_tasks = [acreate_hash_key("test_embedding", content, parameters) for content in input_content]
+            cache_keys = await asyncio.gather(*cache_key_tasks)
 
-                cached_result = self.cache.get(cache_key)
+            async def async_cache_get(cache, key):
+                return cache.get(key)
+
+            cache_results = await asyncio.gather(*[async_cache_get(self.cache, cache_key) for cache_key in cache_keys])
+
+            for idx, (cache_key, cached_result) in enumerate(zip(cache_keys, cache_results)):
                 if cached_result:
                     logger.debug(f"Cache hit: {cache_key}")
                     results[idx] = cached_result
                 else:
                     logger.debug(f"Cache miss: {cache_key}")
-                    new_input_contents.append(content)
+                    new_input_contents.append(input_content[idx])
                     cache_miss_indices.append(idx)
 
             if new_input_contents:
-                # update the input content to only include the cache misses
                 model_input.input_content = new_input_contents
                 result = await func(self, *args, **kwargs)
-                for idx, res in zip(cache_miss_indices, result.output):
-                    results[idx] = res
-                    # cache_key = create_hash_key(self.cache.partition_name, input_content[idx], parameters)
-                    cache_key = create_hash_key("test_embedding", input_content[idx], parameters)
 
+                async def set_cache(idx, res):
+                    cache_key = await acreate_hash_key("test_embedding", input_content[idx], parameters)
                     self.cache.set(cache_key, res)
+                    results[idx] = res
+
+                await asyncio.gather(*[set_cache(idx, res) for idx, res in zip(cache_miss_indices, result.output)])
                 total_tokens = result.total_tokens
 
             return EmbeddingOutput(output=results, total_tokens=total_tokens)

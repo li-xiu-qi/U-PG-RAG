@@ -1,41 +1,25 @@
-"""
-use example:
-result = requests.post(stream_url, json=data, stream=True)
-buffer = ""
-for line in result.iter_lines():
-    if line:
-        decoded_line = line.decode("utf-8").strip("data: \n")
-        buffer += decoded_line
-        try:
-            json_data = json.loads(buffer)
-
-            json_data_str = json.dumps(json_data, indent=2, ensure_ascii=False)
-            # print(json_data.get("data_type"))
-            if json_data.get("data_type") == "answer":
-                print(json_data.get("result"), end="")
-            buffer = ""
-        except json.JSONDecodeError:
-            # Incomplete JSON, continue accumulating
-            continue
-"""
-
 import logging
+import time
+from urllib.parse import urlparse, urlunparse
+from htmldate import find_date
 from llm_parse_json import parse_json
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud.filter_utils.filters import FilterHandler
 from app.crud.search_utils import hybrid_search
-from app.serves.web_search import SearchFactory
 from app.db.db_models import Chunk
 from app.schemes.models.chunk_models import HybridSearchModel
 from app.schemes.models.rag_serve_models import RAGServeModel, RAGStreamResponse
-from app.serves.file_processing.custom_markdown_convert import html2md, fetch_and_convert
+from app.serves.file_processing.md_spliter import MarkdownSpliter
 from app.serves.model_serves.chat_model import ChatModel
 from app.serves.model_serves.embedding_model import EmbeddingModel
+from app.serves.model_serves.mmr import MemoryVectorSearch
 from app.serves.model_serves.types import LLMInput, Message, EmbeddingInput
 from app.serves.prompts.base_prompt import PromptFactory
 from app.serves.rag_service.utils import query2keywords
-from tests.config import ServeConfig
-from requests import get
+from app.serves.web2md.index import Web2md
+from app.serves.web_search import SiteFilter, SearchResult, SearchFactory
+from config import ServeConfig
+from requests import post
 
 logger = logging.getLogger(__name__)
 
@@ -51,15 +35,21 @@ def parse_llm_output(data):
         return None
 
 
-class RAGStreamService:
+class RAGStreamWebSearchService:
     def __init__(self, db: AsyncSession, embedding_model: EmbeddingModel, llm: ChatModel):
         self.embedding_model = embedding_model
         self.llm = llm
-        self.model_name = "Qwen/Qwen2.5-7B-Instruct"
+        self.embedding_model_name = ServeConfig.embedding_model_name
+        self.model_name = ServeConfig.model_name
         # self.model_name = "Vendor-A/Qwen/Qwen2-72B-Instruct"
         self.total_tokens = 0
         self.db = db
         self.irrelevant_documents = set()
+        self.site_filter = SiteFilter(cache_dir=ServeConfig.site_filter_path)
+        self.memory_vector_store = MemoryVectorSearch(model_name=self.embedding_model_name,
+                                                      embedding_model=self.embedding_model,
+                                                      use_index=True)
+
         logging.info("RAGService initialized.")
 
     async def get_llm_response(self, messages: list[dict]):
@@ -86,39 +76,118 @@ class RAGStreamService:
             logging.debug(f"LLM response output: {result.output}")
             yield result.output
 
-    async def generate_rag_stream_response(self,
-                                           model: RAGServeModel):
+    async def generate_rag_stream_web_search_response(self, model: RAGServeModel):
+        start_time = time.time()
         (user_question, limit, keyword_weight, vector_weight,
          recursive_query, use_vector_search, use_keyword_search,
          paragraph_number_ranking, filter_count) = (model.query, model.limit, model.keyword_weight, model.vector_weight,
                                                     model.recursive_query, model.use_vector_search,
                                                     model.use_keyword_search,
-                                                    model.paragraph_number_ranking, model.filter_count
-                                                    )
+                                                    model.paragraph_number_ranking, model.filter_count)
         # TODO: 敏感问题拒绝
+        web2md_remove_links = Web2md(remove_links=True)
+        web2md = Web2md(remove_links=False)
+        # max_results = 30
+        # keywords = await query2keywords(user_question, keyword_count=-1)
+        # keyword = " ".join(keywords)
+        # # TODO 后续填加site映射
+        # # keyword_query = f"{keyword} site:{site}"
+        # keyword_query = f"{keyword}"
+        # web_search = SearchFactory(engine_type=ServeConfig.search_engine)
+        # search_results = web_search.search(query=user_question, max_results=max_results)
+        ######
+        from .nepu import web_search_result
+        search_results = [SearchResult(title=result["title"],
+                                       url=result["href"],
+                                       description=result["body"],
+                                       ) for result in web_search_result[:20]]
+        ######
+        embedding_documents = []
+        valid_search_results = []
+        time_logs = []
 
-        max_results = 5
-        keywords = await query2keywords(user_question, keyword_count=-1)
-        web_search = SearchFactory(engine_type=ServeConfig.search_engine)
-        keyword = " ".join(keywords)
-        # TODO 后续填加site映射
-        # keyword_query = f"{keyword} site:{site}"
-        keyword_query = f"{keyword}"
-        search_results = web_search.search(query=keyword_query, max_results=max_results)
-        # TODO：敏感结果过滤
-        documents = []
         for result in search_results:
-            md_content = fetch_and_convert(result.href)
-            documents.append(md_content)
-            yield f"data: {RAGStreamResponse(data_type='web_search', result=result.model_dump()).model_dump_json()}\n\n"
+            if self.site_filter.check_url(result.url):
+                continue
+            valid_search_results.append(result)
 
+        v_results_start_time = time.time()
+        for v_result in valid_search_results:
+            v_result_start_time = time.time()
+            fetcher_html_start_time = time.time()
+            html_content = self.html_fetcher.fetch_html(url=v_result.url)
+            fetcher_html_end_time = time.time()
+            time_logs.append(f"Time taken to fetch html: {fetcher_html_end_time - fetcher_html_start_time}")
+            if not html_content:
+                logger.info(f"Failed to fetch URL: {v_result.url}")
+                self.site_filter.add_url(v_result.url)
+                continue
+            date = find_date(html_content)
+            parsed_url = urlparse(v_result.url)
+            favicon_url = urlunparse((parsed_url.scheme, parsed_url.netloc, '/favicon.ico', '', '', ''))
+            html2md_start_time = time.time()
+            web2md_remove_links_result = web2md_remove_links.html2md(html_content=html_content)
+            html2md_end_time = time.time()
+            time_logs.append(f"Time taken to convert html to markdown: {html2md_end_time - html2md_start_time}")
+            logger.info(f"Fetched URL: {v_result.url}")
+            result_length = len(web2md_remove_links_result)
+            logger.info(f"Result length: {result_length}")
+            embedding_documents.append(web2md_remove_links_result)
+            ####
+
+            md_spliter = MarkdownSpliter()
+            md_chunks_start_time = time.time()
+            md_chunks = await md_spliter.nested_split_markdown(text=web2md_remove_links_result)
+            md_chunks_end_time = time.time()
+            time_logs.append(f"Time taken to split markdown: {md_chunks_end_time - md_chunks_start_time}")
+            v_result.date = date
+            v_result.favicon = favicon_url
+            metadata = md_chunks[0].metadata.update({
+                "date": date,
+                "favicon": favicon_url,
+                "all_links": md_spliter.all_links
+            })
+            index_start_time = time.time()
+            await self.memory_vector_store.add_documents(documents=[chunk.content for chunk in md_chunks],
+                                                         metadata=metadata)
+            index_end_time = time.time()
+            time_logs.append(f"Time taken to index: {index_end_time - index_start_time}")
+            yield f"data: {RAGStreamResponse(data_type='web_search', result=v_result).model_dump_json()}\n\n"
+            web2md_start_time = time.time()
+            web2md_result, link_resource = web2md.html2md(html_content, current_url=v_result.url)
+            web2md_end_time = time.time()
+            time_logs.append(
+                f"Time taken to convert html to markdown with links: {web2md_end_time - web2md_start_time}")
+            yield f"data: {RAGStreamResponse(data_type='link_resource', result=link_resource).model_dump_json()}\n\n"
+            v_result_end_time = time.time()
+            time_logs.append(f"Time taken to process valid search result: {v_result_end_time - v_result_start_time}")
+        v_results_end_time = time.time()
+        time_logs.append(f"Time taken to process vali`d search results: {v_results_end_time - v_results_start_time}")
+        mmr_start_time = time.time()
+        documents = await self.memory_vector_store.mmr(query=user_question, top_k=limit)
+        mmr_end_time = time.time()
+        time_logs.append(f"Time taken to perform MMR: {mmr_end_time - mmr_start_time}")
+        response = ""
         async for res in self.generate_stream_response_from_documents(user_question,
-                                                                      [doc for doc in documents]):
-            yield f"data: {RAGStreamResponse(data_type='answer', result=res).model_dump_json()}\n\n"
+                                                                      [doc.content for doc in documents]):
+            response += res
+            yield f"data: {RAGStreamResponse(data_type='assistant', result=res).model_dump_json()}\n\n"
+        logger.info(f"本次response：{response}")
+
+        for log in time_logs:
+            logging.info(log)
+        end_time = time.time()
+        logging.info(f"Total time taken for generate_rag_stream_web_search_response: {end_time - start_time}")
 
     async def generate_stream_response_from_documents(self, user_question, documents):
         logging.info(f"Generating response from documents for question: {user_question}")
-        source_cite_rag_prompt = PromptFactory.source_cite_rag(question=user_question, documents=documents)
+        context = ""
+        for i, doc in enumerate(documents):
+            context += f"Document {i + 1}: {doc}\n"
+        with open("test.md", "w") as f:
+            f.write(context)
+        print(f"context length: {len(context)}")
+        source_cite_rag_prompt = PromptFactory.rag_prompt(text=user_question, context=context)
         async for res in self.get_llm_stream_response(source_cite_rag_prompt.to_messages()):
             yield res
 

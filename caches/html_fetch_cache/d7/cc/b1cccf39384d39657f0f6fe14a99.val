@@ -1,0 +1,1303 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>东北石油大学石油工程学院</title><meta name="pageType" content="1">
+<meta name="pageTitle" content="东北石油大学石油工程学院">
+<META Name="keywords" Content="东北石油大学石油工程学院" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  <!-- endinject -->
+
+<!--Announced by Visual SiteBuilder 9-->
+<script language="javascript" src="_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232306578475050525742000400014e50 -->
+<link rel="stylesheet" type="text/css" href="index.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen" devices="pc|mobile|pad"></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1885932217)</script>
+</head>
+<body class="init-screen full-screen">
+ 
+
+ <script language="javascript" src="/system/resource/js/dynclicks.js"></script>   
+</SCRIPT> 
+  <div class="modal-box">
+      <div class="modal-back"></div>
+
+
+
+
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script>
+<div id="divu1"></div>
+<script type="text/html" id="htmlu1">
+    <div id="appu1">
+        <div v-if="!isError" class="search-box-c">
+            <input class="form-control" type="text" placeholder="搜索" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <button class="btn btn-search-c" type="submit"><img src="images/search.png" v-on:click="onSubmit()"></button>  
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu1").html($("#htmlu1").text());
+</script>
+<script>
+    var appOwner = "1885932217";
+    var token = gettoken(10);
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu1",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script></div>
+
+     
+ 
+   <div class="x-header">
+    <div class="header unit1">
+    <div class="logo">
+     <a href="index.htm">
+     <img src="images/logo.png">
+     </a>
+     </div>
+
+     <div class="header-right">
+        <div class="header-top text-right">
+      
+      <script language="javascript" src="/system/resource/js/openlink.js"></script>
+
+
+
+ <a href="https://www.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88333)">学校首页</a><span>|</span>
+
+
+
+
+<a class="search-a" role="button">
+<img src="images/search.png">
+</a></div>
+      <div class="clearfix">
+ <ul class="nav-list clearfix pull-right">
+         
+
+
+          <li> <a href="index.htm" title="首页">首页</a>
+
+          </li>
+
+
+          <li> <a href="xygk/xyjj1.htm" title="学院概况">学院概况</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xygk/xyjj1.htm" title="学院简介">学院简介</a></li>
+              <li><a href="xygk/xrld.htm" title="现任领导">现任领导</a></li>
+              <li><a href="xygk/zzjg1.htm" title="组织机构">组织机构</a></li>
+              <li><a href="xygk/xksz1.htm" title="学科设置">学科设置</a></li>
+              <li><a href="xygk/fwgl1.htm" title="服务管理">服务管理</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="" title="学科科研">学科科研</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xkky/xkjj.htm" title="学科简介">学科简介</a></li>
+              <li><a href="xkky/xksz.htm" title="学科设置">学科设置</a></li>
+              <li><a href="xkky/kytd.htm" title="科研团队">科研团队</a></li>
+              <li><a href="xkky/kyjxpt.htm" title="科研教学平台">科研教学平台</a></li>
+              <li><a href="xkky/bshldz.htm" title="博士后流动站">博士后流动站</a></li>
+              <li><a href="xkky/xsyxwwyh.htm" title="学术与学位委员会">学术与学位委员会</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="szdw1/ys_sp_.htm" title="师资队伍">师资队伍</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="szdw1/ys_sp_.htm" title="院士(双聘)">院士(双聘)</a></li>
+              <li><a href="szdw1/gccrc1.htm" title="高层次人才">高层次人才</a></li>
+              <li><a href="szdw1/bssds.htm" title="博士生导师">博士生导师</a></li>
+              <li><a href="szdw1/js1.htm" title="教授">教授</a></li>
+              <li><a href="szdw1/fjs.htm" title="副教授">副教授</a></li>
+              <li><a href="szdw1/js2.htm" title="讲师">讲师</a></li>
+              <li><a href="szdw1/zj.htm" title="助教">助教</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="rcpy1/bksjy.htm" title="人才培养">人才培养</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="rcpy1/bksjy.htm" title="本科生教育">本科生教育</a></li>
+              <li><a href="rcpy1/yjsjy.htm" title="研究生教育">研究生教育</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="zsjy1/zsjzxx.htm" title="招生就业">招生就业</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="zsjy1/zsjzxx.htm" title="招生简章信息">招生简章信息</a></li>
+              <li><a href="http://dbsydx.bysjy.com.cn/index" title="就业信息">就业信息</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="gjjl1/gjjlxm.htm" title="国际交流">国际交流</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="gjjl1/gjjlxm.htm" title="国际交流项目">国际交流项目</a></li>
+              <li><a href="gjjl1/gjjldt.htm" title="国际交流动态">国际交流动态</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="dqgz1/zzjg.htm" title="党群工作">党群工作</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="dqgz1/zzjg.htm" title="组织机构">组织机构</a></li>
+              <li><a href="dqgz1/llxx.htm" title="理论学习">理论学习</a></li>
+              <li><a href="dqgz1/gzzd.htm" title="规章制度">规章制度</a></li>
+              <li><a href="dqgz1/dyfc.htm" title="党员风采">党员风采</a></li>
+              <li><a href="dqgz1/dtdt.htm" title="党团动态">党团动态</a></li>
+              <li><a href="dqgz1/ghhd.htm" title="工会活动">工会活动</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="xsgz1/gzdw.htm" title="学生工作">学生工作</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xsgz1/gzdw.htm" title="工作队伍">工作队伍</a></li>
+              <li><a href="xsgz1/xtgz.htm" title="学团工作">学团工作</a></li>
+              <li><a href="xsgz1/xzfc.htm" title="学子风采">学子风采</a></li>
+              <li><a href="xsgz1/xgwj.htm" title="相关文件">相关文件</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      
+      </div>
+    </div>
+    
+    <div class="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+  </div>
+  
+ <div class="header unit2">
+     <div class="logo">
+     <a href="index.htm">
+     <img src="images/logo.png">
+     </a>
+     </div>
+      <div class="header-right"><div class="header-top text-right">
+        
+
+
+
+ <a href="https://www.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88333)">学校首页</a><span>|</span>
+
+
+        <a class="search-a" role="button"><img src="images/search.png"></a></div>
+        <div class="clearfix">
+          <ul class="nav-list clearfix pull-right">
+         
+
+
+          <li> <a href="index.htm" title="首页">首页</a>
+
+          </li>
+
+
+          <li> <a href="xygk/xyjj1.htm" title="学院概况">学院概况</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xygk/xyjj1.htm" title="学院简介">学院简介</a></li>
+              <li><a href="xygk/xrld.htm" title="现任领导">现任领导</a></li>
+              <li><a href="xygk/zzjg1.htm" title="组织机构">组织机构</a></li>
+              <li><a href="xygk/xksz1.htm" title="学科设置">学科设置</a></li>
+              <li><a href="xygk/fwgl1.htm" title="服务管理">服务管理</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="" title="学科科研">学科科研</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xkky/xkjj.htm" title="学科简介">学科简介</a></li>
+              <li><a href="xkky/xksz.htm" title="学科设置">学科设置</a></li>
+              <li><a href="xkky/kytd.htm" title="科研团队">科研团队</a></li>
+              <li><a href="xkky/kyjxpt.htm" title="科研教学平台">科研教学平台</a></li>
+              <li><a href="xkky/bshldz.htm" title="博士后流动站">博士后流动站</a></li>
+              <li><a href="xkky/xsyxwwyh.htm" title="学术与学位委员会">学术与学位委员会</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="szdw1/ys_sp_.htm" title="师资队伍">师资队伍</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="szdw1/ys_sp_.htm" title="院士(双聘)">院士(双聘)</a></li>
+              <li><a href="szdw1/gccrc1.htm" title="高层次人才">高层次人才</a></li>
+              <li><a href="szdw1/bssds.htm" title="博士生导师">博士生导师</a></li>
+              <li><a href="szdw1/js1.htm" title="教授">教授</a></li>
+              <li><a href="szdw1/fjs.htm" title="副教授">副教授</a></li>
+              <li><a href="szdw1/js2.htm" title="讲师">讲师</a></li>
+              <li><a href="szdw1/zj.htm" title="助教">助教</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="rcpy1/bksjy.htm" title="人才培养">人才培养</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="rcpy1/bksjy.htm" title="本科生教育">本科生教育</a></li>
+              <li><a href="rcpy1/yjsjy.htm" title="研究生教育">研究生教育</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="zsjy1/zsjzxx.htm" title="招生就业">招生就业</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="zsjy1/zsjzxx.htm" title="招生简章信息">招生简章信息</a></li>
+              <li><a href="http://dbsydx.bysjy.com.cn/index" title="就业信息">就业信息</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="gjjl1/gjjlxm.htm" title="国际交流">国际交流</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="gjjl1/gjjlxm.htm" title="国际交流项目">国际交流项目</a></li>
+              <li><a href="gjjl1/gjjldt.htm" title="国际交流动态">国际交流动态</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="dqgz1/zzjg.htm" title="党群工作">党群工作</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="dqgz1/zzjg.htm" title="组织机构">组织机构</a></li>
+              <li><a href="dqgz1/llxx.htm" title="理论学习">理论学习</a></li>
+              <li><a href="dqgz1/gzzd.htm" title="规章制度">规章制度</a></li>
+              <li><a href="dqgz1/dyfc.htm" title="党员风采">党员风采</a></li>
+              <li><a href="dqgz1/dtdt.htm" title="党团动态">党团动态</a></li>
+              <li><a href="dqgz1/ghhd.htm" title="工会活动">工会活动</a></li>
+            </ul>
+          </li>
+
+
+          <li> <a href="xsgz1/gzdw.htm" title="学生工作">学生工作</a>
+
+
+<span class="nav-click"><span class="caret"></span></span>
+          <ul class="nav-down">
+              <li><a href="xsgz1/gzdw.htm" title="工作队伍">工作队伍</a></li>
+              <li><a href="xsgz1/xtgz.htm" title="学团工作">学团工作</a></li>
+              <li><a href="xsgz1/xzfc.htm" title="学子风采">学子风采</a></li>
+              <li><a href="xsgz1/xgwj.htm" title="相关文件">相关文件</a></li>
+            </ul>
+          </li>
+        </ul>
+        </div>
+      </div>
+      <div class="menu-button">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <div class="banner">
+
+                       <div class="b-tp"> <img src="images/111.png" border="0"> <p></p></div>
+
+
+
+                       <div class="b-tp"> <img src="images/222.jpg" border="0"> <p></p></div>
+
+
+
+                       <div class="b-tp"> <img src="images/111.jpg" border="0"> <p></p></div>
+
+
+
+                       <div class="b-tp"> <img src="images/banner2.jpg" border="0"> <p></p></div>
+
+
+  </div>  
+<!--div class="index"-->
+  <div class="x-body">
+  
+   <div class="page-one" style="padding-bottom: 0px;">
+     <div class="container">
+      <div class="title text-center  ">学院<span>新闻</span><font><img src="images/title01.png"></font><a href="xyxw1.htm">更多</a></div>
+      <div class="clearfix">
+        
+
+<script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script><div class="pull-left one-left  fadeInLeft">
+            
+            <div>
+            <a class="img-hide" href="info/1020/3704.htm" target="_blank" title="我院召开产业技术研究院建设工作交流会">
+              <div class="img-left-img img-hide"><span><font>20</font><br>2024-09</span><img src="/__local/C/FB/1A/1AAB52456FB939CB0191A16B77D_9BE75E69_19227.jpg"></div>
+              <div class="one-left-tt txt-elise">我院召开产业技术研究院建设工作交流会</div>
+              <div class="one-left-p">9月20日，我院召集大庆华理生物技术股份有限公司、大庆辰平钻井技术服务有限公司、大庆长垣能源科技有限公司、大庆澳龙石油化工有限公司及大庆信辰...</div>
+            </a>
+          </div>
+
+            <div>
+            <a class="img-hide" href="info/1020/3724.htm" target="_blank" title="石油工程学院召开优秀本科生考研与择校专题交流会">
+              <div class="img-left-img img-hide"><span><font>20</font><br>2024-09</span><img src="/__local/B/9C/EA/7A1D3973BB7C960B1277AA72181_863E385C_1EE83.jpg"></div>
+              <div class="one-left-tt txt-elise">石油工程学院召开优秀本科生考研与择校专题交流会</div>
+              <div class="one-left-p">9月19日晚，石油工程学院召开优秀本科生考研与择校专题交流会，本次会议特邀请非常规油气研究院潘哲君教授与2021级优秀本科生分享科研经验，石油工...</div>
+            </a>
+          </div>
+
+            <div>
+            <a class="img-hide" href="info/1020/3684.htm" target="_blank" title="西安石油大学石油工程学院来我院调研交流">
+              <div class="img-left-img img-hide"><span><font>15</font><br>2024-09</span><img src="/__local/5/55/25/85E0B0276F0F08CC48354EE73BA_D5D2B7A3_17B79.jpg"></div>
+              <div class="one-left-tt txt-elise">西安石油大学石油工程学院来我院调研交流</div>
+              <div class="one-left-p">9月14日，西安石油大学石油工程学院院长黄海一行到访我院调研交流，院长王志华，副院长冯福平、李占东及各系（所、中心）负责人、部分教师代表参加...</div>
+            </a>
+          </div>
+
+            <div>
+            <a class="img-hide" href="info/1020/3694.htm" target="_blank" title="我院院长王志华带队到中国石油勘探开发研究院四川盆地研究中心走访交流">
+              <div class="img-left-img img-hide"><span><font>12</font><br>2024-09</span><img src="/__local/4/47/12/3CA1BF4EFEC898F22F051234429_30881FCB_E568.jpg"></div>
+              <div class="one-left-tt txt-elise">我院院长王志华带队到中国石油勘探开发研究院四川盆地研究中...</div>
+              <div class="one-left-p">9月12日，为进一步贯彻落实校党委书记付晓飞今年年初带队走访中国石油勘探开发研究院四川盆地研究中心时双方达成的重要共识，院长王志华带队到中国...</div>
+            </a>
+          </div>
+
+            <div>
+            <a class="img-hide" href="info/1020/3624.htm" target="_blank" title="我院获评全国教育系统先进集体、刘义坤教授获评全国优秀教师">
+              <div class="img-left-img img-hide"><span><font>10</font><br>2024-09</span><img src="/__local/F/1E/CD/C76900DD72F959F67A81B280EEB_7215D2F2_11A7D.jpg"></div>
+              <div class="one-left-tt txt-elise">我院获评全国教育系统先进集体、刘义坤教授获评全国优秀教师</div>
+              <div class="one-left-p">9月8日，庆祝第40个教师节暨全国教育系统先进集体和先进个人表彰活动在京举行。人力资源和社会保障部、教育部联合表彰全国教育系统先进集体和个人...</div>
+            </a>
+          </div>
+          </div><script>_showDynClickBatch(['dynclicks_u7_3704','dynclicks_u7_3724','dynclicks_u7_3684','dynclicks_u7_3694','dynclicks_u7_3624'],[3704,3724,3684,3694,3624],"wbnews", 1885932217)</script>
+
+        
+
+ <ul class="pull-right one-right fadeInRight">
+
+
+          <li>
+            <a class="clearfix" href="info/1020/3704.htm" target="_blank" title="我院召开产业技术研究院建设工作交流会">
+              <div class="pull-left one-right-date"><span>09-20</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">我院召开产业技术研究院建设工作交流会</div>
+                <div class="onex-right-p">9月20日，我院召集大庆华理生物技术股份有限公司、大庆辰平钻井技术服务有限公司、大庆长垣能源科技有限...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1020/3724.htm" target="_blank" title="石油工程学院召开优秀本科生考研与择校专题交流会">
+              <div class="pull-left one-right-date"><span>09-20</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">石油工程学院召开优秀本科生考研与择校专题交流会</div>
+                <div class="onex-right-p">9月19日晚，石油工程学院召开优秀本科生考研与择校专题交流会，本次会议特邀请非常规油气研究院潘哲君教...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1020/3684.htm" target="_blank" title="西安石油大学石油工程学院来我院调研交流">
+              <div class="pull-left one-right-date"><span>09-15</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">西安石油大学石油工程学院来我院调研交流</div>
+                <div class="onex-right-p">9月14日，西安石油大学石油工程学院院长黄海一行到访我院调研交流，院长王志华，副院长冯福平、李占东及...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1020/3694.htm" target="_blank" title="我院院长王志华带队到中国石油勘探开发研究院四川盆地研究中心走访交流">
+              <div class="pull-left one-right-date"><span>09-12</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">我院院长王志华带队到中国石油勘探开发研究院四川...</div>
+                <div class="onex-right-p">9月12日，为进一步贯彻落实校党委书记付晓飞今年年初带队走访中国石油勘探开发研究院四川盆地研究中心时...</div>
+              </div>
+            </a>
+          </li>
+          
+        </ul><script>_showDynClickBatch(['dynclicks_u8_3704','dynclicks_u8_3724','dynclicks_u8_3684','dynclicks_u8_3694'],[3704,3724,3684,3694],"wbnews", 1885932217)</script>
+
+    </div>
+    </div>
+  </div>
+ 
+  <!--通知公告 -->
+  <div class="page-one">
+     <div class="container">
+      <div class="title" style="width: 48%;float: left;">
+      通知<span>公告</span><font><img src="images/title02.png"></font><a href="tzgg.htm">更多</a></div>
+     <div class="title" style="width: 48%;float: right;"> 学术<span>动态</span><font><img src="images/title03.png"></font><a href="xsdt.htm">更多</a></div>
+      
+      <div class="clearfix">
+
+ <ul class="  one-right fadeInRight" style="float:left;">
+
+
+          <li>
+            <a class="clearfix" href="https://jxzlzx.nepu.edu.cn/pgpj/content.jsp?urltype=news.NewsContentUrl&wbtreeid=1073&wbnewsid=2765" target="_blank" title="教育教学审核评估自评报告公示">
+              <div class="pull-left one-right-date"><span>09-30</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="tz one-right-tt txt-elise">教育教学审核评估自评报告公示</div>
+                <!--div class="onex-right-p"></div>-->
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1021/3794.htm" target="_blank" title="2024年东北石油大学研究生学术年会暨第三届研究生学术论坛石油工程学院分论坛组织实施方案">
+              <div class="pull-left one-right-date"><span>09-29</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="tz one-right-tt txt-elise">2024年东北石油大学研究生学术年会暨第三届研究生学术论坛石油工程学院分论坛组织实施方案</div>
+                <!--div class="onex-right-p">一、分论坛活动背景我校为营造浓厚的学术研究氛围，激发研究生的创新潜能，提高研究生的综合素质，展现...</div>-->
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1021/3524.htm" target="_blank" title="石油工程学院2025年硕士研究生招生暑期夏令营活动“优秀营员”评选结果公示">
+              <div class="pull-left one-right-date"><span>08-04</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="tz one-right-tt txt-elise">石油工程学院2025年硕士研究生招生暑期夏令营活动“优秀营员”评选结果公示</div>
+                <!--div class="onex-right-p">根据《石油工程学院硕士研究生招生暑期夏令营“优秀营员”评定办法》（油工院发[2021]8号），经活动组委...</div>-->
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1021/3294.htm" target="_blank" title="“一带一路”能源与资源技术前沿研究生暑期学校暨2025年优秀大学生暑期夏令营活动入选人员名单">
+              <div class="pull-left one-right-date"><span>07-21</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="tz one-right-tt txt-elise">“一带一路”能源与资源技术前沿研究生暑期学校暨2025年优秀大学生暑期夏令营活动入选人员名单</div>
+                <!--div class="onex-right-p">现公布“一带一路”能源与资源技术前沿研究生暑期学校暨2025年优秀大学生暑期夏令营活动入选人员名单：...</div>-->
+              </div>
+            </a>
+          </li>
+          
+        </ul><script>_showDynClickBatch(['dynclicks_u9_3804','dynclicks_u9_3794','dynclicks_u9_3524','dynclicks_u9_3294'],[3804,3794,3524,3294],"wbnews", 1885932217)</script>
+
+     
+
+ <ul class="pull-right one-right fadeInRight">
+
+
+          <li>
+            <a class="clearfix" href="info/1022/3564.htm" target="_blank" title="我院研究生在第六届中国海洋工程设计大赛中首摘桂冠">
+              <div class="pull-left one-right-date"><span>08-26</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">我院研究生在第六届中国海洋工程设计大赛中首摘桂冠</div>
+                <div class="onex-right-p">8月22日上午，第六届中国海洋工程设计大赛在三亚崖州湾科技城顺利举行全国总决赛答辩，此次大赛中，我院...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1022/3052.htm" target="_blank" title="我院举办“油气工程技术大讲堂”第十七讲">
+              <div class="pull-left one-right-date"><span>06-13</span><br>2024</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">我院举办“油气工程技术大讲堂”第十七讲</div>
+                <div class="onex-right-p">6月13日，石油与天然气工程学科“油气工程技术大讲堂”第十七讲在学院大会议室举行，我校钻井80级校友、...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1022/2814.htm" target="_blank" title="我院2023年研究生学术论坛报告会成功举行">
+              <div class="pull-left one-right-date"><span>10-31</span><br>2023</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">我院2023年研究生学术论坛报告会成功举行</div>
+                <div class="onex-right-p">10月30日，我院举办了2023年研究生学术论坛报告会。秉承“启迪创新思想，开拓创新视野，激发创新精神，...</div>
+              </div>
+            </a>
+          </li>
+          
+
+          <li>
+            <a class="clearfix" href="info/1022/2796.htm" target="_blank" title="德国克劳斯塔尔工业大学侯正猛教授做客我院“油气工程技术大讲堂”">
+              <div class="pull-left one-right-date"><span>10-12</span><br>2023</div>
+              <div class="one-right-width">
+                <div class="one-right-tt txt-elise">德国克劳斯塔尔工业大学侯正猛教授做客我院“油气...</div>
+                <div class="onex-right-p">10月11日下午，由我院举办的“油气工程技术大讲堂”暨第二届研究生学术论坛之名师讲坛在学院大会议室举...</div>
+              </div>
+            </a>
+          </li>
+          
+        </ul><script>_showDynClickBatch(['dynclicks_u10_3564','dynclicks_u10_3052','dynclicks_u10_2814','dynclicks_u10_2796'],[3564,3052,2814,2796],"wbnews", 1885932217)</script>
+</div>
+    
+   </div>
+    </div>
+
+  
+  
+  <!--结束-->
+   <div class="page-three">
+    <div class="container">
+      <div class="title  ">党建<span>风采</span><font><img src="images/title07.png"></font><a href="djfc.htm">更多</a></div>
+      
+     
+
+
+    <div class="fc-back">
+        <div class="fc-slick-img ">
+                   <div><a class="img-hide" href="info/1024/3314.htm"><img src="/__local/E/7E/4B/C01CC6159BAFB109EF83B71403F_F04F51EF_15C54.jpg"></a></div>
+          <div><a class="img-hide" href="info/1024/3324.htm"><img src="/__local/E/6A/80/F433578F73D493B5FD6063C27BB_F786869D_396E7.jpg"></a></div>
+          <div><a class="img-hide" href="info/1024/3504.htm"><img src="/__local/A/92/5F/6D8C505E37A6B1EF632FF689318_D11AA881_1942B.jpg"></a></div>
+          <div><a class="img-hide" href="info/1024/3334.htm"><img src="/__local/8/62/8D/7559E23D3EA4423C1F4AD8335B8_906C7844_3E177.jpg"></a></div>
+          <div><a class="img-hide" href="info/1024/3344.htm"><img src="/__local/A/39/E2/ABC50B9D6AC2C38EC210B99B5A0_7D9AFCEB_5B363.jpg"></a></div>
+        </div>
+        <div class="fc-slick-left">
+ 
+
+
+
+
+
+ <div>
+             <a href="info/1024/3314.htm" target="_blank" title="石油工程学院召开党委、纪委换届选举大会">
+              <div class="fc-slick-tt">石油工程学院召开党委、纪委换届选举大会</div>
+              <div class="fc-slick-date">2024-06-28</div>
+              <div class="fc-slick-p">6月27日下午，中共东北石油大学石油工程学院委员会和纪律检查委员会换届选举大会在油工馆大会议室召开。学院全体党...</div>
+              <div class="fc-slick-raw"><img src="images/raw01.png"></div>
+              
+              
+              <div class="fc-slick-number"><span>01</span>05</div>
+              
+            
+            </a>
+          </div>
+
+
+ <div>
+             <a href="info/1024/3324.htm" target="_blank" title="学院召开干部任职宣布大会">
+              <div class="fc-slick-tt">学院召开干部任职宣布大会</div>
+              <div class="fc-slick-date">2024-06-14</div>
+              <div class="fc-slick-p">6月14日下午，我院在大会议室召开干部任职宣布大会，校党委书记付晓飞、校党委组织部正处级组织员刘恒宇出席会议，...</div>
+              <div class="fc-slick-raw"><img src="images/raw01.png"></div>
+              
+              
+              <div class="fc-slick-number"><span>02</span>05</div>
+              
+            
+            </a>
+          </div>
+
+
+ <div>
+             <a href="info/1024/3504.htm" target="_blank" title="不负青春昭华，勇担时代重任—石油工程学院举办毕业生党员离校主题教育活动">
+              <div class="fc-slick-tt">不负青春昭华，勇担时代重任—石油工程学院举办毕业生党员离校主题教育活动</div>
+              <div class="fc-slick-date">2024-05-31</div>
+              <div class="fc-slick-p">青春奋进正当时,筑梦不负新时代。值此2024届毕业生离校之际，石油工程学院于2024年5月30日上午在1F219举办以“不负...</div>
+              <div class="fc-slick-raw"><img src="images/raw01.png"></div>
+              
+              
+              <div class="fc-slick-number"><span>03</span>05</div>
+              
+            
+            </a>
+          </div>
+
+
+ <div>
+             <a href="info/1024/3334.htm" target="_blank" title="党建引领｜石油工程学院成功举办2024年上半年党校培训班">
+              <div class="fc-slick-tt">党建引领｜石油工程学院成功举办2024年上半年党校培训班</div>
+              <div class="fc-slick-date">2024-05-27</div>
+              <div class="fc-slick-p">为深入贯彻落实全国组织工作会议精神，坚持把发展党员工作作为加强基层党组织建设的源头工程、基础工程，严把党员...</div>
+              <div class="fc-slick-raw"><img src="images/raw01.png"></div>
+              
+              
+              <div class="fc-slick-number"><span>04</span>05</div>
+              
+            
+            </a>
+          </div>
+
+
+ <div>
+             <a href="info/1024/3344.htm" target="_blank" title="石油工程学院召开党支部书记工作会议">
+              <div class="fc-slick-tt">石油工程学院召开党支部书记工作会议</div>
+              <div class="fc-slick-date">2024-04-29</div>
+              <div class="fc-slick-p">为全面增强基层党组织政治功能和组织功能，深入探索以高质量党建引领高质量发展的工作路径，4月29日，石油工程学院...</div>
+              <div class="fc-slick-raw"><img src="images/raw01.png"></div>
+              
+              
+              <div class="fc-slick-number"><span>05</span>05</div>
+              
+            
+            </a>
+          </div>
+
+
+
+
+
+
+
+          
+        </div>
+      </div>
+
+
+<script>_showDynClickBatch(['dynclicks_u11_3314','dynclicks_u11_3324','dynclicks_u11_3504','dynclicks_u11_3334','dynclicks_u11_3344'],[3314,3324,3504,3334,3344],"wbnews", 1885932217)</script>
+
+ 
+     
+     
+        </div>
+      </div>
+ 
+ 
+  <div class="page-tow">
+    <div class="container">
+    
+    
+     
+      
+      <div class="tow-bottom clearfix">
+        <div class="tow-bottom-left pull-left ">
+          <div class="title">学生<span>工作</span><font><img src="images/title04.png"></font><a href="xsgz1/xtgz.htm">更多</a></div>
+
+
+ <ul class="tow-news">
+   
+            <li>
+              <a class="clearfix img-hide" href="info/1053/3714.htm" target="_blank" title="石油工程学院召开优秀本科生考研与择校专题交流会">
+                <div class="pull-left tow-news-img img-hide"><img src="/__local/B/9C/EA/7A1D3973BB7C960B1277AA72181_863E385C_1EE83.jpg"></div>
+                <div class="tow-news-right">
+                  <div class="tow-news-tt">石油工程学院召开优秀本科生考研与择校专题交流会</div>
+                  <div class="tow-news-date">2024-09-20</div>
+                </div>
+              </a>
+            </li>
+            
+   
+            <li>
+              <a class="clearfix img-hide" href="info/1053/3734.htm" target="_blank" title="石油工程学院“凝聚师生力量，共护油工家园”劳动清扫活动圆满完成">
+                <div class="pull-left tow-news-img img-hide"><img src="/__local/2/E7/FE/BD913784B6F9FD5E4E457BBEA02_8D25E834_2630E.jpg"></div>
+                <div class="tow-news-right">
+                  <div class="tow-news-tt">石油工程学院“凝聚师生力量，共护油工家园”劳动清扫活动圆满完成</div>
+                  <div class="tow-news-date">2024-09-19</div>
+                </div>
+              </a>
+            </li>
+            
+   
+            <li>
+              <a class="clearfix img-hide" href="info/1053/3754.htm" target="_blank" title="守护“油”梦，共绘千里明月情——石油工程学院温馨寝室走访活动">
+                <div class="pull-left tow-news-img img-hide"><img src="/__local/5/F0/09/89E4DA0CC3C48EB0C6A8F15C213_AE621A0B_12FF0.jpg"></div>
+                <div class="tow-news-right">
+                  <div class="tow-news-tt">守护“油”梦，共绘千里明月情——石油工程学院温馨寝室走访活动</div>
+                  <div class="tow-news-date">2024-09-18</div>
+                </div>
+              </a>
+            </li>
+            
+   
+            <li>
+              <a class="clearfix img-hide" href="info/1053/3774.htm" target="_blank" title="石油工程学院开展“开学反诈第一课”教育活动">
+                <div class="pull-left tow-news-img img-hide"><img src="/__local/C/E7/E9/D81E082289FFC8C8CE0BEFA1AB5_3C6220FB_2177B.jpg"></div>
+                <div class="tow-news-right">
+                  <div class="tow-news-tt">石油工程学院开展“开学反诈第一课”教育活动</div>
+                  <div class="tow-news-date">2024-09-05</div>
+                </div>
+              </a>
+            </li>
+            
+</ul><script>_showDynClickBatch(['dynclicks_u12_3714','dynclicks_u12_3734','dynclicks_u12_3754','dynclicks_u12_3774'],[3714,3734,3754,3774],"wbnews", 1885932217)</script>
+         
+        </div>
+        <div class="pull-left tow-bottom-left tow-bottom-center ">
+          <div class="title">校友<span>风采</span><font><img src="images/title05.png"></font><a href="xyfc1.htm">更多</a></div>
+
+
+<ul class="center-ul">
+
+
+          <a class="tow-top-link" href="info/1026/3004.htm" target="_blank" title="忆青春时光未老，二十载再缘油工！油工00-1班校友毕业20周年返校纪念活动顺利举行">
+            <div class="center-date">2024-05-02</div>
+            <div class="center-tt txt-elise">忆青春时光未老，二十载再缘油工！油工00-1班校...</div>
+            <div class="center-p">五一假期，我院石油工程专业2000级1班校友返校举办毕业20周年纪念活动，活动以“忆青春时光未老，二十载再缘油工”为主题，设...</div>
+          </a>
+
+
+
+
+
+
+         
+            <li><a href="info/1026/2721.htm" target="_blank" title="我院校友、大庆油田1205钻井队队长张晶荣膺“龙江楷模”称号">
+                <div class="cneter-ul-tt txt-elise">我院校友、大庆油田1205钻井队队长张晶荣膺“龙...</div>
+                <div class="center-date-b">2023-09-17</div>
+              </a>
+            </li>
+         
+
+
+
+
+         
+            <li><a href="info/1026/2433.htm" target="_blank" title="我院校友孟文波荣获孙越崎青年科技奖">
+                <div class="cneter-ul-tt txt-elise">我院校友孟文波荣获孙越崎青年科技奖</div>
+                <div class="center-date-b">2023-04-13</div>
+              </a>
+            </li>
+         
+
+
+
+
+         
+            <li><a href="info/1026/2304.htm" target="_blank" title="我院校友张赫当选第十四届全国人民代表大会第一次会议主席团成员">
+                <div class="cneter-ul-tt txt-elise">我院校友张赫当选第十四届全国人民代表大会第一...</div>
+                <div class="center-date-b">2023-03-09</div>
+              </a>
+            </li>
+         
+
+
+
+
+         
+            <li><a href="info/1026/2305.htm" target="_blank" title="我院校友袁爱武获评全国三八红旗手">
+                <div class="cneter-ul-tt txt-elise">我院校友袁爱武获评全国三八红旗手</div>
+                <div class="center-date-b">2023-03-09</div>
+              </a>
+            </li>
+         
+
+ </ul><script>_showDynClickBatch(['dynclicks_u13_3004','dynclicks_u13_2721','dynclicks_u13_2433','dynclicks_u13_2304','dynclicks_u13_2305'],[3004,2721,2433,2304,2305],"wbnews", 1885932217)</script>
+         
+        </div>
+        <div class="tow-bottom-left pull-left ">
+          <div class="title">成果<span>发布</span><font><img src="images/title06.png"></font><a href="cgfb.htm">更多</a></div>
+
+
+  <ul class="cg-ul">
+ 
+            <li><a href="http://10.235.0.251:8085/#/home" target="_blank" title="成果录入系统">
+                <div class="cg-ul-tt txt-elise">成果录入系统</div>
+                <div class="center-date-b">2024-07-03</div>
+              </a>
+            </li>
+           
+         
+ 
+            <li><a href="info/1025/2418.htm" target="_blank" title="国家一流本科课程《石油工程II（采油工程）》">
+                <div class="cg-ul-tt txt-elise">国家一流本科课程《石油工程II（采油工程）》</div>
+                <div class="center-date-b">2022-06-17</div>
+              </a>
+            </li>
+           
+         
+ 
+            <li><a href="info/1025/2763.htm" target="_blank" title="《渗流力学》教材">
+                <div class="cg-ul-tt txt-elise">《渗流力学》教材</div>
+                <div class="center-date-b">2022-06-17</div>
+              </a>
+            </li>
+           
+         
+ 
+            <li><a href="info/1025/2766.htm" target="_blank" title="《输油管道设计与管理》课程">
+                <div class="cg-ul-tt txt-elise">《输油管道设计与管理》课程</div>
+                <div class="center-date-b">2022-03-09</div>
+              </a>
+            </li>
+           
+         
+</ul><script>_showDynClickBatch(['dynclicks_u14_3094','dynclicks_u14_2418','dynclicks_u14_2763','dynclicks_u14_2766'],[3094,2418,2763,2766],"wbnews", 1885932217)</script>
+       
+        </div>       
+      </div>
+      
+    </div>
+  </div>
+  
+ 
+     
+  <div class="page-four">
+    <div class="container">
+      <div class="title text-center  ">专题<span>专栏</span><font><img src="images/title08.png"></font></div>
+      <ul class="zt-list clearfix text-center  ">
+    
+  <li><a class="img-hide" href="#" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73947)" target="_blank"><img src="images/1.jpg" border="0"></a></li>
+                                            
+
+  <li><a class="img-hide" href="shpgzl/pgdt.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73946)" target="_blank"><img src="images/12.jpg" border="0"></a></li>
+                                            
+
+  <li><a class="img-hide" href="ztzl/dj__gc.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73945)" target="_blank"><img src="images/3.png" border="0"></a></li>
+                                            
+
+  <li><a class="img-hide" href="https://www.12371.cn/djxx/" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73944)" target="_blank"><img src="images/dangjixuexijiaoyu1.png" border="0"></a></li>
+                                            
+
+
+
+        
+      </ul>
+    </div>
+  </div>
+  <div class="sj-back">
+    <div class="container">
+      <div class="title text-center  ">学院数据<font><img src="images/title09.png"></font></div>
+      <div class="sj-p text-center  ">
+<script language="javascript" src="/system/resource/js/news/mp4video.js"></script>
+石油工程学院的前身是创建于1960年的石油开发系，已故国际著名学者、国内石油界元老周世尧教授任首届系主任。学院拥有石油与天然气工程国家一级重点学科（含油 气田开发工程、油气井工程、油气储运工程3个国家二级重点学科）设有石油与天然气工程博士后科研流动站和石油与天然气工程博士学位授予权一级学科。
+        </div>   
+
+<ul class="date-list clearfix text-center list-paddingleft-2" style="width: 163%;"> 
+ <li><p class="date-list-top"><span class="lg"> <strong>141</strong>人</span></p><p class="date-bottom text-center">教职工</p></li> 
+ <li><p class="date-list-top"><span class="lg"><strong>6</strong>个</span></p><p class="date-bottom text-center">科研平台</p></li> 
+ <li><p class="date-list-top"><span class="lg"><strong>20000</strong>人</span></p><p class="date-bottom text-center">毕业生</p></li> 
+</ul>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-left">快速通道：</div>
+        <ul class="footer-ul clearfix">
+
+
+          
+
+    <LI><a href="xzzq/zyrz.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88330)">--专业认证--</a></li>
+
+
+          
+
+    <LI><a href="http://sygcdz.nepu.edu.cn/" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88332)">--国家级实验教学示范中心--</a></li>
+
+
+          
+
+    <LI><a href="&lt;span style='color:red;font-size:9pt'&gt;转换链接错误&lt;/span&gt;" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88328)">--重点实验室--</a></li>
+
+
+          
+
+    <LI><a href="szdw1/gccrc1.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88331)">--高层次人才--</a></li>
+
+
+          
+
+    <LI><a href="xkky/kytd.htm" target="_blank" title="" onclick="_addDynClicks(&#34;wburl&#34;, 1885932217, 88329)">--科研团队--</a></li>
+
+
+        
+        </ul>
+      </div>
+      <div class="clearfix footer-bottom">
+        <div class="pull-left logo-b"><a href="index.htm"><img src="images/logo-b.png"></a></div>
+        <div class="pull-left footer-p">
+          <!-- 版权内容请在本组件"内容配置-版权"处填写 -->
+<p>黑龙江省大庆市高新技术产业开发区学府街99号 &nbsp;邮政编码：163318</p><p>联系电话：0459-6503482 &nbsp;电子邮件：sygcyb@163.com</p><p>版权所有 2019 东北石油大学石油工程学院</p>
+          
+          
+        </div>
+        <div class="pull-right ewm text-center">
+        
+        
+        
+        
+                   <img src="images/ewm.png" border="0"><br> 
+                       
+                     
+                        
+                
+                     
+                 
+                
+
+        
+       
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fix-box">
+              <div class="l-tb"><img src="images/l-logo.png"></div>
+<ul class="fix-ul">
+
+
+
+                         <li> <a href="xyxw1.htm" title="学院新闻" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73959)" target="_blank">
+                           
+                            <img src="images/fix06.png">
+                        <br>学院新闻</a></li>
+     
+
+
+
+
+
+
+
+
+
+                         <li> <a href="tzgg.htm" title="通知公告" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73958)" target="_blank">
+                           
+                            <img src="images/fix05.png">
+                        <br>通知公告</a></li>
+     
+
+
+
+
+
+
+
+
+
+                         <li> <a href="szdw1/js1.htm" title="师资队伍" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73956)" target="_blank">
+                           
+                            <img src="images/fix03.png">
+                        <br>师资队伍</a></li>
+     
+
+
+
+
+
+
+
+
+
+
+                   
+                         <li> <a href="https://tsg.webvpn.nepu.edu.cn/index.jsp" title="图书馆" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73957)" target="_blank">
+                           
+                            <img src="images/fix04.png">
+                        <br>图书馆</a></li>
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+      <li> <a href="http://xnxx.nepu.edu.cn/" title="校园门户" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73954)" target="_blank">
+                           
+                            <img src="images/fix01.png">
+                        <br>校园门户</a></li>
+
+
+
+
+
+
+
+
+
+
+
+      <li> <a href="http://10.235.0.251:8085/#/home" title="成果录入系统" onclick="_addDynClicks(&#34;wbimage&#34;, 1885932217, 73955)" target="_blank">
+                           
+                            <img src="images/fix02.png">
+                        <br>成果录入系统</a></li>
+
+
+
+
+  <li><a href=""><img src="images/fix07.png"><br></a></li>
+</ul>
+
+
+    
+  </div>
+  
+</body>
+
+ <script src="js/jquery.min.js"></script>
+  <script src="js/vendor.js"></script>
+  <!-- inject:js -->
+  <script src="js/main.js"></script>
+  
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/wow.min.js"></script>
+ 
+<script type="text/javascript">
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+  new WOW().init();
+};
+
+$(function(){
+var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+var wH = window.innerHeight;// 当前窗口的高度
+var wW = window.innerWidth;// 当前窗口的宽度
+var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+$('html').css('font-size', rem + "px");
+});
+$(window).resize(function (){// 绑定到窗口的这个事件中
+var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+var wH = window.innerHeight;// 当前窗口的高度
+var wW = window.innerWidth;// 当前窗口的宽度
+var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+$('html').css('font-size', rem + "px");
+});
+    $('.banner').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        centerMode: false,
+        arrows:true,
+        dots:true,
+    });
+    $('.one-left').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        centerMode: false,
+        arrows:false,
+        dots:true,
+    });
+    $('.gg-slick').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        centerMode: false,
+        arrows:false,
+        dots:true,
+   responsive: [
+    {
+      breakpoint: 1023,
+      settings: {
+centerMode: false,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots:true,
+      }
+    }
+  ],
+     responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+centerMode: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  dots:true,
+      }
+    }
+  ]
+    });
+    $('.fc-slick-left').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        centerMode: false,
+        arrows:true,
+        dots:false,
+        asNavFor:$('.fc-slick-img')
+    });
+    $('.fc-slick-img').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        centerMode: false,
+        arrows:true,
+        dots:false,
+        asNavFor:$('.fc-slick-left')
+    });
+    $('.zt-list').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        centerMode: false,
+        arrows:true,
+        dots:false,
+   responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+centerMode: false,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  dots:false,
+      }
+    }
+  ]
+    });
+    
+    $(function() {
+            $(".l-tb").mouseover(function() {
+                $(".fix-box").addClass("on");
+            })
+            $(".fix-ul").mouseleave(function() {
+                $(".fix-box").removeClass("on");
+            })
+        })
+    
+  
+    
+ 
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

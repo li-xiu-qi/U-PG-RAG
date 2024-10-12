@@ -32,6 +32,7 @@ from app.serves.model_serves.embedding_model import EmbeddingModel
 from app.serves.model_serves.types import LLMInput, Message, EmbeddingInput
 from app.serves.prompts.base_prompt import PromptFactory
 from app.serves.rag_service.utils import query2keywords
+from config import ServeConfig
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +52,8 @@ class RAGStreamService:
     def __init__(self, db: AsyncSession, embedding_model: EmbeddingModel, llm: ChatModel):
         self.embedding_model = embedding_model
         self.llm = llm
-        self.model_name = "Qwen/Qwen2.5-7B-Instruct"
+        self.embedding_model_name = ServeConfig.embedding_model_name
+        self.model_name = ServeConfig.model_name
         # self.model_name = "Vendor-A/Qwen/Qwen2-72B-Instruct"
         self.total_tokens = 0
         self.db = db
@@ -101,7 +103,7 @@ class RAGStreamService:
                                                     paragraph_number_ranking=paragraph_number_ranking,
                                                     filter_count=filter_count
                                                     )
-        yield f"data: {RAGStreamResponse(data_type='document', result=documents).model_dump_json()}\n\n"
+        yield f"data: {RAGStreamResponse(data_type='retrieval', result=documents).model_dump_json()}\n\n"
         async for res in self.generate_stream_response_from_documents(user_question,
                                                                       [doc["page_content"] for doc in documents]):
             yield f"data: {RAGStreamResponse(data_type='answer', result=res).model_dump_json()}\n\n"

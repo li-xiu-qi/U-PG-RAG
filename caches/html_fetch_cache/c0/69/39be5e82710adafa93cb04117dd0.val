@@ -1,0 +1,1017 @@
+﻿<!DOCTYPE html>
+<html><head>
+
+
+<meta charset="utf-8">
+<title>东北石油大学招生信息网</title><meta name="pageType" content="1">
+<meta name="pageTitle" content="东北石油大学招生信息网">
+<META Name="keywords" Content="东北石油大学招生信息网" />
+
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link href="style/gyys.css" rel="stylesheet" type="text/css">
+<link href="style/video.css" rel="stylesheet" type="text/css">
+<link href="style/youzhi.css" rel="stylesheet" type="text/css">
+<style>
+.imagechangenews_fnode,.imagechangenews_pnode{display:none;}
+</style>
+<script src="js/bdtxk.js"></script>
+<!--Announced by Visual SiteBuilder 9-->
+<script language="javascript" src="_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232306578475050525742000400014e50 -->
+<link rel="stylesheet" type="text/css" href="index.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen" devices="pc|pad"></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1001,'/index.jsp',-1,1597118057)</script>
+</head>
+
+<body> 
+<div></div>
+<div class="top_a">
+
+
+ <script language="javascript" src="/system/resource/js/dynclicks.js"></script>   
+</SCRIPT>
+
+      <div class="clear"></div>
+    <div class="W1200" style="margin-top:20px;">
+    <div class="FL logo">
+<a href="index.htm"><img src="images/loho.png"></a></div>       
+        <div class="FR" style="width:700px;">
+        <div class="Search">
+        
+        
+        
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script>   
+<div id="divu2"></div>
+<script type="text/html" id="htmlu2">
+    <div id="appu2" class="Search">
+        <div v-if="!isError">
+            <input type="text" class="search_text" placeholder="输入关键词..." autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+            <div class="fdj"><input class="button pngFix" name="submit_button" type="button" value="" v-on:click="onSubmit()"/></div>
+        </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            应用维护中！
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu2").html($("#htmlu2").text());
+</script>
+<script>
+    var appOwner = "1597118057";
+    var token = gettoken(10);
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu2",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//搜索关键词
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_zh_CN"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("请填写搜索内容")
+                }
+            },
+        }
+    })
+</script>
+        
+        
+        </div>
+        <div class="navBar">
+        <div style="height:10px;"></div>
+            <ul class="nav clearfix container">
+                
+                <li class="fl te-c p_r">
+                    <h3><a href="index.htm" title="网站首页">网站首页</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="zjdy/xxjj.htm" title="走进东油">走进东油</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="yxjs1/dqkxxy.htm" title="院系介绍">院系介绍</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="zszc.htm" title="招生政策">招生政策</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="bkzn.htm" title="报考指南">报考指南</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="lxwm.htm" title="联系我们">联系我们</a></h3>
+
+
+                </li>
+                
+
+                <li class="fl te-c p_r">
+                    <h3><a href="https://www.nepu.edu.cn/" title="学校主页">学校主页</a></h3>
+
+
+                </li>
+                
+
+                
+                
+                
+            </ul>
+    </div>
+
+      
+        </div>
+        
+  <div class="clear"></div>
+</div>
+</div>
+
+<div class="clear"></div>
+<div class="banner_a">
+<div class="banner p_r">
+    
+      
+
+<div class="bd">
+        <ul>
+
+  
+            <li style="background:url(images/2024.jpg) center 0 no-repeat;"></li>
+
+
+            <li style="background:url(images/xuexiaorongyugai.jpg) center 0 no-repeat;"></li>
+
+
+            <li style="background:url(images/3.jpg) center 0 no-repeat;"></li>
+
+
+            <li style="background:url(images/huanyingbaokaodongbeishiyoudaxue1.png) center 0 no-repeat;"></li>
+
+        
+        </ul>
+    </div>
+    <div class="hd"><ul></ul></div>
+    <a class="prev"></a>
+                        <a class="next"></a>
+</div>
+</div>
+
+
+<div class="clear"></div>
+<div class="mid">
+ <div class="W1200">
+ <div class="kstd">
+            <ul>        
+   
+     
+            <div class="zc">
+                        <a href="cx/zsjh.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1597118057, 55716)" target="_blank">
+                            <img src="images/zhaoshengjihua.png">
+                        </a>  
+               
+         </div>
+   
+
+   
+     
+            <div class="zc">
+                        <a href="cx/lnfs.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1597118057, 55717)" target="_blank">
+                            <img src="images/linianfenshu.png">
+                        </a>  
+               
+         </div>
+   
+
+   
+     
+            <div class="zc">
+                        <a href="index/lqgs.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1597118057, 55719)" target="_blank">
+                            <img src="images/luqugongshi.png">
+                        </a>  
+               
+         </div>
+   
+
+   
+     
+            <div class="zc">
+                        <a href="info/1262/2219.htm" title="" onclick="_addDynClicks(&#34;wbimage&#34;, 1597118057, 55718)" target="_blank">
+                            <img src="images/luquchaxun.png">
+                        </a>  
+               
+         </div>
+   
+
+   
+     
+            <div class="zc">
+                        <a href="info/1263/2220.htm" title="第5张图片" onclick="_addDynClicks(&#34;wbimage&#34;, 1597118057, 58333)" target="_blank">
+                            <img src="images/tongzhishuchaxun.png">
+                        </a>  
+               
+         </div>
+   
+</ul>
+        </div>
+  <div class="FR W865">
+        <div class="tzgg">
+            <div class="sy-tzgg-title">
+        <div class="more"><a href="index/tzgg.htm">更多</a></div>
+                <ul>
+            
+                    <li class="aaa_current" onmouseover="selectSwtich('',this,'aaa',0,'aaa_current')" href="javascript:void(0)" style="float:left"><a href="javascript:void(0)">通知公告</a></li>
+                    
+                    
+                </ul>
+            </div>
+            
+            
+            <div class="sy-tzgg-con">
+                <div class="ty_list relative" id="aaa0">
+                    <ul>
+                
+
+<script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script>   <li><a href="info/1168/3976.htm" target="_blank" title="东北石油大学2024年招生录取进程一览（陆续更新）" style="font-weight:bold;color:#ff0000;">东北石油大学2024年招生录取进程一览（陆续更新）</a>2024-08-02</li>
+   <li><a href="info/1168/4256.htm" target="_blank" title="东北石油大学（大庆校区）2024新生入学须知" style="color:#0033ff;">东北石油大学（大庆校区）2024新生入学须知</a>2024-07-23</li>
+   <li><a href="info/1168/4266.htm" target="_blank" title="东北石油大学（秦皇岛校区）2024新生入学须知" style="color:#2600ff;">东北石油大学（秦皇岛校区）2024新生入学须知</a>2024-07-23</li>
+   <li><a href="https://mp.weixin.qq.com/s/h_q29_HifHBNhAM7exZ-2g" target="_blank" title="6月25日直播预告！招生办谈志愿填报（黑龙江专场）">6月25日直播预告！招生办谈志愿填报（黑龙江专场）</a>2024-06-24</li>
+   <li><a href="info/1168/3834.htm" target="_blank" title="2024年东北石油大学分省分专业招生计划综合统计表（点击附件下载查看）">2024年东北石油大学分省分专业招生计划综合统计表（点击附件下载查看）</a>2024-06-19</li>
+   <li><a href="https://mp.weixin.qq.com/s/QgBd9wNfvjxkXklA8qFm1Q" target="_blank" title="6月19日直播预告 | 学哥学姐说">6月19日直播预告 | 学哥学姐说</a>2024-06-19</li>
+<script>_showDynClickBatch(['dynclicks_u6_3976','dynclicks_u6_4256','dynclicks_u6_4266','dynclicks_u6_3886','dynclicks_u6_3834','dynclicks_u6_3833'],[3976,4256,4266,3886,3834,3833],"wbnews", 1597118057)</script>
+
+                    </ul>
+                    
+                </div>
+                
+                
+                <div class="ty_list relative" id="aaa1" style="display: none;">
+                <ul>
+            
+
+   <li><a href="info/1160/1844.htm" target="_blank" title="东北石油大学2020年全日制普通本、专科招生章程">东北石油大学2020年全日制普通本、专科招生章程</a>06-15</li>
+   <li><a href="info/1160/3774.htm" target="_blank" title="东北石油大学2024年全日制普通本科招生章程">东北石油大学2024年全日制普通本科招生章程</a>05-10</li>
+   <li><a href="http://jwc.nepu.edu.cn/info/1106/8035.htm" target="_blank" title="东北石油大学菁英实验班管理办法（试行）（东油校发〔2023〕142号）">东北石油大学菁英实验班管理办法（试行）（东油校发〔2023〕142号...</a>02-26</li>
+   <li><a href="http://jwc.nepu.edu.cn/info/1106/8032.htm" target="_blank" title="东北石油大学转专业与转学实施办法（东油校发〔2023〕139号）">东北石油大学转专业与转学实施办法（东油校发〔2023〕139号）</a>02-26</li>
+   <li><a href="http://jwc.nepu.edu.cn/info/1106/8033.htm" target="_blank" title="东北石油大学本硕连读实验班实施方案（东油校发〔2023〕140号）">东北石油大学本硕连读实验班实施方案（东油校发〔2023〕140号）</a>02-26</li>
+<script>_showDynClickBatch(['dynclicks_u7_1844','dynclicks_u7_3774','dynclicks_u7_3684','dynclicks_u7_2525','dynclicks_u7_2889'],[1844,3774,3684,2525,2889],"wbnews", 1597118057)</script>
+  
+            </ul>
+            <div class="more"><a href="zszc.htm">更多</a></div>
+         </div>  
+         
+         
+    </div>
+    </div>
+        
+       
+    </div>
+    </div>
+    <div class="clear"></div>
+    <div class="W1200" style="margin-top:20px;">
+           <div class="tzgg" style="width:580px;margin-right:20px;float:left;border:1px solid #fff;">
+            <div class="sy-tzgg-title">
+                <ul>
+                    <li class="bbb_current" onmouseover="selectSwtich('',this,'bbb',0,'bbb_current')" href="javascript:void(0)"><a href="javascript:void(0)" style="padding:0px;"><img src="images/yd.png" style="width:30px;height:30px;">直通东油</a></li>
+                   
+                </ul><div class="more"><a href="index/ztdy.htm" target="">更多</a></div>
+            </div>
+            <div class="sy-tzgg-con">
+                <div class="ty_list relative" id="bbb0">
+                    <ul>
+                 
+
+<div class="FL" style="width:570px">
+<div class="news1">
+<ul>
+
+ <li><a title="东油获批中国石油教育学会2024年石油高等教育（本科）教学成果奖6项" href="info/1165/4606.htm" target="_blank" style="color: #000000;">东油获批中国石油教育学会2024年石油高等教育（本科...</a><span style="float:right">2024-09-09</span></li> <li><a title="东油2024年本科招生录取工作圆满结束" href="info/1165/4596.htm" target="_blank" style="color: #000000;">东油2024年本科招生录取工作圆满结束</a><span style="float:right">2024-08-08</span></li> <li><a title="校党委副书记高洪峰到招生就业处调研指导工作" href="info/1165/4476.htm" target="_blank" style="color: #000000;">校党委副书记高洪峰到招生就业处调研指导工作</a><span style="float:right">2024-07-28</span></li> <li><a title="东油获批黑龙江省高校心理健康教育示范中心" href="info/1165/4466.htm" target="_blank" style="color: #000000;">东油获批黑龙江省高校心理健康教育示范中心</a><span style="float:right">2024-07-28</span></li> <li><a title="东油在第十八届中国制冷空调行业大学生科技竞赛中获佳绩" href="info/1165/4456.htm" target="_blank" style="color: #000000;">东油在第十八届中国制冷空调行业大学生科技竞赛中获佳绩</a><span style="float:right">2024-07-28</span></li>
+</ul></div></div><script>_showDynClickBatch(['dynclicks_u8_4606','dynclicks_u8_4596','dynclicks_u8_4476','dynclicks_u8_4466','dynclicks_u8_4456'],[4606,4596,4476,4466,4456],"wbnews", 1597118057)</script>
+
+                    </ul>
+                    
+                </div>
+                
+    </div>
+    </div>
+
+        <div class="tzgg" style="width:580px;float:right;border:1px solid #fff;">
+            <div class="sy-tzgg-title"><div class="more"><a href="index/xzfc.htm">更多</a></div>
+                <ul>
+                    <li class="bbb_current" onmouseover="selectSwtich('',this,'bbb',0,'bbb_current')" href="javascript:void(0)"><a href="javascript:void(0)" style="padding:0px;"><img src="images/gz.png" style="width:30px;height:30px;">学子风采</a></li>
+                   
+                </ul>
+            </div>
+            <div class="sy-tzgg-con"><div class="ty_list relative" id="bbb0">
+                    <ul>
+
+<div class="FR" style="width:570px;">
+<div class="news1">
+<ul>
+
+ <li><a title="【遇见东油】王义飞与测控技术与仪器梦想的对话：执着于理想，纯粹于当下" href="info/1169/3803.htm" target="_blank" style="color: #000000;">【遇见东油】王义飞与测控技术与仪器梦想的对话：执...</a><span style="float:right">2024-06-03</span></li> <li><a title="【遇见东油】李烨烨与电子信息工程专业梦想的对话：以我之力，追我所愿" href="info/1169/3801.htm" target="_blank" style="color: #000000;">【遇见东油】李烨烨与电子信息工程专业梦想的对话：...</a><span style="float:right">2024-05-27</span></li> <li><a title="【遇见东油】杨帆与应用统计学专业梦想的对话：功不唐捐，玉汝于成" href="info/1169/3791.htm" target="_blank" style="color: #000000;">【遇见东油】杨帆与应用统计学专业梦想的对话：功不...</a><span style="float:right">2024-05-20</span></li> <li><a title="【东油校友】2006级勘查技术与工程专业王一伦荣获全国五一劳动奖章" href="info/1169/3781.htm" target="_blank" style="color: #000000;">【东油校友】2006级勘查技术与工程专业王一伦荣获全...</a><span style="float:right">2024-05-15</span></li> <li><a title="【遇见东油】孙俊伦与信息与计算科学梦想的对话：没有等出来的美丽，只有走出来的辉煌！" href="info/1169/3776.htm" target="_blank" style="color: #000000;">【遇见东油】孙俊伦与信息与计算科学梦想的对话：没...</a><span style="float:right">2024-05-13</span></li>
+</ul></div></div><script>_showDynClickBatch(['dynclicks_u9_3803','dynclicks_u9_3801','dynclicks_u9_3791','dynclicks_u9_3781','dynclicks_u9_3776'],[3803,3801,3791,3781,3776],"wbnews", 1597118057)</script>
+</ul>
+                    
+                </div></div>
+    </div>
+       
+      </div>
+        <div class="clear"></div>
+    <div class="W1200" style="margin-top:3px;">
+  
+    <div class="wrap_mode04" style="width:50%;float:left;padding-bottom:0px;">
+        <div class="mode04" style="margin-bottom: 0;">
+            <div class="articleList05">
+                <div class="articleTitle articleTitle02">
+                  <h2>视频东油</h2>
+<div class="more"><a href="http://zsxxw.nepu.edu.cn/index/spdy.htm">更多</a></div>
+                </div>
+                <div class="vedioBox" style="padding-bottom: 0;">
+
+ <div style="position:relative;">
+
+                        <a href="info/1251/2138.htm" class="vedioLeft">
+                            <div class="vedio01">
+                                <div class="imgResponsive"><img src="/__local/6/E4/59/658A2F4EEF6A8E285428484EAEE_8716836A_10903.jpg" alt=""></div>
+                                <div class="vedioInfo01">
+                                    <p class="fpx16">欢迎报名报考东北石油大学
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </a>
+                        <div class="playL">
+                            <a href="info/1251/2138.htm" class="playStart">
+                            </a>
+                        </div>
+
+                    </div><script>_showDynClickBatch(['dynclicks_u10_2138'],[2138],"wbnews", 1597118057)</script>
+</div>
+            </div></div></div>
+
+<div class="wrap_mode04" style="width:49%;float:right;padding-bottom:0px;">
+        <div class="mode04" style="margin-bottom: 0;">
+<div class="articleList05">
+                <div class="articleTitle articleTitle02">
+                  <h2>专业视界</h2>
+<div class="more"><a href="index/zysj.htm">更多</a></div>
+                </div>
+                <div class="vedioBox" style="padding-bottom: 0;">
+
+                       <ul class="vedio-list">
+                         
+
+<li style="width:49%;margin-right:2%;">
+                                <a href="info/1291/2951.htm" style="margin-right:0;">
+                                    <div class="vedio01">
+                                        <div class="imgResponsive"><img src="/__local/5/A5/4A/5E4E9C06D2EDDC20508F3934A22_7468AEEC_D5B5.jpg" alt=""></div>
+
+                                        <div class="vedioInfo01">
+                                            <p> 应用化学
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="playR">
+                                    <a href="info/1291/2951.htm" class="playStart"></a>
+                                </div>
+                            </li>
+                            
+
+<li style="width:49%;margin-right:2%;margin-right:0;">
+                                <a href="info/1291/2952.htm" style="margin-right:0;">
+                                    <div class="vedio01">
+                                        <div class="imgResponsive"><img src="/__local/2/59/89/2C524DDAEE335F6CCAF7DDE7B10_DAF6E366_D566.jpg" alt=""></div>
+
+                                        <div class="vedioInfo01">
+                                            <p> 化学工程与工艺
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="playR">
+                                    <a href="info/1291/2952.htm" class="playStart"></a>
+                                </div>
+                            </li>
+                            
+
+<li style="width:49%;margin-right:2%;margin-bottom: 0px;">
+                                <a href="info/1291/2955.htm" style="margin-right:0;">
+                                    <div class="vedio01">
+                                        <div class="imgResponsive"><img src="/__local/0/67/36/8012F1E172CD9EE56344CB39D9C_96CC6F76_D54C.jpg" alt=""></div>
+
+                                        <div class="vedioInfo01">
+                                            <p> 化学
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="playR">
+                                    <a href="info/1291/2955.htm" class="playStart"></a>
+                                </div>
+                            </li>
+                            
+
+<li style="width:49%;margin-right:2%;margin-right:0;margin-bottom: 0px;">
+                                <a href="info/1291/3966.htm" style="margin-right:0;">
+                                    <div class="vedio01">
+                                        <div class="imgResponsive"><img src="/__local/0/93/4B/A100C3367525BDF60EAED69F509_A67E7114_D5F8.jpg" alt=""></div>
+
+                                        <div class="vedioInfo01">
+                                            <p> 软件工程
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="playR">
+                                    <a href="info/1291/3966.htm" class="playStart"></a>
+                                </div>
+                            </li>
+                            
+</ul>
+
+<script>_showDynClickBatch(['dynclicks_u11_2951','dynclicks_u11_2952','dynclicks_u11_2955','dynclicks_u11_3966'],[2951,2952,2955,3966],"wbnews", 1597118057)</script>
+</div>
+            </div>  
+
+
+        </div>
+
+    </div>
+ 
+  </div>
+    
+     <div class="clear"></div>
+  <div class="W1200" style="margin-top:3px;overflow:hidden;">
+  
+    <div class="wrap_mode04">
+        <div class="row mode04" style="margin-bottom: 0;">
+            <div class="articleList05">
+                <div class="articleTitle articleTitle02">
+                  <h2>高招直播间</h2>
+<div class="more"><a href="index/gzzbj.htm" target="">更多</a></div>
+                </div>
+               
+                <div class="m-pic2"><div>
+<LINK href="/system/resource/style/component/news/list/imagechangenews.css" type="text/css" rel="stylesheet">
+<script language="javascript" src="/system/resource/js/news/imagechangenews.js"></script><script language="JavaScript">
+var u_u12_icn = new ImageChangeNews("u_u12_", 1190, 210, 4, 2.0, false, false, false, true, false,"#u_u12_centerCutImg");
+
+//初始化图片, 并启动定时
+function u_u12_init_img()
+{
+
+    u_u12_icn.addimg("\/__local\/3\/91\/DB\/67F24C0BAEBC47341C53971CD6D_DD23C820_FBF3.jpg", "index\/gzzbj.htm", "", "","学院风采");
+
+    u_u12_icn.addimg("\/__local\/B\/C0\/50\/78AE98BEF23D4A2C2424C14C23C_1F0FC24F_FFC2.jpg", "index\/gzzbj.htm", "", "","专业奥秘");
+
+    u_u12_icn.addimg("\/__local\/B\/4D\/A6\/AFDB61888DE4170B6A6C77407D5_680BD954_FC03.jpg", "index\/gzzbj.htm", "", "","招生政策");
+
+    u_u12_icn.changeimg(0);
+}
+</script><table cellspacing="0" cellpadding="0" border="0" style="padding:0px margin:0px; border:0px">
+    <tr><td>
+        <div id="u_u12_centerCutImg" style="OVERFLOW: hidden;height:210px;width:1190px">
+            <div id="u_u12_div" align="center" style="padding:0px;margin:0px;border:0px solid black;background-color:#ffffff;FILTER: progid:DXImageTransform.Microsoft.RevealTrans (duration=2.0,transition=23);height:210px;width:1190px">
+                <div id="u_u12_imgdiv" style="padding:0px;border:0px;"><a id="u_u12_url" target="_blank"><img id="u_u12_pic" border="0" src="/system/resource/images/space.gif"></a></div>
+            </div>
+            <div style="filter:alpha(style=1,opacity=10,finishOpacity=80);width:1190px;height:19px;text-align:right;top:-19px;position:relative;padding:0px;margin:0px;border:0px;">
+<a href="javascript:u_u12_icn.changeimg(0)" ; id="u_u12_selectNode0" class="imagechangenews_pnode" target="_self">1</a><a href="javascript:u_u12_icn.changeimg(1)" ; id="u_u12_selectNode1" class="imagechangenews_pnode" target="_self">2</a><a href="javascript:u_u12_icn.changeimg(2)" ; id="u_u12_selectNode2" class="imagechangenews_pnode" target="_self">3</a>
+            </div></div></td></tr>
+<div align="center" display="none" style="overflow:hidden;text-overflow:ellipsis;height:0px;width:1190px;"><a target="_blank" id="u_u12_newstitle"></a></div><div align="left" display="none" style="overflow:hidden;text-overflow:ellipsis;height:0px;width:1190px;padding-left:2px;padding-right:2px"><a target="_blank" id="u_u12_newssummary"></a></div>   
+</table><SCRIPT language="JavaScript">u_u12_init_img();</SCRIPT></div></div>
+            </div>
+        </div>
+
+    </div>
+ 
+  
+    
+
+</div>
+    <div class="clear"></div>
+    
+    <div class="W1200" style="margin-top:3px;overflow:hidden;">
+  
+    <div class="wrap_mode04" style="margin-bottom: 50px;">
+        <div class="row mode04" style="margin-bottom: 0;">
+            <div class="articleList05">
+                <div class="articleTitle articleTitle02">
+                  <h2>优质生源基地展播</h2>
+<div class="more"><a href="index/yzsyjd.htm" target="">更多</a></div>
+                </div>
+               
+                <div class="m-pic2">
+
+<div class="slider" style="position: relative;display: block;box-sizing: border-box;user-select: none;touch-action: pan-y;-webkit-tap-highlight-color: transparent;">
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2166.htm" target="_blank" title="东北石油大学优质生源基地展播"><img src="/__local/B/6F/89/8D3DC6708448E5E8DBDA6E98B13_D21DFEC6_20FC6E.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">东北石油大学优质生源基地展播</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/3183.htm" target="_blank" title="固安县第三中学"><img src="/__local/2/EE/83/7831D3A1F66FDA040FBAD757B3C_780132CB_974E.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">固安县第三中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2730.htm" target="_blank" title="林甸县第一中学"><img src="/__local/6/15/34/CE4E684433BCCA51E5136781C91_3828A27C_D863.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">林甸县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2724.htm" target="_blank" title="肇源县第一中学"><img src="/__local/0/96/FC/BAC236993A3D82D6DA780220893_53105AE1_B408.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">肇源县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2723.htm" target="_blank" title="延寿县第一中学"><img src="/__local/E/5F/D4/16B6376AC2D67556D05279894FC_85F24CBE_D4E9.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">延寿县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2551.htm" target="_blank" title="方正县第一中学"><img src="/__local/3/59/11/53E8A50B9A104F1C38B044600EC_82A14CC7_86E7.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">方正县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2169.htm" target="_blank" title="鸡西市第一中学"><img src="/__local/3/7F/BA/1781D9C4DEBAB6630FDCB60D9C6_F0F9C124_B2B1.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">鸡西市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2168.htm" target="_blank" title="黑河市第一中学"><img src="/__local/1/5A/CC/544DDF738C997224D1CBC9FC903_3713D328_110BB.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">黑河市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2167.htm" target="_blank" title="鹤岗市第一中学"><img src="/__local/D/40/C8/4BD6F448ABE9D5A022287DB41AB_620DC921_D4CE.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">鹤岗市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2713.htm" target="_blank" title="佳木斯市建三江第二中学"><img src="/__local/8/78/87/22D61851F1F11C3626BE7F18947_C18C7513_DA1A.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">佳木斯市建三江第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2187.htm" target="_blank" title="伊春市第一中学"><img src="/__local/9/B8/64/F2161727A2CED05F178495B8556_0AB908F1_F17B.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">伊春市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2188.htm" target="_blank" title="大兴安岭实验中学"><img src="/__local/7/93/4E/243BC85D8F3CAB63E6B30F83C2B_0DD75381_10E86.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">大兴安岭实验中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2189.htm" target="_blank" title="大庆市第二十三中学"><img src="/__local/6/E2/8F/2D18E1050DDB5EFE32663B993B9_F736B2C3_E676.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">大庆市第二十三中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2190.htm" target="_blank" title="北安市第一中学"><img src="/__local/D/49/A6/B7978FBD9EB598A8D7FEADA9593_3DF4F10D_AF8B.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">北安市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2240.htm" target="_blank" title="五常市雅臣中学"><img src="/__local/5/2F/12/A442023F8FC15FF74E5415CBD16_E61EB4A4_BC13.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">五常市雅臣中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2242.htm" target="_blank" title="哈尔滨市阿城区第一中学"><img src="/__local/5/E0/F7/DC6A651E780CCBAE7E6273E1C85_98E4262E_14D2E.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">哈尔滨市阿城区第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2243.htm" target="_blank" title="哈尔滨市兆麟中学"><img src="/__local/7/C8/79/E2E12B72BA97E648B96D542B823_3055A61E_C979.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">哈尔滨市兆麟中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2244.htm" target="_blank" title="红兴隆第一高级中学"><img src="/__local/A/07/0B/A2CADC61ED88D0C69FC2EEE6769_C30D95ED_12474.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">红兴隆第一高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2245.htm" target="_blank" title="宝泉岭高级中学"><img src="/__local/8/B1/B5/85BBB71B16732D8CAD9415C3206_52015EBC_E553.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">宝泉岭高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2246.htm" target="_blank" title="农垦北安管理局第一高级中学"><img src="/__local/0/25/28/E64ACA78A8A1960EC9C2B2568AA_3DC5A474_128C2.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">农垦北安管理局第一高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2247.htm" target="_blank" title="九三管理局第一中学"><img src="/__local/B/03/41/831353076C3A22883144C9D398A_4838922D_106B7.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">九三管理局第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2248.htm" target="_blank" title="龙江县第一中学"><img src="/__local/F/32/5C/05905406B3DB078AD2039D37589_216B5E5D_D473.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">龙江县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2249.htm" target="_blank" title="鸡西实验中学"><img src="/__local/8/B1/63/33FD573FE38016C4FE1F0FE6FDA_11E6EF9E_B635.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">鸡西实验中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2250.htm" target="_blank" title="海伦市第一中学"><img src="/__local/C/D0/81/3050149B7B9B218F1D98BCFED89_DEC6084E_D454.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">海伦市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2251.htm" target="_blank" title="泰来县第一中学"><img src="/__local/A/E7/2F/7A88ABAEB0C49ED2920E0BEFB77_43172869_DFD5.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">泰来县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2252.htm" target="_blank" title="富锦市第一中学"><img src="/__local/0/BE/CB/A76FD0AB7A6FD1ECEFD8357F9BA_61F85831_9325.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">富锦市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2253.htm" target="_blank" title="安达市高级中学"><img src="/__local/6/BD/00/1EEACA14EACC12C8B4730ACAF3D_164A2BC3_FF6B.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">安达市高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2254.htm" target="_blank" title="伊春市第二中学"><img src="/__local/7/2B/21/8FD839D4BFD59C57DED79F77A3A_A35E456D_11D4C.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">伊春市第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2255.htm" target="_blank" title="漠河市高级中学"><img src="/__local/B/39/22/57688E052D0CEC40845D805CEC4_061E19DA_F48F.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">漠河市高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2315.htm" target="_blank" title="哈尔滨市阿城区第二中学"><img src="/__local/E/8C/8E/86B17093D0200110389D030B048_71FBBC15_ABFF.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">哈尔滨市阿城区第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2316.htm" target="_blank" title="萝北县高级中学"><img src="/__local/9/2A/29/7C1DFCFA32D16565D78632DA82E_54124FCE_ADB4.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">萝北县高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2317.htm" target="_blank" title="绥滨县第一中学"><img src="/__local/E/2A/70/F5BAFFA6E919CF26F12E63C172F_28DF9015_C585.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">绥滨县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2318.htm" target="_blank" title="肇州县第二中学"><img src="/__local/A/B3/83/0B5DD32BB7EEDDF1A78316163CD_AA5957C9_605E.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">肇州县第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2319.htm" target="_blank" title="依安县实验中学"><img src="/__local/6/6F/2A/6086CFB96092DD86F9C5394EF51_4B8D140A_A4E7.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">依安县实验中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2320.htm" target="_blank" title="讷河市一中"><img src="/__local/4/4B/8F/4ED5745B4F4C2FC64E1E8F5277E_E143DC3A_E2CB.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">讷河市一中</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2321.htm" target="_blank" title="克东县第一中学"><img src="/__local/F/6D/FC/23CBCD53AD86CBA1F52585305FA_2EFE6068_9FFB.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">克东县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2322.htm" target="_blank" title="金乡县第二中学"><img src="/__local/6/48/FD/0B90F59503198C20E2C477A4C1F_BAFEE582_8EEC.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">金乡县第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2323.htm" target="_blank" title="承德县第一中学"><img src="/__local/6/94/1A/00E7442A491549B10953894738E_27E63447_FCF9.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">承德县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2324.htm" target="_blank" title="吉林省实验中学"><img src="/__local/6/BE/CE/E8E10F05234C8EE1FAC8E935D29_0F2E734F_AA4D.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">吉林省实验中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2325.htm" target="_blank" title="吉林市第一中学"><img src="/__local/3/71/3F/1BBFD13D55671B75576030B9915_B20F6B28_A18D.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">吉林市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2326.htm" target="_blank" title="松原市实验高级中学"><img src="/__local/1/89/15/C3703823E6FCE007BFDD7482B16_656E537B_A315.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">松原市实验高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2327.htm" target="_blank" title="吉林油田高级中学"><img src="/__local/4/47/53/0823081C63A3ADF5C909915BB42_331757CD_DA33.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">吉林油田高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2328.htm" target="_blank" title="梨树县第一高级中学"><img src="/__local/8/0D/9F/639BD6BACDE737503E667E86241_52C25DF5_E489.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">梨树县第一高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2329.htm" target="_blank" title="扶余市第一中学"><img src="/__local/4/12/3F/D840FFD9B6F4CA58A13E21A9F26_3BEB2453_11970.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">扶余市第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2330.htm" target="_blank" title="和龙市第一高级中学"><img src="/__local/3/8B/CA/ECFAACCB6574833683B0E5FD2E0_EE76C7B8_8D8B.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">和龙市第一高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2331.htm" target="_blank" title="和龙市高级中学"><img src="/__local/6/28/A8/975C60ABC6A07FE845F35901BC7_B7A00ACB_FD22.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">和龙市高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2335.htm" target="_blank" title="靖宇县第一中学"><img src="/__local/5/9A/7E/FEBBAD2AC04D1D3256AE6BA9826_CAA2D8D7_108B2.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">靖宇县第一中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2332.htm" target="_blank" title="前郭尔罗斯蒙古族中学"><img src="/__local/E/02/ED/DA47130251C41C61438EBC0C59D_14F92BD0_FAD4.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">前郭尔罗斯蒙古族中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2170.htm" target="_blank" title="白山市第二中学"><img src="/__local/E/89/E7/22827D1644D273B62F10B72D14A_7AB8095F_D334.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">白山市第二中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2333.htm" target="_blank" title="前郭县第五中学"><img src="/__local/E/C2/A4/85099A6C1DA51E7A4F356D0202F_FB301392_EF42.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">前郭县第五中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2334.htm" target="_blank" title="前郭县长山镇中学"><img src="/__local/F/F4/72/8BA19B4AF390C39EA49AE131D4C_7A9DC127_B5EC.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">前郭县长山镇中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2509.htm" target="_blank" title="河南省淮阳中学"><img src="/__local/6/80/FA/3C33828D76BACB5D24277693C48_31AC6340_B56B.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">河南省淮阳中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2508.htm" target="_blank" title="西华第三高级中学"><img src="/__local/D/08/5D/3B144E482ACD8F51A8F0213A7B9_FD51F64C_92A0.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">西华第三高级中学</div>
+    </a></div>
+       </div>  
+      <div class="item" style="width:285px;float: left;    height: 100%;    min-height: 1px;display: block;padding: 0 5px;">
+             <div class="pic" style="height: 0;    padding-top: 56.28%;    position: relative;    margin: 0 auto;    overflow: hidden;"><a href="info/1261/2507.htm" target="_blank" title="西华第一高级中学"><img src="/__local/A/64/FA/D9EB9BB6F46CDA8D071C1908A0A_A19EFBCF_72C6.jpg" alt="" style="display: block;    position: absolute;    left: 0;    top: 0;    width: 100%;    height: 100%;    transition: .3s;">
+    <div style="width:100%;height:38px;background: #2983f3;position:absolute;z-index:2;bottom:0;left:0;text-align:left;line-height:38px;color:#fff;font-size:15px;text-indent:1em">西华第一高级中学</div>
+    </a></div>
+       </div>  
+</div>
+
+<script>_showDynClickBatch(['dynclicks_u13_2166','dynclicks_u13_3183','dynclicks_u13_2730','dynclicks_u13_2724','dynclicks_u13_2723','dynclicks_u13_2551','dynclicks_u13_2169','dynclicks_u13_2168','dynclicks_u13_2167','dynclicks_u13_2713','dynclicks_u13_2187','dynclicks_u13_2188','dynclicks_u13_2189','dynclicks_u13_2190','dynclicks_u13_2240','dynclicks_u13_2242','dynclicks_u13_2243','dynclicks_u13_2244','dynclicks_u13_2245','dynclicks_u13_2246','dynclicks_u13_2247','dynclicks_u13_2248','dynclicks_u13_2249','dynclicks_u13_2250','dynclicks_u13_2251','dynclicks_u13_2252','dynclicks_u13_2253','dynclicks_u13_2254','dynclicks_u13_2255','dynclicks_u13_2315','dynclicks_u13_2316','dynclicks_u13_2317','dynclicks_u13_2318','dynclicks_u13_2319','dynclicks_u13_2320','dynclicks_u13_2321','dynclicks_u13_2322','dynclicks_u13_2323','dynclicks_u13_2324','dynclicks_u13_2325','dynclicks_u13_2326','dynclicks_u13_2327','dynclicks_u13_2328','dynclicks_u13_2329','dynclicks_u13_2330','dynclicks_u13_2331','dynclicks_u13_2335','dynclicks_u13_2332','dynclicks_u13_2170','dynclicks_u13_2333','dynclicks_u13_2334','dynclicks_u13_2509','dynclicks_u13_2508','dynclicks_u13_2507'],[2166,3183,2730,2724,2723,2551,2169,2168,2167,2713,2187,2188,2189,2190,2240,2242,2243,2244,2245,2246,2247,2248,2249,2250,2251,2252,2253,2254,2255,2315,2316,2317,2318,2319,2320,2321,2322,2323,2324,2325,2326,2327,2328,2329,2330,2331,2335,2332,2170,2333,2334,2509,2508,2507],"wbnews", 1597118057)</script>
+</div>
+            </div>
+        </div>
+
+    </div>
+ 
+  
+    
+
+</div>
+
+
+    <div class="clear"></div>
+</div>
+        
+
+<div class="boot_a">
+
+
+
+
+
+<!-- 版权内容请在本组件"内容配置-版权"处填写 -->
+    <footer>
+        <div class="wrap">
+            <div class="footer-l">
+        <p>黑龙江省大庆市高新技术产业开发区学府街99号</p>
+                <p>邮政编码：163318</p>
+                <p>电话：0459-6503662</p>
+                <p>邮箱：zsbnepu@163.com</p>
+            </div>
+            <div class="footer-m">
+                <img src="images/f_txt.png">
+            </div>
+            <div class="footer-r">
+                <img src="images/gwewm.jpg" alt="东北石油大学招生信息网">
+                <img src="images/zhaojiuchuerweima.jpg" alt="东北石油大学招生信息网">
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+</div>
+
+
+<script type="text/javascript" src="js/SuperSlide.js"></script>
+<script src="js/slick.min.js"></script>
+
+<script type="text/javascript">jQuery(".banner").slide({ titCell:".hd ul", mainCell:".bd ul", effect:"fold",  autoPlay:true, autoPage:true, trigger:"click" });</script>
+
+
+<script type="text/javascript"> jQuery(".nav").slide({ type:"menu",  titCell:".fl", targetCell:".sub", effect:"slideDown", delayTime:300, triggerTime:100,returnDefault:true  });</script>  
+
+
+  <div class="sidebar">
+        <span class="xlopep1"> <a onclick="pageScroll()"></a></span>
+    </div>
+    
+    
+    
+ <script>
+function pageScroll(){
+    //把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+    window.scrollBy(0,-100);
+    //延时递归调用，模拟滚动向上效果
+    scrolldelay = setTimeout('pageScroll()',100);
+    //获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+    //判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+    if(sTop==0) clearTimeout(scrolldelay);
+}
+
+        $(window).scroll(function () {
+
+            if ($(window).scrollTop() >= 450) {
+                $('.sidebar').show();
+            } else {
+                $('.sidebar').hide();
+            }
+        })
+    </script>
+<script id="eda_bar_script" src="https://answer.eol.cn/school/pc/school1003.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+<script type="text/javascript">
+//以下为参数说明
+//parentNodeID:Li的UL的ID, 要是没有特别的，这个也可以不写
+//selfObj:this
+//showContentPrefix:对应要显示的Content的ID的前缀
+//showContentIndex:要显示第几个Content,
+//showClassName:自己显示时的class 名称
+function selectSwtich(parentNodeID,selfObj,showContentPrefix,showContentIndex,showClassName)
+{
+    //alert(parentNodeID);
+    //获取一共有几个要切换的Li
+    var tag;
+    if(parentNodeID=="")
+    {
+        tag =selfObj.parentNode.getElementsByTagName("li");
+    }
+    else
+    {
+         tag = document.getElementById(parentNodeID).getElementsByTagName("li");
+    }
+    
+    //让所有的li 和对应的内容 都不显示
+    var taglength = tag.length;
+    for(i=0; i<taglength; i++){
+        tag[i].className = "";
+        document.getElementById(showContentPrefix+i).style.display="none";
+    }
+    
+    //让自己的li显示，让对应的Content显示
+    selfObj.className = showClassName;
+    document.getElementById(showContentPrefix+showContentIndex).style.display = "block";
+    
+}
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.banner .slider').slick({
+            dots:true,
+            arrows:false,
+            autoplay:true,
+            slidesToShow: 1,
+            autoplaySpeed: 6000,
+            pauseOnHover:false,
+            lazyLoad: 'ondemand'
+        });
+
+        $('.m-pic2 .slider').slick({
+            dots:false,
+            arrows:true,
+            autoplay:true,
+            slidesToShow: 4,
+            autoplaySpeed: 5000,
+            pauseOnHover:false,
+            lazyLoad: 'ondemand'
+        });
+    });
+    </script>
+<!--焦点图特效-->
+<script type="text/javascript" src="js/bdtxk.yx_rotaion.js"></script>
+<script type="text/javascript">
+    $(".yx-rotaion").yx_rotaion({auto:true});
+</script>
+
+
+
+
+
+
+
+

@@ -23,6 +23,4 @@ class QueryDecompose(BasePrompt):
     def _apply_dynamic_constraints(self, **kwargs):
         for key, value in kwargs.items():
             if key == 'complexity':
-                self.add_constraint(f"子问题的复杂度应保持在{value}水平。")
-            elif key == 'number_of_subproblems':
                 self.add_constraint(f"分解出的子问题数量不超过{value}个。")

@@ -3,7 +3,7 @@ import jieba.analyse
 from nltk.corpus import stopwords
 
 
-async def query2keywords(query: str, keyword_count: int = 3) -> list:
+def query2keywords(query: str, keyword_count: int = -1) -> list:
     # keyword_extract_prompt = PromptFactory.keyword_extractor(query)
     # keywords = await self.get_llm_response(keyword_extract_prompt.to_messages(keyword_count=keyword_count))
     # json_keywords = await self.response_convert_to_json(keywords, output_format="""[keyword1, keyword2,……]""")
@@ -32,7 +32,7 @@ async def query2keywords(query: str, keyword_count: int = 3) -> list:
     return json_keywords
 
 
-def to_keywords(input_string, num_keywords=-1):
+def to_keywords(input_string, num_keywords=-1) -> list:
     """将句子转成检索关键词序列，并选择最长的几个词"""
     # 按搜索引擎模式分词
     word_tokens = jieba.cut_for_search(input_string)
@@ -49,6 +49,4 @@ def to_keywords(input_string, num_keywords=-1):
     # 选择最长的几个词
     top_keywords = sorted_keywords[:num_keywords]
 
-    return ' '.join(top_keywords)
-
-
+    return top_keywords
