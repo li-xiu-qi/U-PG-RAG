@@ -88,3 +88,6 @@ class ServeConfig:
     # site filter 目录
     site_filter_path = os.getenv("SITE_FILTER_PATH")
     web_search_host = os.getenv("WEB_SEARCH_HOST")
+    ###
+    # cache
+    EMBEDDING_CACHE_DIR = os.getenv("EMBEDDING_CACHE_DIR")

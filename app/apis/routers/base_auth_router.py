@@ -50,11 +50,11 @@ class BaseAuthRouter(BaseCRUDRouter):
         @self.router.post("/login", response_model=ResponseToken)
         async def login_for_access_token(
                 request: Request,
-                username: str = Form(...),
+                account: str = Form(...),
                 password: str = Form(...),
                 db: AsyncSession = Depends(get_db)
         ):
-            user = await authenticate_user(db=db, dbmodel=User, username=username, password=password)
+            user = await authenticate_user(db=db, dbmodel=User, account=account, password=password)
             access_token, expires_at = await create_access_token(
                 data={"sub": user.account, "ip": request.client.host, "scope": "user"}
             )

@@ -29,8 +29,8 @@ async def get_admin_user(current_user: ResponseAdmin):
     return current_user
 
 
-async def authenticate_user(*, db: AsyncSession, dbmodel: Type["User"], username: str, password: str):
-    query = select(dbmodel).filter_by(account=username)
+async def authenticate_user(*, db: AsyncSession, dbmodel: Type["User"], account: str, password: str):
+    query = select(dbmodel).filter_by(account=account)
     result = await db.execute(query)
     user = result.scalar_one_or_none()
 

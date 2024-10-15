@@ -12,3 +12,4 @@ from app.apis.api_router import (admin_router,
                                  )
 
 from app.apis.rag_router import rag_router
+from app.apis.chat_history import chat_history_router

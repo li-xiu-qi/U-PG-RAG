@@ -1,3 +1,4 @@
+import copy
 import logging
 from typing import List
 from urllib.parse import urlparse
@@ -10,6 +11,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.schemes.models.rag_serve_models import RAGServeModel, RAGStreamResponse
 from app.serves.fetch_web_resouece.fetch_web_resource import HTMLFetcher, ZhiPuWebSearch
+from app.serves.file_processing.line_paragraph_filter import LineParagraphFilter
 from app.serves.file_processing.split import MarkdownTextRefSplitter, MarkdownHeaderTextSplitter
 from app.serves.file_processing.tokenizer_filter import TokenizerFilter
 from app.serves.model_serves.chat_model import ChatModel
@@ -74,7 +76,7 @@ class RAGWebSearch:
         self.memory_vector_store = MemoryVectorSearch(model_name=self.embedding_model_name,
                                                       embedding_model=self.embedding_model,
                                                       use_index=True)
-        self.filter = TokenizerFilter()
+        self.filter = LineParagraphFilter()
         self.rerank_model = rerank_model
 
         logging.info("RAGService initialized.")
@@ -99,21 +101,25 @@ class RAGWebSearch:
                                                     model.recursive_query, model.use_vector_search,
                                                     model.use_keyword_search,
                                                     model.paragraph_number_ranking, model.filter_count)
+        # ##
+        # yield f"data: {RAGStreamResponse(data_type='web_search_start', result='Web search started.').model_dump_json()}\n\n"
+        # ##
         school_site = model.school_site
         search_engine = ZhiPuWebSearch(api_key=ServeConfig.zhipu_api_configs[0]["api_key"])
         keywords = to_keywords(user_question)
-        keyword = " ".join(keywords) + " site:" + school_site
+        keyword = " ".join(keywords)
         print(f"Keyword: {keyword}")
-        results = search_engine.search(keyword)
+        results = search_engine.search(keyword, school_site)
 
-        # 实例化 HTMLFetcher 进行批量抓取并完善结果
         cache = diskcache.Cache('./html_cache')
         fetcher = HTMLFetcher(cache=cache)
 
         enriched_results = fetcher.fetch_html_batch(results, timeout=5)
         documents = []
         async for search_result in enriched_results:
-            yield f"data: {RAGStreamResponse(data_type='web_search', result=search_result).model_dump_json()}\n\n"
+            data = copy.deepcopy(search_result)
+            data.html_content = ""
+            yield f"data: {RAGStreamResponse(data_type='web_search', result=data).model_dump_json()}\n\n"
             url = search_result.url
             base_url = urlparse(url).scheme + "://" + urlparse(url).netloc
             doc = Document(search_result.html_content)
@@ -121,11 +127,13 @@ class RAGWebSearch:
             md_content = html2text(html_content, baseurl=base_url)
             chunks = MarkdownHeaderTextSplitter().create_chunks(text=md_content)
             documents.extend([chunk.content for chunk in chunks])
+        # ##
+        # yield f"data: {RAGStreamResponse(data_type='data_process', result=documents).model_dump_json()}\n\n"
+        # ##
 
         docs = self.filter.filter_similar_documents(documents=[chunk for chunk in documents],
                                                     threshold=0.75)
         valid_contents = await self.rerank_model.get_sorted_documents(query=user_question, documents=docs)
-
         with open("test.md", "w") as f:
             f.write("\n".join([doc for doc in docs]))
         print(f"Docs_length: {len(docs)}")

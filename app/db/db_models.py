@@ -1,4 +1,5 @@
 import json
+import uuid
 from datetime import timedelta
 from typing import Set
 from fastapi import HTTPException
@@ -67,6 +68,7 @@ class User(DBaseModel):
 
     name = Column(String(50), index=True, nullable=False)
     account = Column(String(50), unique=True, index=True, nullable=False)
+
     hashed_password = Column(String(255), nullable=False)
     email = Column(String(100), unique=True, index=True, nullable=True)
     phone = Column(String(20), unique=True, index=True, nullable=True)
@@ -78,6 +80,7 @@ class User(DBaseModel):
     rag_caches = relationship("RAGCache", back_populates="user", lazy="select")
     conversations = relationship("Conversation", back_populates="user", lazy="select")
     response_records = relationship("ResponseRecord", back_populates="user", lazy="select")
+    chat_sessions = relationship("ChatSession", back_populates="user", lazy="select")
 
     def __repr__(self):
         return f"<User(id={self.id}, name='{self.name}', account='{self.account}')>"
@@ -85,6 +88,17 @@ class User(DBaseModel):
     @classmethod
     def get_disallowed_columns(cls) -> Set[str]:
         return {"hashed_password"}
+
+
+class ChatSession(DBaseModel):
+    __tablename__ = 'chat_sessions'
+    session_id = Column(Integer, unique=True, index=True)
+    title = Column(String)
+    messages = Column(JSON)
+    right_sidebar_data = Column(JSON)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+
+    user = relationship("User", back_populates="chat_sessions", lazy="select")
 
 
 class File(DBaseModel):
@@ -191,6 +205,23 @@ class ResponseRecord(DBaseModel):
 
     def __repr__(self):
         return f"<ResponseRecord(id={self.id}, input='{self.input}', response='{self.response}')>"
+
+
+class Message(DBaseModel):
+    __tablename__ = 'messages'
+    role = Column(String(50))
+    content = Column(Text)
+    avatar = Column(String(255))
+    round = Column(Integer)
+    session_id = Column(String, default=lambda: str(uuid.uuid4()))
+
+
+class RightSidebarData(DBaseModel):
+    __tablename__ = 'right_sidebar_data'
+    round = Column(Integer)
+    type = Column(String(50))
+    result = Column(JSON)
+    session_id = Column(String, default=lambda: str(uuid.uuid4()))
 
 
 class RAGCache(DBaseModel):

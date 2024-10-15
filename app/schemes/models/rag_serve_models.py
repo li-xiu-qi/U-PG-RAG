@@ -31,8 +31,12 @@ class RAGServeModel(BaseModel):
 
 
 class RAGStreamResponse(BaseModel):
-    data_type: Literal["assistant", "retrieval",
-    "web_search", "md_content", "link_resource"
+    data_type: Literal["assistant",
+    "retrieval",
+    "web_search",
+    "md_content",
+    "web_search_start",
+    "data_process",
     ]
     result: Any
 

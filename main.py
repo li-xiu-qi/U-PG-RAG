@@ -21,7 +21,8 @@ from app.apis import (partition_router,
                       response_record_router,
                       chunk_router,
                       image_router,
-                      rag_router)
+                      rag_router,
+                      chat_history_router)
 
 app = FastAPI()
 
@@ -33,6 +34,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(chat_history_router)
 app.include_router(rag_router)
 app.include_router(partition_router)
 app.include_router(admin_router)

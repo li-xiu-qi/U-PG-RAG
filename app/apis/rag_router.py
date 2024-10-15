@@ -46,3 +46,5 @@ async def rag_stream_web_search_serve(model: RAGServeModel,
     rag_service = RAGWebSearch(db=db, embedding_model=embedding_model, llm=llm, rerank_model=rerank_model)
     return StreamingResponse(rag_service.generate_rag_web_search_response(model=model),
                              media_type="text/event-stream")
+
+

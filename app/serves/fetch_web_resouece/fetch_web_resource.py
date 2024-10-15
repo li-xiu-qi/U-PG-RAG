@@ -163,7 +163,22 @@ class ZhiPuWebSearch:
     def __init__(self, api_key: str | None = None):
         self.api_key = api_key or os.getenv("API_KEY")
 
-    def search(self, query: str) -> List[SearchResult]:
+    def _get_favicon_url(self, school_site: str) -> str:
+        https_url = f"https://{school_site}/favicon.ico"
+        http_url = f"http://{school_site}/favicon.ico"
+
+        for url in [https_url, http_url]:
+            try:
+                response = requests.head(url, timeout=5)
+                if response.status_code == 200:
+                    return url
+            except requests.RequestException:
+                continue
+        return https_url
+
+    def search(self, query: str, school_site: str | None = None) -> List[SearchResult]:
+        if school_site:
+            query = f"site:{school_site} {query}"
         msg = [{"role": "user", "content": query}]
         tool = "web-search-pro"
         url = "https://open.bigmodel.cn/api/paas/v4/tools"
@@ -185,9 +200,11 @@ class ZhiPuWebSearch:
             tool_calls = message["tool_calls"]
             search_results = tool_calls[1]["search_result"]
 
+            favicon_url = self._get_favicon_url(school_site) if school_site else ""
+
             return [SearchResult(
                 url=search_result.get("link", ""),
-                favicon=search_result.get("icon", ""),
+                favicon=favicon_url,
                 media=search_result.get("media", ""),
                 title=search_result.get("title", ""),
                 description=search_result.get("content", "")
@@ -198,7 +215,7 @@ class ZhiPuWebSearch:
 
 async def main():
     search_engine = ZhiPuWebSearch()
-    results = search_engine.search("东北石油大学保研规则是什么？ site:nepu.edu.cn")
+    results = search_engine.search("东北石油大学保研规则是什么？", "nepu.edu.cn")
     print(results)
     # cache = diskcache.Cache('./html_cache')
     # fetcher = HTMLFetcher(cache=cache, max_concurrent_per_domain=5)

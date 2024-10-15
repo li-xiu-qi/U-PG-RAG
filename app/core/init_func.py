@@ -52,9 +52,8 @@ def initialize_super_admin(session: Session):
 def create_database_and_user():
     """创建数据库和用户"""
     try:
-        with create_engine(ServeConfig.ADMIN_NO_ASYNC_DB_URL).connect() as conn:
-            conn.execute(text("COMMIT"))
-
+        with create_engine(ServeConfig.ADMIN_NO_ASYNC_DB_URL).connect().execution_options(
+                isolation_level="AUTOCOMMIT") as conn:
             # 检查数据库是否存在
             db_exists = conn.execute(text(f"SELECT 1 FROM pg_database WHERE datname = '{ServeConfig.db_name}'")).first()
             if not db_exists:
@@ -74,15 +73,14 @@ def create_database_and_user():
                 logging.info(f"User '{ServeConfig.db_serve_user}' created successfully.")
             else:
                 logging.info(f"User '{ServeConfig.db_serve_user}' already exists.")
-            conn.execute(text("COMMIT"))
 
             # 为新数据库赋予权限
-            with create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL).connect() as new_conn:
+            with create_engine(ServeConfig.ADMIN_NO_ASYNC_NEW_DB_URL).connect().execution_options(
+                    isolation_level="AUTOCOMMIT") as new_conn:
                 new_conn.execute(text(
                     f"GRANT ALL PRIVILEGES ON DATABASE {ServeConfig.db_name} TO {ServeConfig.db_serve_user}"))
                 logging.info(
                     f"Granted privileges on database '{ServeConfig.db_name}' to user '{ServeConfig.db_serve_user}'.")
-                new_conn.execute(text("COMMIT"))
 
     except Exception as e:
         logging.error(f"Error creating database and user: {e}")
@@ -158,7 +156,7 @@ def init_db(reset_db: bool = False):
 def init_rag():
     """初始化RAG模型的客户端管理器"""
     try:
-        embedding_cache = Cache("./embedding_cache")
+        embedding_cache = Cache(ServeConfig.EMBEDDING_CACHE_DIR)
         embedding_client = ClientManager(api_configs=ServeConfig.embedding_api_configs)
         chat_client = ClientManager(api_configs=ServeConfig.llm_api_configs)
         rerank_client = ClientManager(api_configs=ServeConfig.rerank_api_configs)
